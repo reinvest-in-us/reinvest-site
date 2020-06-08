@@ -1,0 +1,18 @@
+<div class="">
+  <div>Show up. Defund violence.</div>
+  <div>Find where, when, and how to give your input on your local police budget.</div>
+</div>
+
+<div class="">
+  <% @districts.each do |district| %>
+    <div id="district-<%= district.slug %>" class="">
+      <div>
+        <div class=""><%= district.name %></div>
+      </div>
+      <div>
+        <div class="">$<%= district.readable_budget %>M</div>
+        <div class="">FY19 Policing Budget</div>
+      </div>
+    </div>
+  <% end %>
+</div>

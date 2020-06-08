@@ -1,0 +1,9 @@
+<%= form_for @district, url: admin_police_districts_url do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :fy_2019_policing_budget, 'FY2019 Budget' %>
+  <%= f.number_field :fy_2019_policing_budget %>
+
+  <%= f.submit  %>
+<% end %>

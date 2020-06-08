@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
 
-Things you may want to cover:
+### Getting started
+To run this application locally, you'll need:
 
-* Ruby version
+* Ruby 2.6.6 (can be installed with [`ruby-install`](https://github.com/postmodern/ruby-install))
+* Bundler (`gem install bundler` after above ruby version is installed)
+* Postgresql (`brew install postgresql`)
+* A recent version of Chromedriver (`brew cask install chromedriver` or `brew cask upgrade chromedriver`)
 
-* System dependencies
 
-* Configuration
+### Common commands
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

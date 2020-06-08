@@ -15,7 +15,7 @@
     },
     "RAILS_SERVE_STATIC_FILES": {
       "value": "enabled"
-    }
+    },
   },
   "formation": {
     "web": {

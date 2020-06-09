@@ -1,0 +1,9 @@
+<div id="district-<%= district.slug %>" class="mb-3 row">
+  <div class="col-md-6">
+    <h2 class="h5"><%= link_to district.name, police_district_path(district) %></h2>
+  </div>
+  <div class="col-md-6">
+    <div class="">$<%= district.readable_budget %>M</div>
+    <div class="">FY19 Policing Budget</div>
+  </div>
+</div>

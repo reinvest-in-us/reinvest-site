@@ -804,6 +804,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@rails/ujs@^6.0.3-1":
+  version "6.0.3-1"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.0.3-1.tgz#7eef443207cc50ac70604216e8bb02f63d97324e"
+  integrity sha512-OjbJo15U5Gn8FGfmJnbnTcE1MyVdtGrEbAXVS0u1/n4th0jWxJX5G5W793Ll85K31/VDr5Pbz4S8hdR0iXsh/g==
+
 "@rails/webpacker@5.1.1":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-5.1.1.tgz#3c937aa719e46341f037a3f37349ef58085950df"

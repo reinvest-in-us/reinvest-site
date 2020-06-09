@@ -16,6 +16,10 @@ class PoliceDistrict < ApplicationRecord
     end
   end
 
+  def to_param
+    slug
+  end
+
   private
 
   def set_slug

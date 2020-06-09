@@ -1,17 +1,9 @@
-<div class="">
-  <%= link_to 'Add a new district', new_admin_police_district_path %>
+<div class="mb-5 mt-5">
+  <%= link_to 'Add a new district', new_admin_police_district_path, class: 'btn btn-primary' %>
 </div>
 
-<div class="">
+<div class="container">
   <% @districts.each do |district| %>
-      <div id="district-<%= district.slug %>" class="">
-        <div>
-          <div class=""><%= district.name %></div>
-        </div>
-        <div>
-          <div class="">$<%= district.readable_budget %>M</div>
-          <div class="">FY19 Policing Budget</div>
-        </div>
-      </div>
+      <%= render partial: 'district_card', locals: { district: district } %>
   <% end %>
 </div>

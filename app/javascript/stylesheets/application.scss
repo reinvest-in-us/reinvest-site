@@ -1,1 +1,5 @@
 @import './bootstrap_custom.scss';
+
+.district-container {
+  @extend .mb-3;
+}

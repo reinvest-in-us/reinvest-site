@@ -1,6 +1,12 @@
 <div id="district-<%= district.slug %>" class="district-card">
   <div class="col-md-6">
     <h2 class="h5"><%= link_to district.name, police_district_path(district) %></h2>
+    <div>
+      <% if next_meeting = district.meetings.order('event_datetime').first %>
+          <div><%= next_meeting.event_datetime.strftime('%b %e, %Y @ %l:%M%P') %></div>
+          <div><%= link_to 'Call in to comment', "tel:#{next_meeting.phone_number}" %></div>
+      <% end %>
+    </div>
   </div>
   <div class="col-md-6">
     <div class="h5">$<%= district.readable_budget %>M</div>

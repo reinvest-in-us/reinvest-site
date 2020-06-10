@@ -3,6 +3,9 @@
     <div class="row">
       <div class="district-jumbotron--info">
         <h1><%= @district.name %></h1>
+        <div>Next meeting:</div>
+        <div><%= @district.meetings.sort_by{|x| x.event_datetime }.first&.event_datetime&.strftime('%b %e, %Y @ %l:%M%P') %></div>
+        <div><%= @district.meetings.sort_by{|x| x.event_datetime }.first&.phone_number %></div>
       </div>
       <div class="district-jumbotron--budget">
         <div class="h3">$<%= @district.readable_budget %>M</div>

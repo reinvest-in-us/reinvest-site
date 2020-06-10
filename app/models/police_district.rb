@@ -2,6 +2,8 @@ class PoliceDistrict < ApplicationRecord
   validates_presence_of :name
   validates :slug, uniqueness: true, format: { with: /\A[a-z0-9\-]+\Z/ }, allow_blank: true
 
+  has_many :meetings
+
   after_validation :set_slug
 
   include ActionView::Helpers::NumberHelper

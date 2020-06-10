@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_214255) do
+ActiveRecord::Schema.define(version: 2020_06_10_005218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "meetings", force: :cascade do |t|
+    t.datetime "event_datetime"
+    t.string "phone_number"
+    t.bigint "police_district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["police_district_id"], name: "index_meetings_on_police_district_id"
+  end
 
   create_table "police_districts", force: :cascade do |t|
     t.string "name", null: false
@@ -42,4 +51,5 @@ ActiveRecord::Schema.define(version: 2020_06_07_214255) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "meetings", "police_districts"
 end

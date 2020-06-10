@@ -10,13 +10,14 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
       <nav class="navbar navbar-expand-lg bg-dark justify-content-end">
-        <%= link_to('Add info', admin_root_path, class: 'nav-link') %>
-        <%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'nav-link') %>
+        <% if user_signed_in? %>
+          <%= link_to('Add info', admin_root_path, class: 'nav-link') %>
+          <%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'nav-link') %>
+        <% end %>
+        <%= link_to('About', '#', class: 'nav-link') %>
+        <%= link_to('Contact', '#', class: 'nav-link') %>
       </nav>
-    <% end %>
-
     <% if notice %>
       <div class="alert alert-primary" role="alert">
         <%= notice %>
@@ -29,9 +30,7 @@
     <% end %>
 
     <main role="main">
-      <div class="container">
-        <%= yield %>
-      </div>
+      <%= yield %>
     </main>
   </body>
 </html>

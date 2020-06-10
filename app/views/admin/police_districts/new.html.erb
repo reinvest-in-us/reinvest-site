@@ -1,13 +1,15 @@
-<%= form_for @district, url: admin_police_districts_url do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+<div class="container">
+  <%= form_for @district, url: admin_police_districts_url do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
 
-  <div>
-    <%= f.label :fy_2019_policing_budget, 'FY2019 Budget' %>
-    <%= f.number_field :fy_2019_policing_budget %>
-  </div>
+    <div>
+      <%= f.label :fy_2019_policing_budget, 'FY2019 Budget' %>
+      <%= f.number_field :fy_2019_policing_budget %>
+    </div>
 
-  <%= f.submit  %>
-<% end %>
+    <%= f.submit  %>
+  <% end %>
+</div>

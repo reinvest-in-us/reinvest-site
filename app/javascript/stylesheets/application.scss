@@ -1,5 +1,38 @@
 @import './bootstrap_custom.scss';
 
-.district-container {
+.district-card {
   @extend .mb-3;
+  @extend .row;
+  @extend .py-3;
+
+  background-color: lightgrey;
+}
+
+.district-jumbotron {
+  @extend .jumbotron;
+  @extend .jumbotron-fluid;
+
+  background-color: black;
+  color: white;
+
+  .district-jumbotron--info {
+    @extend .col;
+  }
+  .district-jumbotron--budget {
+    @extend .col;
+    @extend .col-lg-2;
+  }
+}
+
+.district-info {
+  @extend .py-5;
+
+  h2 {
+    @extend .pb-3;
+    text-transform: uppercase;
+  }
+
+  p:last-of-type {
+    @extend .pb-5;
+  }
 }

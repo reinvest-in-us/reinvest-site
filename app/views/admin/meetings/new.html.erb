@@ -1,27 +1,11 @@
-<div class="district-jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="district-jumbotron--info">
-        <h1><%= @district.name %></h1>
-        <div>Next meeting:</div>
-        <div><%= @district.meetings.sort_by{|x| x.event_datetime }.first&.event_datetime&.strftime('%b %e, %Y @ %l:%M%P') %></div>
-        <div><%= @district.meetings.sort_by{|x| x.event_datetime }.first&.phone_number %></div>
-      </div>
-      <div class="district-jumbotron--budget">
-        <div class="h3">$<%= @district.readable_budget %>M</div>
-        <div>FY2019 Policing Budget</div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: 'shared/district_header', locals: { district: @district } %>
 
 <div class="container">
   <%= form_for [@district, @meeting], url: admin_police_district_meetings_path do |f| %>
     <div class="form-group">
-      <%= f.label :event_datetime, 'Meeting date and time', class: 'block' %>
+      <%= f.label :event_datetime, 'Meeting date and time' %>
       <%= f.datetime_select :event_datetime %>
     </div>
-
     <div class="form-group">
       <%= f.label :phone_number, 'Call-in phone number' %>
       <%= f.text_field :phone_number, class: 'form-control' %>

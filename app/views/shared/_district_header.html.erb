@@ -1,0 +1,23 @@
+<div class="district-jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="district-jumbotron--info">
+        <h1><%= district.name %></h1>
+        <div>
+          Next meeting:
+          <% if next_meeting = district.meetings.order('event_datetime').first %>
+            <div><%= next_meeting.event_datetime.strftime('%b %e, %Y @ %l:%M%P') %></div>
+            <div><%= next_meeting.phone_number %></div>
+          <% else %>
+            <div>Check back soon</div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="district-jumbotron--budget">
+        <div class="h3">$<%= district.readable_budget %>M</div>
+        <div>FY2019 Policing Budget</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,18 +5,22 @@
 ### Getting started
 To run this application locally, you'll need:
 
-* Ruby 2.6.6 (can be installed with [`ruby-install`](https://github.com/postmodern/ruby-install))
+* Ruby 2.6.5 (can be installed with [`ruby-install`](https://github.com/postmodern/ruby-install))
 * Bundler (`gem install bundler` after above ruby version is installed)
 * Postgresql (`brew install postgresql`)
 * A recent version of Chromedriver (`brew cask install chromedriver` or `brew cask upgrade chromedriver`)
-
-
-### Common commands
+* Run `bin/setup` to prepare dev environment.
+* Run `yarn` to install JS dependencies.
 
 **Starting the server**
 
 ```
 rails s
+```
+
+**Watching for JavaScript changes**
+```
+/bin/webpack-dev-server
 ```
 
 **Database commands**
@@ -51,7 +55,7 @@ rspec spec
 
 New users can be created by running the following rake task, which will prompt you for a password for that user.
 
-Currently users are able to log in and add or edit all district and meeting information. 
+Currently users are able to log in and add or edit all district and meeting information.
 ```
 # bash
 rake users:create[admin@example.com]

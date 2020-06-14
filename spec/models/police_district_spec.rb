@@ -83,4 +83,26 @@ RSpec.describe PoliceDistrict, type: :model do
       end
     end
   end
+
+  describe '#next_meeting' do
+    context 'when there are no future meetings' do
+      it 'returns nil' do
+        district = FactoryBot.create(:police_district)
+        meeting_a_while_ago = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today - 10.days)
+        recent_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today - 5.days)
+
+        expect(district.next_meeting).to be_nil
+      end
+    end
+
+    context 'where there are future meetings' do
+      it 'returns the soonest one' do
+        district = FactoryBot.create(:police_district)
+        far_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today + 10.days)
+        soon_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today + 5.days)
+
+        expect(district.next_meeting).to eq soon_meeting
+      end
+    end
+  end
 end

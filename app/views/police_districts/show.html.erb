@@ -5,6 +5,12 @@
     <h2 class="h3">Decision Makers</h2>
     <p><%= @district.decision_makers %></p>
   </div>
+  <% if @district.next_meeting&.agenda_link %>
+    <div class="section">
+      <h2 class="h3">Agenda</h2>
+      <p><a href="<%= @district.next_meeting.agenda_link %>">Review this meeting's agenda</a></p>
+    </div>
+  <% end %>
   <div class="section">
     <h2 class="h3">What to say</h2>
     <p><%= @district.what_to_say %></p>

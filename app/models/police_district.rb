@@ -18,6 +18,10 @@ class PoliceDistrict < ApplicationRecord
     end
   end
 
+  def next_meeting
+    @next_meeting ||= meetings.where('event_datetime > ?', Time.zone.now).order('event_datetime').limit(1).first
+  end
+
   def to_param
     slug
   end

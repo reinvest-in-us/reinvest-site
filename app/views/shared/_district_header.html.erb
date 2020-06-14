@@ -8,6 +8,9 @@
           <% if next_meeting = district.meetings.order('event_datetime').first %>
             <div><%= next_meeting.event_datetime.strftime('%b %e, %Y @ %l:%M%P') %></div>
             <div><%= next_meeting.phone_number %></div>
+            <% if next_meeting.agenda_link.present? %>
+              <div>Meeting Link: <a href="<%= next_meeting.agenda_link %>"><%= next_meeting.agenda_link %></a></div>
+            <% end %>
           <% else %>
             <div>Check back soon</div>
           <% end %>

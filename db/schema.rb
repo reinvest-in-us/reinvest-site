@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_005218) do
+ActiveRecord::Schema.define(version: 2020_06_13_201039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_005218) do
     t.bigint "police_district_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "agenda_link"
     t.index ["police_district_id"], name: "index_meetings_on_police_district_id"
   end
 
@@ -30,6 +31,9 @@ ActiveRecord::Schema.define(version: 2020_06_10_005218) do
     t.integer "fy_2019_policing_budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "decision_makers"
+    t.text "what_to_say"
+    t.text "how_to_comment"
     t.index ["slug"], name: "index_police_districts_on_slug", unique: true
   end
 

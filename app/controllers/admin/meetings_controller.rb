@@ -27,6 +27,6 @@ class Admin::MeetingsController < ApplicationController
   end
 
   def meeting_params
-    params.require(:meeting).permit(:phone_number, :event_datetime)
+    params.require(:meeting).permit(:phone_number, :event_datetime, :agenda_link)
   end
 end

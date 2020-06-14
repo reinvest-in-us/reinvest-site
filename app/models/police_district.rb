@@ -1,6 +1,11 @@
 class PoliceDistrict < ApplicationRecord
+  TIME_ZONE_OPTIONS = [
+    'Pacific Time (US & Canada)'
+  ].freeze # supported valid timezones (from rake:time:zones[US] )
+
   validates_presence_of :name
   validates :slug, uniqueness: true, format: { with: /\A[a-z0-9\-]+\Z/ }, allow_blank: true
+  validates :timezone, presence: true, inclusion: { in: TIME_ZONE_OPTIONS }
 
   has_many :meetings
 

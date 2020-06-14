@@ -27,6 +27,14 @@ RSpec.describe PoliceDistrict, type: :model do
       expect(FactoryBot.build(:police_district, slug: 'hello-1')).to be_valid
       expect(FactoryBot.build(:police_district, slug: 'hell-o')).to be_valid
     end
+
+    it 'requires timezone be set and valid US timezone' do
+      expect(FactoryBot.build(:police_district, timezone: nil)).to_not be_valid
+      expect(FactoryBot.build(:police_district, timezone: 'asldfkasfd')).to_not be_valid
+      expect(FactoryBot.build(:police_district, timezone: 'Brisbane')).to_not be_valid
+
+      expect(FactoryBot.build(:police_district, timezone: 'Pacific Time (US & Canada)')).to be_valid
+    end
   end
 
   describe 'setting .slug' do

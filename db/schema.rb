@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_201039) do
+ActiveRecord::Schema.define(version: 2020_06_14_151828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_201039) do
     t.string "decision_makers"
     t.text "what_to_say"
     t.text "how_to_comment"
+    t.string "timezone"
     t.index ["slug"], name: "index_police_districts_on_slug", unique: true
   end
 

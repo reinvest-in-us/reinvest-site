@@ -4,7 +4,10 @@ RSpec.describe 'information management' do
   include ActiveSupport::Testing::TimeHelpers
 
   let!(:user) { FactoryBot.create(:user, email: 'user@example.com', password: 'qwerty') }
-  let!(:district) { FactoryBot.create(:police_district, name: 'Berkeley', slug: 'berkeley') }
+  let!(:district) { FactoryBot.create(:police_district,
+                                      timezone: 'Pacific Time (US & Canada)',
+                                      name: 'Berkeley',
+                                      slug: 'berkeley') }
 
   scenario 'adding a new district' do
     login_as(user)
@@ -28,6 +31,9 @@ RSpec.describe 'information management' do
     expect(page).to have_content('Defund police!')
     expect(page).to have_content('Do this.')
     expect(page).to have_content('Do that.')
+
+    visit '/admin/police_districts/bart-pd/meetings'
+    expect(page).to have_text('Pacific Time (US & Canada)')
   end
 
   scenario 'editing a district' do

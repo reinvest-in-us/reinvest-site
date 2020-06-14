@@ -30,6 +30,22 @@ RSpec.describe 'information management' do
     expect(page).to have_content('Do that.')
   end
 
+  scenario 'editing a district' do
+    login_as(user)
+
+    visit admin_root_path
+
+    click_on 'Berkeley'
+    expect(page).not_to have_content('Defund police!')
+
+    click_on 'Edit'
+    fill_in 'What to say', with: "Defund police!"
+    click_on 'Update Police district'
+
+    visit '/d/berkeley'
+    expect(page).to have_content('Defund police!')
+  end
+
   scenario 'adding events to an existing district' do
     travel_to Date.parse('2020-06-03') do
       login_as(user)

@@ -3,11 +3,26 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
     @district = PoliceDistrict.new
   end
 
+  def edit
+    @district = PoliceDistrict.find_by_slug(params[:id])
+
+    render :new
+  end
+
   def create
     @district = PoliceDistrict.new(district_params)
 
     if @district.valid?
       @district.save
+      redirect_to admin_police_districts_path
+    else
+      render :new
+    end
+  end
+
+  def update
+    @district = PoliceDistrict.find_by_slug(params[:id])
+    if @district.update(district_params)
       redirect_to admin_police_districts_path
     else
       render :new

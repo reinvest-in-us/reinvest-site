@@ -1,5 +1,6 @@
 @import './bootstrap_custom.scss';
 @import './fonts.scss';
+@import './admin.scss';
 
 $metal: #2B2D42;
 $yellow: #FAD967;
@@ -10,7 +11,7 @@ body {
 }
 
 html, body, main {
-  height: 100%;
+  min-height: 100vh;
 }
 
 main {

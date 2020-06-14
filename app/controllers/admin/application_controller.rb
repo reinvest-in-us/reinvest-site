@@ -1,6 +1,10 @@
 class Admin::ApplicationController < ApplicationController
   before_action :authenticate_user!
 
+  def body_classes
+    'admin'
+  end
+
   def after_sign_in_path_for(_)
     admin_root_path
   end

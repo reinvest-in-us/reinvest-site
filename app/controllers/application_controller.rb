@@ -3,4 +3,8 @@ class ApplicationController < ActionController::Base
                                password: ENV.fetch('BASIC_AUTH_PASSWORD', 'password') unless Rails.env.test?
 
   respond_to :html
+
+  helper_method :body_classes
+
+  def body_classes; end
 end

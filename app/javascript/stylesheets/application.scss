@@ -1,4 +1,21 @@
 @import './bootstrap_custom.scss';
+@import './fonts.scss';
+
+$metal: #2B2D42;
+$yellow: #FAD967;
+
+body {
+  color: $metal;
+  font-family: 'Poppins';
+}
+
+html, body, main {
+  height: 100%;
+}
+
+main {
+  background-color: black;
+}
 
 .district-card {
   @extend .mb-3;
@@ -6,6 +23,7 @@
   @extend .py-3;
 
   background-color: lightgrey;
+  margin-top: 32px;
 }
 
 .district-jumbotron {
@@ -24,6 +42,19 @@
   }
 }
 
+.main-jumbotron {
+  @extend .jumbotron;
+  @extend .jumbotron-fluid;
+
+  background-color: $yellow;
+  background-image: url(assets/images/header-photo.jpg);
+  background-position: top center;
+  background-size: 100%;
+  height: 500px;
+  margin-bottom: 0px;
+  padding: 156px 64px 0px 64px;
+}
+
 .district-info {
   @extend .py-5;
 
@@ -35,4 +66,52 @@
   p:last-of-type {
     @extend .pb-5;
   }
+}
+
+.district-list {
+  @extend .container;
+
+  background-color: $metal;
+  color: white;
+  margin-top: -90px;
+  max-width: 976px;
+  padding: 32px 48px;
+  width: 100%;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.h2 {
+  font-family: 'Martin';
+  font-size: 64px;
+  line-height: 73px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+}
+
+.link-yellow {
+  color: $yellow;
+  font-family: 'Poppins-Bold';
+  text-decoration: none;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.nav-link {
+  color: $metal;
+  font-family: 'Martin';
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.white-background {
+  background-color: white;
 }

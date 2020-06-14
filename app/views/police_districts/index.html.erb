@@ -1,11 +1,14 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="main-jumbotron">
   <div class="container">
-    <h1 class="h2">Show up. Defund violence.</h1>
-    <div>Find where, when, and how to give your input on your local police budget.</div>
+    <div class="header">
+      <h1 class="h2">Show up. Defund violence.</h1>
+      <div>Learn when and how to give comment on police budgets.</div>
+    </div>
   </div>
 </div>
-
-<div class="container">
+<div class="district-list">
+  <h1 class="h2">Cities & districts</h1>
+  <div>Want to help us add a city or police district that isn't here? <a href="" class="link-yellow">Get in touch.</a></div>
   <% @districts.each do |district| %>
     <%= render partial: 'district_card', locals: {district: district } %>
   <% end %>

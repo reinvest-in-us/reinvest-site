@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_for @district, url: admin_police_districts_url do |f| %>
+  <%= form_for @district, url: @district.persisted? ? admin_police_district_path(@district) : admin_police_districts_url do |f| %>
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name %>

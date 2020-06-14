@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    resources :police_districts, only: [:index, :new, :create] do
+    resources :police_districts do
       resources :meetings, only: [:index, :new, :create]
     end
     root to: 'police_districts#index'

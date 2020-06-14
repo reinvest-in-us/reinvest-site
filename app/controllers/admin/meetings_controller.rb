@@ -29,7 +29,10 @@ class Admin::MeetingsController < Admin::ApplicationController
 
   def update
     @meeting = Meeting.find(params[:id])
-    if @meeting.update(meeting_params)
+    @meeting.assign_attributes(meeting_params)
+    if @meeting.valid?
+      @meeting.event_datetime = @meeting.event_datetime.change(offset: offset_for_timezone(@district.timezone))
+      @meeting.save
       redirect_to admin_police_district_meetings_path(@district)
     else
       render :new

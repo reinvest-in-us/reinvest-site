@@ -9,13 +9,9 @@ class PoliceDistrict < ApplicationRecord
   include ActionView::Helpers::NumberHelper
 
   def readable_budget
-    if fy_2019_policing_budget.nil?
-      '---'
-    elsif fy_2019_policing_budget >= 1_000_000
-      number_with_delimiter((fy_2019_policing_budget.to_f / 1_000_000).round)
-    else
-      (fy_2019_policing_budget.to_f / 1_000_000).round(2).to_s
-    end
+    return '---' if fy_2019_policing_budget.nil?
+
+    number_to_human(fy_2019_policing_budget,format:'%n%u',precision: 4, units:{thousand:'K',million:'M',billion:'B'})
   end
 
   def next_meeting

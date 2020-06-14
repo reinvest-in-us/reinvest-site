@@ -1,7 +1,7 @@
 <%= render partial: 'shared/district_header', locals: { district: @district } %>
 
 <div class="container">
-  <%= form_for [@district, @meeting], url: admin_police_district_meetings_path do |f| %>
+  <%= form_for [@district, @meeting], url: @meeting.persisted? ? admin_police_district_meeting_path(@district, @meeting) : admin_police_district_meetings_path do |f| %>
     <div class="form-group">
       <%= f.label :event_datetime, 'Meeting date and time' %>
       <%= f.datetime_select :event_datetime %>
@@ -14,6 +14,6 @@
       <%= f.label :agenda_link, 'Meeting agenda link' %>
       <%= f.text_field :agenda_link, class: 'form-control' %>
     </div>
-    <%= f.submit 'Add' %>
+    <%= f.submit %>
   <% end %>
 </div>

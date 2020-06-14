@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :police_districts do
-      resources :meetings, only: [:index, :new, :create]
+      resources :meetings
     end
     root to: 'police_districts#index'
   end

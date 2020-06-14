@@ -9,11 +9,26 @@ class Admin::MeetingsController < Admin::ApplicationController
     @meeting = Meeting.new(police_district: @district)
   end
 
+  def edit
+    @meeting = Meeting.find(params[:id])
+
+    render :new
+  end
+
   def create
     @meeting = @district.meetings.build(meeting_params)
 
     if @meeting.valid?
       @meeting.save
+      redirect_to admin_police_district_meetings_path(@district)
+    else
+      render :new
+    end
+  end
+
+  def update
+    @meeting = Meeting.find(params[:id])
+    if @meeting.update(meeting_params)
       redirect_to admin_police_district_meetings_path(@district)
     else
       render :new

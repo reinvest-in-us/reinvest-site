@@ -46,7 +46,7 @@ RSpec.describe 'information management' do
     expect(page).to have_content('Defund police!')
   end
 
-  scenario 'adding events to an existing district' do
+  scenario 'adding meetings to an existing district' do
     travel_to Date.parse('2020-06-03') do
       login_as(user)
 
@@ -64,10 +64,17 @@ RSpec.describe 'information management' do
 
       fill_in 'Meeting agenda link', with: 'example.com'
 
-      click_on 'Add'
+      click_on 'Create Meeting'
 
       expect(page).to have_content('555-123-4567')
       expect(page).to have_content('Jun 10, 2020 @ 2:30am')
+
+      within('.district-card') { click_on 'Edit' }
+
+      fill_in 'Call-in phone number', with: '515-111-1234'
+      click_on 'Update Meeting'
+
+      expect(page).to have_content('515-111-1234')
 
       visit '/d/berkeley'
 

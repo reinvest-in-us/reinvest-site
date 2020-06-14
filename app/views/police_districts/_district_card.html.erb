@@ -3,7 +3,7 @@
     <h2 class="h5"><%= link_to district.name, police_district_path(district) %></h2>
     <div>
       <% if next_meeting = district.next_meeting %>
-          <div><%= next_meeting.event_datetime.strftime('%b %e, %Y @ %l:%M%P') %></div>
+          <div><%= next_meeting.formatted_event_datetime %></div>
           <div><%= link_to 'Call in to comment', "tel:#{next_meeting.phone_number}" %></div>
       <% end %>
     </div>

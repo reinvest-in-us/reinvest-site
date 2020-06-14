@@ -19,6 +19,7 @@ class Admin::MeetingsController < Admin::ApplicationController
     @meeting = @district.meetings.build(meeting_params)
 
     if @meeting.valid?
+      @meeting.event_datetime = @meeting.event_datetime.change(offset: offset_for_timezone(@district.timezone))
       @meeting.save
       redirect_to admin_police_district_meetings_path(@district)
     else
@@ -36,6 +37,10 @@ class Admin::MeetingsController < Admin::ApplicationController
   end
 
   private
+
+  def offset_for_timezone(timezone)
+    ActiveSupport::TimeZone[timezone].formatted_offset
+  end
 
   def set_police_district
     @district = PoliceDistrict.find_by_slug(params[:police_district_id])

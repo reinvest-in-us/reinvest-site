@@ -14,11 +14,18 @@ def create_district(name, slug)
     name: name,
     fy_2019_policing_budget: rand(900_000..1_200_000_000),
   )
+  meeting = Meeting.new(police_district: district)
+  meeting.update(
+    event_datetime: Date.today + rand(2..30).days,
+    phone_number: "555-123-4567",
+  )
   puts "Created or updated district with slug '#{district.slug}'"
 end
 
 create_district("San Francisco", "san-francisco")
 create_district("Oakland", "oakland")
+create_district("Los Angeles", "los-angeles")
+create_district("BART", "bart")
 
 user = User.find_or_initialize_by(
   email: 'admin@example.com'

@@ -19,12 +19,27 @@ main {
 }
 
 .district-card {
-  @extend .mb-3;
-  @extend .row;
-  @extend .py-3;
-
-  background-color: lightgrey;
+  background-color: white;
+  color: $metal;
+  display: flex;
+  justify-content: space-between;
   margin-top: 32px;
+  padding: 24px 32px;
+
+  a {
+    color: $metal;
+  }
+}
+
+.district-card-details-primary {
+  display: flex;
+  flex-direction: column;
+}
+
+.district-card-details-secondary {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .district-jumbotron {
@@ -90,6 +105,14 @@ main {
   font-family: 'Martin';
   font-size: 64px;
   line-height: 73px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+}
+
+.h3 {
+  font-family: 'Martin';
+  font-size: 48px;
+  line-height: 55px;
   margin-bottom: 0px;
   text-transform: uppercase;
 }

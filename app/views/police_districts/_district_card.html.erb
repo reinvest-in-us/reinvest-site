@@ -1,6 +1,6 @@
 <div id="district-<%= district.slug %>" class="district-card">
-  <div class="col-md-6">
-    <h2 class="h5"><%= link_to district.name, police_district_path(district) %></h2>
+  <div class="district-card-details-primary">
+    <h2 class="h3"><%= link_to district.name, police_district_path(district) %></h2>
     <div>
       <% if next_meeting = district.next_meeting %>
           <div><%= next_meeting.event_datetime.strftime('%b %e, %Y @ %l:%M%P') %></div>
@@ -8,8 +8,8 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="h5">$<%= district.readable_budget %></div>
-    <div>FY19 Policing Budget</div>
+  <div class="district-card-details-secondary">
+    <div class="h2">$<%= district.readable_budget %></div>
+    <div>Fiscal year 2019 police and sheriff budget</div>
   </div>
 </div>

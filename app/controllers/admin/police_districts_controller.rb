@@ -36,6 +36,11 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
   private
 
   def district_params
-    params.require(:police_district).permit(:name, :fy_2019_policing_budget, :decision_makers, :what_to_say, :how_to_comment)
+    params.require(:police_district).permit(:name,
+                                            :fy_2019_policing_budget,
+                                            :timezone,
+                                            :decision_makers,
+                                            :what_to_say,
+                                            :how_to_comment)
   end
 end

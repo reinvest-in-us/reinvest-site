@@ -18,6 +18,8 @@ To run this application locally, you'll need:
 rails s
 ```
 
+The development server is protected by basic auth, and can be logged in with the [default information here](./app/controllers/application_controller.rb) (username: 'admin', password: 'password').
+
 **Watching for JavaScript changes**
 ```
 /bin/webpack-dev-server
@@ -55,7 +57,7 @@ rspec spec
 
 New users can be created by running the following rake task, which will prompt you for a password for that user.
 
-Currently users are able to log in and add or edit all district and meeting information.
+Currently users are able to log in to '/admin' and add or edit all district and meeting information.
 ```
 # bash
 rake users:create[admin@example.com]
@@ -74,4 +76,4 @@ Github actions currently runs tests against every pushed commit. See [.github/wo
 
 Heroku auto-deploys from `master` when tests pass.
 
-The site is currently available at [https://defund-police-staging.herokuapp.com](https://defund-police-staging.herokuapp.com/)
+The site is currently available at [https://defund-police-staging.herokuapp.com](https://defund-police-staging.herokuapp.com/). It is protected by basic auth, and the user name and password can be found in the Heroku environment variables as `BASIC_AUTH_NAME` and `BASIC_AUTH_PASSWORD`.

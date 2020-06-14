@@ -76,4 +76,6 @@ Github actions currently runs tests against every pushed commit. See [.github/wo
 
 Heroku auto-deploys from `master` when tests pass.
 
+When deploying, Heroku will run migrations and `rake one_offs:all`. Any one-time, idempotent data migrations should be included in that task. 
+
 The site is currently available at [https://defund-police-staging.herokuapp.com](https://defund-police-staging.herokuapp.com/). It is protected by basic auth, and the user name and password can be found in the Heroku environment variables as `BASIC_AUTH_NAME` and `BASIC_AUTH_PASSWORD`.

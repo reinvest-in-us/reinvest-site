@@ -1,4 +1,4 @@
-class Admin::MeetingsController < ApplicationController
+class Admin::MeetingsController < Admin::ApplicationController
   before_action :set_police_district
 
   def index

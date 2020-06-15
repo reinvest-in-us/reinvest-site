@@ -2,7 +2,7 @@ class Admin::MeetingsController < Admin::ApplicationController
   before_action :set_police_district
 
   def index
-    @meetings = @district.meetings
+    @meetings = @district.meetings.order(event_datetime: :desc)
   end
 
   def new

@@ -3,6 +3,7 @@
 @import './admin.scss';
 
 $metal: #2B2D42;
+$pink3: #8D6E70;
 $yellow: #FAD967;
 
 body {
@@ -18,28 +19,52 @@ main {
   background-color: black;
 }
 
+.calendar-icon {
+  background-image: url(assets/icons/ic_calendar.svg);
+  height: 32px;
+  margin-right: 4px;
+  width: 32px;
+}
+
 .district-card {
   background-color: white;
   color: $metal;
   display: flex;
   justify-content: space-between;
   margin-top: 32px;
-  padding: 24px 32px;
 
   a {
     color: $metal;
   }
 }
 
+.district-card-bullet {
+  display: flex;
+  font-size: 16px;
+  line-height: 225%;
+  margin-top: 4px;
+}
+
 .district-card-details-primary {
   display: flex;
   flex-direction: column;
+  padding: 20px 32px 24px 32px;
 }
 
-.district-card-details-secondary {
-  align-items: left;
+.district-card-details-secondary-container {
+  background-image: url(assets/images/pink-slant.svg);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  width: 316px;
+}
+
+.district-card-details-secondary-text {
+  align-items: flex-end;
   display: flex;
   flex-direction: column;
+  padding: 20px 56px 36px 56px;
+  text-align: end;
 }
 
 .district-jumbotron {
@@ -111,9 +136,17 @@ main {
 
 .h3 {
   font-family: 'Martin';
+  font-size: 60px;
+  line-height: 125%;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+}
+
+.h4 {
+  font-family: 'Martin';
   font-size: 48px;
   line-height: 55px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   text-transform: uppercase;
 }
 
@@ -134,6 +167,24 @@ main {
   font-family: 'Martin';
   font-size: 28px;
   text-transform: uppercase;
+}
+
+.phone-icon {
+  background-image: url(assets/icons/ic_phone.svg);
+  height: 32px;
+  margin-right: 4px;
+  width: 32px;
+}
+
+.pink-text {
+  color: $pink3;
+  font-family: 'Poppins-Bold';
+  font-size: 12px;
+  height: 54px;
+  letter-spacing: 1px;
+  line-height: 18px;
+  text-transform: uppercase;
+  width: 128px;
 }
 
 .white-background {

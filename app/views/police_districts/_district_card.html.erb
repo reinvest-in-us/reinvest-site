@@ -1,15 +1,23 @@
 <div id="district-<%= district.slug %>" class="district-card">
   <div class="district-card-details-primary">
-    <h2 class="h3"><%= link_to district.name, police_district_path(district) %></h2>
+    <h2 class="h4"><%= link_to district.name, police_district_path(district) %></h2>
     <div>
       <% if next_meeting = district.next_meeting %>
+        <div class="district-card-bullet">
+          <div class="calendar-icon"></div>
           <div><%= next_meeting.formatted_event_datetime %></div>
+        </div>
+        <div class="district-card-bullet">
+          <div class="phone-icon"></div>
           <div><%= link_to 'Call in to comment', "tel:#{next_meeting.phone_number}" %></div>
+        </div>
       <% end %>
     </div>
   </div>
-  <div class="district-card-details-secondary">
-    <div class="h2">$<%= district.readable_budget %></div>
-    <div>Fiscal year 2019 police and sheriff budget</div>
+  <div class="district-card-details-secondary-container">
+    <div class="district-card-details-secondary-text">
+      <div class="h3">$<%= district.readable_budget %></div>
+      <div class="pink-text">Fiscal year 2019 police and sheriff budget</div>
+    </div>
   </div>
 </div>

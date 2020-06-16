@@ -15,7 +15,8 @@ RSpec.describe 'information viewing' do
   it 'shows index of all jurisdictions' do
     visit '/'
 
-    expect(page).to have_content('Show up. Defund violence.')
+    expect(page).to have_content('Show up.')
+    expect(page).to have_content('Defund violence.')
 
     within '#district-down-town' do
       expect(page).to have_content('Down town')

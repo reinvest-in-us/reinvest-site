@@ -213,6 +213,13 @@ main {
   width: 100%;
 }
 
+.navbar-brand {
+  background-color: $metal;
+  border-radius: 24px;
+  height: 48px;
+  width: 48px;
+}
+
 .nav-link {
   color: $metal;
   font-family: 'Martin';

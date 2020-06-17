@@ -100,6 +100,7 @@ RSpec.describe 'information management' do
       fill_in 'Name', with: 'Some Official'
       fill_in 'Position', with: 'Bureaucrat'
       fill_in 'Re-election date', with: 'June 2021'
+      fill_in 'List rank', with: 1
 
       click_on 'Create Elected official'
 

@@ -39,7 +39,7 @@ class Admin::ElectedOfficialsController < Admin::ApplicationController
     end
   
     def elected_official_params
-      params.require(:elected_official).permit(:name, :position, :reelection_date)
+      params.require(:elected_official).permit(:name, :position, :reelection_date, :list_rank)
     end
   end
   

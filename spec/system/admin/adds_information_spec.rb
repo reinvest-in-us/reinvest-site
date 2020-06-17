@@ -88,4 +88,30 @@ RSpec.describe 'information management' do
       expect(page).to have_content("Review this meeting's agenda")
     end
   end
+
+  scenario 'adding elected officials to an existing district' do
+      login_as(user)
+
+      visit admin_root_path
+
+      click_on 'Berkeley'
+      click_on 'Add elected official'
+
+      fill_in 'Name', with: 'Some Official'
+      fill_in 'Position', with: 'Bureaucrat'
+      fill_in 'Re-election date', with: 'June 2021'
+
+      click_on 'Create Elected official'
+
+      expect(page).to have_content('Some Official')
+      expect(page).to have_content('Bureaucrat')
+      expect(page).to have_content('June 2021')
+
+      within('[data-spec=officials]') { click_on 'Edit' }
+
+      fill_in 'Name', with: 'New Name'
+      click_on 'Update Elected official'
+
+      expect(page).to have_content('New Name')
+  end
 end

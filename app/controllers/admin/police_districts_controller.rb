@@ -6,6 +6,7 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
   def show
     @district = PoliceDistrict.find_by_slug(params[:id])
     @meetings = @district.meetings.order(event_datetime: :desc)
+    @elected_officials = @district.elected_officials
   end
 
   def edit

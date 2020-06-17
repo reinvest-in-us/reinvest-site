@@ -4,8 +4,10 @@
   <div>All meetings are in <%= @district.timezone %>.</div>
   <div class="mb-5 mt-5">
     <%= link_to 'Add budget meeting', new_admin_police_district_meeting_path(@district), class: 'btn btn-primary' %>
+    <%= link_to 'Add elected officials', new_admin_police_district_elected_official_path(@district), class: 'btn btn-primary' %>
     <%= link_to 'Edit', edit_admin_police_district_path(@district), class: 'btn btn-primary' %>
   </div>
+  <div>Meetings</div>
   <div>
     <% @meetings.each do |meeting| %>
       <div class="district-card">
@@ -17,6 +19,21 @@
         </div>
         <div class="col-md-2">
           <div class="h5"><a href="<%= edit_admin_police_district_meeting_path(@district, meeting) %>">Edit</a></div>
+        </div>
+      </div>
+    <% end %>
+  <br>
+  <div>Elected Officials</div>
+     <% @elected_officials.each do |elected_official| %>
+      <div class="district-card" data-spec="officials">
+        <div class="col-md-4">
+          <h2 class="h5"><%= elected_official.name %> - Position: <%= elected_official.position %></h2>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h5">Re-election Date: <%= elected_official.reelection_date %></h2>
+        </div>
+        <div class="col-md-2">
+          <h2 class="h5"><a href="<%= edit_admin_police_district_elected_official_path(@district, elected_official) %>">Edit</a></h2>
         </div>
       </div>
     <% end %>

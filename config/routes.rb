@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :police_districts do
       resources :meetings
+      resources :elected_officials
     end
     root to: 'police_districts#index'
   end

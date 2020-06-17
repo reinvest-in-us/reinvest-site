@@ -1,0 +1,19 @@
+<%= render partial: 'shared/district_header', locals: { district: @district } %>
+
+<div class="container">
+  <%= form_for [@district, @elected_official], url: @elected_official.persisted? ? admin_police_district_elected_official_path(@district, @elected_official) : admin_police_district_elected_officials_path do |f| %>
+    <div class="form-group">
+      <%= f.label :name, 'Name' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :position, 'Position' %>
+      <%= f.text_field :position, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :reelection_date, 'Re-election date' %>
+      <%= f.text_field :reelection_date, class: 'form-control' %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>

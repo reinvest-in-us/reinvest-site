@@ -1,10 +1,6 @@
 class Admin::MeetingsController < Admin::ApplicationController
   before_action :set_police_district
 
-  def index
-    @meetings = @district.meetings.order(event_datetime: :desc)
-  end
-
   def new
     @meeting = Meeting.new(police_district: @district)
   end
@@ -21,7 +17,7 @@ class Admin::MeetingsController < Admin::ApplicationController
     if @meeting.valid?
       @meeting.event_datetime = @meeting.event_datetime.change(offset: offset_for_timezone(@district.timezone))
       @meeting.save
-      redirect_to admin_police_district_meetings_path(@district)
+      redirect_to admin_police_district_path(@district)
     else
       render :new
     end
@@ -33,7 +29,7 @@ class Admin::MeetingsController < Admin::ApplicationController
     if @meeting.valid?
       @meeting.event_datetime = @meeting.event_datetime.change(offset: offset_for_timezone(@district.timezone))
       @meeting.save
-      redirect_to admin_police_district_meetings_path(@district)
+      redirect_to admin_police_district_path(@district)
     else
       render :new
     end

@@ -3,6 +3,11 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
     @district = PoliceDistrict.new
   end
 
+  def show
+    @district = PoliceDistrict.find_by_slug(params[:id])
+    @meetings = @district.meetings.order(event_datetime: :desc)
+  end
+
   def edit
     @district = PoliceDistrict.find_by_slug(params[:id])
 

@@ -33,7 +33,7 @@ RSpec.describe 'information management' do
     expect(page).to have_content('Do this.')
     expect(page).to have_content('Do that.')
 
-    visit '/admin/police_districts/bart-pd/meetings'
+    visit '/admin/police_districts/bart-pd'
     expect(page).to have_text('Pacific Time (US & Canada)')
   end
 

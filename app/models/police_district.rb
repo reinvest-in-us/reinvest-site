@@ -8,6 +8,7 @@ class PoliceDistrict < ApplicationRecord
   validates :timezone, presence: true, inclusion: { in: TIME_ZONE_OPTIONS }
 
   has_many :meetings
+  has_many :elected_officials
 
   after_validation :set_slug
 

@@ -18,6 +18,7 @@ RSpec.describe 'information management' do
 
     fill_in 'Name', with: 'BART PD'
     fill_in 'FY2019 Budget', with: '160,000,000'
+    fill_in 'Total City Budget', with: '1,000,000,000'
     fill_in 'Decision makers', with: 'Cardamom Pod, Cumin Seed'
     fill_in 'What to say', with: "Defund police!"
     fill_in 'How to comment', with: "Do this.\nDo that.\n"

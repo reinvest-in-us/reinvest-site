@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_192613) do
+ActiveRecord::Schema.define(version: 2020_06_19_194347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2020_06_19_192613) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "agenda_link"
+    t.text "agenda_details"
+    t.text "how_to_comment"
     t.index ["police_district_id"], name: "index_meetings_on_police_district_id"
   end
 
@@ -43,10 +45,16 @@ ActiveRecord::Schema.define(version: 2020_06_19_192613) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decision_makers"
-    t.text "how_to_comment"
     t.string "timezone"
     t.bigint "total_city_budget"
     t.integer "general_fund_percent"
+    t.text "decision_makers_text"
+    t.string "law_enforcement_gets_more_than_1"
+    t.bigint "law_enforcement_gets_more_than_1_dollars"
+    t.string "law_enforcement_gets_more_than_2"
+    t.bigint "law_enforcement_gets_more_than_2_dollars"
+    t.string "law_enforcement_gets_more_than_3"
+    t.bigint "law_enforcement_gets_more_than_3_dollars"
     t.index ["slug"], name: "index_police_districts_on_slug", unique: true
   end
 

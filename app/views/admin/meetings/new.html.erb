@@ -15,6 +15,14 @@
       <%= f.label :agenda_link, 'Meeting agenda link' %>
       <%= f.text_field :agenda_link, class: 'form-control' %>
     </div>
+    <div class="form-group">
+      <%= f.label :agenda_details, 'Agenda Details' %>
+      <%= f.text_field :agenda_details, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :how_to_comment, 'How to comment' %>
+      <%= f.text_area :how_to_comment, class: 'form-control' %>
+    </div>
     <%= f.submit %>
   <% end %>
 </div>

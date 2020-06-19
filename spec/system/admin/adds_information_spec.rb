@@ -19,16 +19,28 @@ RSpec.describe 'information management' do
     fill_in 'Total City Budget', with: '1,000,000,000'
     fill_in 'General Fund Percent', with: '65'
     fill_in 'Decision makers', with: 'Cardamom Pod, Cumin Seed'
-    fill_in 'How to comment', with: "Do this.\nDo that.\n"
+    fill_in 'Decision makers text', with: "The following people are decision makers."
+
+    fill_in 'police_district_law_enforcement_gets_more_than_1', with: 'Transit'
+    fill_in 'police_district_law_enforcement_gets_more_than_1_dollars', with: '1000000'
+
+    fill_in 'police_district_law_enforcement_gets_more_than_2', with: 'Education'
+    fill_in 'police_district_law_enforcement_gets_more_than_2_dollars', with: '3000000'
+
+    fill_in 'police_district_law_enforcement_gets_more_than_3', with: 'Parks'
+    fill_in 'police_district_law_enforcement_gets_more_than_3_dollars', with: '5000000'
+
     click_on 'Create'
 
     expect(page).to have_text('BART PD')
 
     visit '/d/bart-pd'
     expect(page).to have_text('BART PD')
+    expect(page).to have_content('The following people are decision makers.')
     expect(page).to have_content('Cardamom Pod, Cumin Seed')
-    expect(page).to have_content('Do this.')
-    expect(page).to have_content('Do that.')
+
+    expect(page).to have_content('Transit')
+    expect(page).to have_content('1000000')
 
     visit '/admin/police_districts/bart-pd'
     expect(page).to have_text('Pacific Time (US & Canada)')
@@ -67,6 +79,9 @@ RSpec.describe 'information management' do
       select '30',  :from => "meeting_event_datetime_5i" #minute
 
       fill_in 'Meeting agenda link', with: 'example.com'
+      fill_in 'Agenda Details', with: 'First, transporation budget, then police budget'
+
+      fill_in 'How to comment', with: "Do this.\nDo that.\n"
 
       click_on 'Create Meeting'
 
@@ -82,7 +97,10 @@ RSpec.describe 'information management' do
 
       visit '/d/berkeley'
 
+      expect(page).to have_content('Do this.')
+      expect(page).to have_content('Do that.')
       expect(page).to have_content("Review this meeting's agenda")
+      expect(page).to have_content('First, transporation budget, then police budget')
     end
   end
 

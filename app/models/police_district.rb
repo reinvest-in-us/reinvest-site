@@ -24,6 +24,20 @@ class PoliceDistrict < ApplicationRecord
     @next_meeting ||= meetings.where('event_datetime > ?', Time.zone.now - 8.hours).order('event_datetime').limit(1).first
   end
 
+  def more_funding_than
+    [
+      [law_enforcement_gets_more_than_1, law_enforcement_gets_more_than_1_dollars],
+      [law_enforcement_gets_more_than_2, law_enforcement_gets_more_than_2_dollars],
+      [law_enforcement_gets_more_than_3, law_enforcement_gets_more_than_3_dollars],
+    ]
+    .filter do |pair|
+      pair.all?(&:present?)
+    end
+    .map do |f|
+      {name: f[0], amount: f[1]}
+    end
+  end
+
   def to_param
     slug
   end

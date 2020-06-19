@@ -31,8 +31,26 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :how_to_comment, 'How to comment' %>
-      <%= f.text_area :how_to_comment, class: 'form-control' %>
+      <%= f.label :decision_makers_text, 'Decision makers text' %>
+      <%= f.text_field :decision_makers_text, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :law_enforcement_gets_more_than_1, 'Law enforcement gets more than #1' %>
+      <%= f.text_field :law_enforcement_gets_more_than_1, class: 'form-control' %>
+      <%= f.number_field :law_enforcement_gets_more_than_1_dollars, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :law_enforcement_gets_more_than_2, 'Law enforcement gets more than #2' %>
+      <%= f.text_field :law_enforcement_gets_more_than_2, class: 'form-control' %>
+      <%= f.number_field :law_enforcement_gets_more_than_2_dollars, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :law_enforcement_gets_more_than_3, 'Law enforcement gets more than #2' %>
+      <%= f.text_field :law_enforcement_gets_more_than_3, class: 'form-control' %>
+      <%= f.number_field :law_enforcement_gets_more_than_3_dollars, class: 'form-control' %>
     </div>
 
     <%= f.submit  %>

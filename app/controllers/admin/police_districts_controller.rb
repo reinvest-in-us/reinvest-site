@@ -44,6 +44,7 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
   def district_params
     params.require(:police_district).permit(:name,
                                             :fy_2019_policing_budget,
+                                            :general_fund_percent,
                                             :timezone,
                                             :decision_makers,
                                             :what_to_say,

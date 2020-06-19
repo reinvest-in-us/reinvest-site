@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_021717) do
+ActiveRecord::Schema.define(version: 2020_06_19_174418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_021717) do
     t.text "how_to_comment"
     t.string "timezone"
     t.bigint "total_city_budget"
+    t.integer "general_fund_percent"
     t.index ["slug"], name: "index_police_districts_on_slug", unique: true
   end
 

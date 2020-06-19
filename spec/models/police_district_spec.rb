@@ -97,8 +97,11 @@ RSpec.describe PoliceDistrict, type: :model do
 
     context 'when there are no future meetings' do
       it 'returns nil' do
-        meeting_a_while_ago = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today - 10.days)
-        recent_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today - 5.days)
+        travel_to Date.today - 10.days do
+          meeting_a_while_ago = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today)
+          recent_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today + 5.days)
+        end
+        
 
         expect(district.next_meeting).to be_nil
       end
@@ -115,9 +118,15 @@ RSpec.describe PoliceDistrict, type: :model do
 
     context 'where there is a meeting in progress' do
       it 'returns the in progress meeting' do
-        in_progress_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Time.zone.now - 6.hours)
+        in_progress_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Time.zone.now + 1.minute)
 
-        expect(district.next_meeting).to eq in_progress_meeting
+        travel_to Time.zone.now + 5.hours do
+          expect(district.next_meeting).to eq in_progress_meeting
+        end
+
+        travel_to Time.zone.now + 12.hours do
+          expect(PoliceDistrict.find(district.id).next_meeting).to be_nil
+        end
       end
     end
   end

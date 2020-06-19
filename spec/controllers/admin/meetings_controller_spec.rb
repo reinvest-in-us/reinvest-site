@@ -26,10 +26,11 @@ RSpec.describe Admin::MeetingsController, type: :controller do
       end
 
       it 'converts datetime from district timezone to UTC before storing' do
-        expect do
-          post :create, params: valid_params
-        end.to change(Meeting, :count).by(1)
-
+        travel_to Date.parse('2020-6-13') do
+          expect do
+            post :create, params: valid_params
+          end.to change(Meeting, :count).by(1)
+        end
         meeting = Meeting.last
         expect(meeting.event_datetime).to eq(DateTime.new(2020,6,14,11,0,0,'0'))
       end

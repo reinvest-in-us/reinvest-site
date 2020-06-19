@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'information management' do
-  include ActiveSupport::Testing::TimeHelpers
-
   let!(:user) { FactoryBot.create(:user, email: 'user@example.com', password: 'qwerty') }
   let!(:district) { FactoryBot.create(:police_district,
                                       timezone: 'Pacific Time (US & Canada)',

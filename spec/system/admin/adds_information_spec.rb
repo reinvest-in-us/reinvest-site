@@ -19,7 +19,6 @@ RSpec.describe 'information management' do
     fill_in 'Total City Budget', with: '1,000,000,000'
     fill_in 'General Fund Percent', with: '65'
     fill_in 'Decision makers', with: 'Cardamom Pod, Cumin Seed'
-    fill_in 'What to say', with: "Defund police!"
     fill_in 'How to comment', with: "Do this.\nDo that.\n"
     click_on 'Create'
 
@@ -28,7 +27,6 @@ RSpec.describe 'information management' do
     visit '/d/bart-pd'
     expect(page).to have_text('BART PD')
     expect(page).to have_content('Cardamom Pod, Cumin Seed')
-    expect(page).to have_content('Defund police!')
     expect(page).to have_content('Do this.')
     expect(page).to have_content('Do that.')
 
@@ -42,14 +40,14 @@ RSpec.describe 'information management' do
     visit admin_root_path
 
     click_on 'Berkeley'
-    expect(page).not_to have_content('Defund police!')
+    expect(page).not_to have_content('New District Name')
 
     click_on 'Edit'
-    fill_in 'What to say', with: "Defund police!"
+    fill_in 'Name', with: "New District Name"
     click_on 'Update Police district'
 
     visit '/d/berkeley'
-    expect(page).to have_content('Defund police!')
+    expect(page).to have_content('New District Name')
   end
 
   scenario 'adding meetings to an existing district' do

@@ -13,10 +13,6 @@
       </div>
     <% end %>
     <div class="section">
-      <h2 class="h3">What to say</h2>
-      <p><%= @district.what_to_say %></p>
-    </div>
-    <div class="section">
       <h2 class="h3">How to comment</h2>
       <% (@district.how_to_comment || '').split("\n").each_with_index do |step, i| %>
         <p><%= "#{i + 1}: #{step}" %></p>

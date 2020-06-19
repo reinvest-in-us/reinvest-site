@@ -47,7 +47,6 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
                                             :general_fund_percent,
                                             :timezone,
                                             :decision_makers,
-                                            :what_to_say,
                                             :how_to_comment)
   end
 end

@@ -1,26 +1,25 @@
 <div class="district-jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="district-jumbotron--info">
-        <h1><%= district.name %></h1>
+  <div class="district-jumbotron-content-container">
+      <div class="district-jumbotron-info">
+        <div class="h3"><%= district.name %></div>
         <div>
-          Next meeting:
+          <div class="next-meeting-title">
+            Next budget meeting
+          </div>
           <% if next_meeting = district.next_meeting %>
-            <div><%= next_meeting.formatted_event_datetime %></div>
-            <div><%= next_meeting.phone_number %></div>
-            <% if next_meeting.agenda_link.present? %>
-              <div>Meeting Link: <a href="<%= next_meeting.agenda_link %>"><%= next_meeting.agenda_link %></a></div>
-            <% end %>
+            <div class="district-card-bullet">
+              <div class="calendar-icon"></div>
+              <div><%= next_meeting.formatted_event_datetime %></div>
+            </div>
           <% else %>
             <div>Check back soon</div>
           <% end %>
         </div>
       </div>
 
-      <div class="district-jumbotron--budget">
+      <div class="district-jumbotron-budget">
         <div class="h3">$<%= district.readable_budget %></div>
-        <div>FY2019 Policing Budget</div>
+        <div class="pink-text">Fiscal year 2019 police and sheriff budget</div>
       </div>
-    </div>
   </div>
 </div>

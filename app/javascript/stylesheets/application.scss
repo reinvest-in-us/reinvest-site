@@ -3,6 +3,7 @@
 @import './admin.scss';
 
 $metal: #2B2D42;
+$pink2: #E9B1B5;
 $pink3: #8D6E70;
 $yellow: #FAD967;
 
@@ -77,16 +78,45 @@ main {
   @extend .jumbotron;
   @extend .jumbotron-fluid;
 
-  background-color: black;
-  color: white;
-  padding-top: 64px;
+  align-items: center;
+  background-color: $yellow;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  margin-bottom: 0px;
+  padding: 0px;
+}
 
-  .district-jumbotron--info {
-    @extend .col;
+.district-jumbotron-budget {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+
+  .h3 {
+    font-size: 88px;
   }
-  .district-jumbotron--budget {
-    @extend .col;
-    @extend .col-lg-2;
+
+  .pink-text {
+    color: $metal;
+  }
+}
+
+.district-jumbotron-content-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  max-width: 976px;
+  width: 100%;
+}
+
+.district-jumbotron-info {
+  display: flex;
+  flex-direction: column;
+
+  .h2 {
+    font-size: 72px;
   }
 }
 
@@ -224,6 +254,13 @@ main {
   color: $metal;
   font-family: 'Martin';
   font-size: 28px;
+  text-transform: uppercase;
+}
+
+.next-meeting-title {
+  font-family: 'Poppins-Bold';
+  letter-spacing: 1px;
+  line-height: 175%;
   text-transform: uppercase;
 }
 

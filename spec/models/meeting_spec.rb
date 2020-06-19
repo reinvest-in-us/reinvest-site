@@ -9,9 +9,11 @@ RSpec.describe Meeting, type: :model do
 
   describe '.formatted_event_datetime' do
     it 'returns the formatted string in the district timezone' do
-      meeting = FactoryBot.build(:meeting, event_datetime: DateTime.new(2010,10,20,13,30,00))
-      expect(meeting.formatted_event_datetime).to include('Oct 20, 2010 @ ')
-      expect(meeting.formatted_event_datetime).to include('6:30am')
+      travel_to DateTime.new(2009,10,20,13,30,00) do
+        meeting = FactoryBot.build(:meeting, event_datetime: DateTime.new(2010,10,20,13,30,00))
+        expect(meeting.formatted_event_datetime).to include('Oct 20, 2010 @ ')
+        expect(meeting.formatted_event_datetime).to include('6:30am')
+      end
     end
 
     context 'when event_datetime is nil' do
@@ -19,6 +21,13 @@ RSpec.describe Meeting, type: :model do
         meeting = FactoryBot.build(:meeting, event_datetime: nil)
         expect(meeting.formatted_event_datetime).to be_nil
       end
+    end
+  end
+
+  describe 'datetime_in_future' do
+    it 'invalidates if event is in the past' do
+      meeting = FactoryBot.build(:meeting, event_datetime: DateTime.new(2010,10,20,13,30,00))
+      expect(meeting.valid?).to eq false
     end
   end
 end

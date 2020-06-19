@@ -2,6 +2,7 @@
 
 <div class="container">
   <%= form_for [@district, @meeting], url: @meeting.persisted? ? admin_police_district_meeting_path(@district, @meeting) : admin_police_district_meetings_path do |f| %>
+    <div><%= @meeting.errors.full_messages.join("\n") if @meeting.errors.any? %></div>
     <div class="form-group">
       <%= f.label :event_datetime, 'Meeting date and time' %>
       <%= f.datetime_select :event_datetime %>

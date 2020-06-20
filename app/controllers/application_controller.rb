@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   http_basic_authenticate_with name: ENV.fetch('BASIC_AUTH_NAME', 'admin'),
-                               password: ENV.fetch('BASIC_AUTH_PASSWORD', 'password') unless Rails.env.test?
+                               password: ENV.fetch('BASIC_AUTH_PASSWORD', 'password') if ENV.fetch('BASIC_AUTH_ENABLED', false)
 
   respond_to :html
 

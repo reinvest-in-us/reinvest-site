@@ -1,41 +1,54 @@
 <%= render partial: 'shared/district_header', locals: { district: @district } %>
 
 <div class="container">
-  <div>All meetings are in <%= @district.timezone %>.</div>
-  <div class="mb-5 mt-5">
+  <div class="mb-5">All meetings are in <%= @district.timezone %>.</div>
+  <div class="mb-5">
     <%= link_to 'Add budget meeting', new_admin_police_district_meeting_path(@district), class: 'btn btn-primary' %>
     <%= link_to 'Add elected officials', new_admin_police_district_elected_official_path(@district), class: 'btn btn-primary' %>
     <%= link_to 'Edit', edit_admin_police_district_path(@district), class: 'btn btn-primary' %>
   </div>
-  <div>Meetings</div>
-  <div>
-    <% @meetings.each do |meeting| %>
-      <div class="district-card">
-        <div class="col-md-6">
-          <h2 class="h5"><%= meeting.formatted_event_datetime %></h2>
-        </div>
-        <div class="col-md-4">
-          <div class="h5">Phone: <%= meeting.phone_number %></div>
-        </div>
-        <div class="col-md-2">
-          <div class="h5"><a href="<%= edit_admin_police_district_meeting_path(@district, meeting) %>">Edit</a></div>
-        </div>
-      </div>
-    <% end %>
-  <br>
-  <div>Elected Officials</div>
-     <% @elected_officials.each do |elected_official| %>
-      <div class="district-card" data-spec="officials">
-        <div class="col-md-4">
-          <h2 class="h5"><%= elected_official.name %> - Position: <%= elected_official.position %></h2>
-        </div>
-        <div class="col-md-3">
-          <h2 class="h5">Re-election Date: <%= elected_official.reelection_date %></h2>
-        </div>
-        <div class="col-md-2">
-          <h2 class="h5"><a href="<%= edit_admin_police_district_elected_official_path(@district, elected_official) %>">Edit</a></h2>
-        </div>
-      </div>
-    <% end %>
+  <div class="mb-5">
+    <h2>Meetings</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Call-in number</th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @meetings.each do |meeting| %>
+          <tr>
+            <td><%= meeting.formatted_event_datetime %></td>
+            <td><%= meeting.phone_number %></td>
+            <td><%= link_to "Edit", edit_admin_police_district_meeting_path(@district, meeting), class: 'button'  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="mb-5">
+    <h2>Elected Officials</h2>
+    <table class="table table-striped" data-spec="officials">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Position</th>
+        <th scope="col">Re-election date</th>
+        <th scope="col"> </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @elected_officials.each do |elected_official| %>
+          <tr>
+            <td><%= elected_official.name %></td>
+            <td><%= elected_official.position %></td>
+            <td><%= elected_official.reelection_date %></td>
+            <td><%= link_to "Edit", edit_admin_police_district_elected_official_path(@district, elected_official), class: 'button' %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

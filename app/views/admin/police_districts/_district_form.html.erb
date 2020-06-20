@@ -1,0 +1,59 @@
+<div class="container">
+  <%= form_for @district, url: @district.persisted? ? admin_police_district_path(@district) : admin_police_districts_url do |f| %>
+      <div class="form-group col-md-4 pl-0">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-md-4 pl-0">
+        <%= f.label :timezone %>
+        <%= f.select :timezone,
+                     options_for_select(PoliceDistrict::TIME_ZONE_OPTIONS, (@district.timezone || PoliceDistrict::TIME_ZONE_OPTIONS.first)) %>
+      </div>
+
+      <div class="form-group col-md-4 pl-0">
+        <%= f.label :fy_2019_policing_budget, 'FY2019 Budget' %>
+        <%= f.number_field :fy_2019_policing_budget, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-md-4 pl-0">
+        <%= f.label :total_city_budget, 'Total City Budget' %>
+        <%= f.number_field :total_city_budget, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-md-4 pl-0">
+        <%= f.label :general_fund_percent, 'General Fund Percent' %>
+        <%= f.number_field :general_fund_percent, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :decision_makers, 'Decision makers' %>
+        <%= f.text_field :decision_makers, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :decision_makers_text, 'Decision makers text' %>
+        <%= f.text_field :decision_makers_text, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :law_enforcement_gets_more_than_1, 'Law enforcement gets more than #1' %>
+        <%= f.text_field :law_enforcement_gets_more_than_1, class: 'form-control' %>
+        <%= f.number_field :law_enforcement_gets_more_than_1_dollars, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :law_enforcement_gets_more_than_2, 'Law enforcement gets more than #2' %>
+        <%= f.text_field :law_enforcement_gets_more_than_2, class: 'form-control' %>
+        <%= f.number_field :law_enforcement_gets_more_than_2_dollars, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :law_enforcement_gets_more_than_3, 'Law enforcement gets more than #2' %>
+        <%= f.text_field :law_enforcement_gets_more_than_3, class: 'form-control' %>
+        <%= f.number_field :law_enforcement_gets_more_than_3_dollars, class: 'form-control' %>
+      </div>
+
+      <%= f.submit  %>
+  <% end %>
+</div>

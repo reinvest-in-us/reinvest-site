@@ -2,7 +2,12 @@
   background-color: initial;
 
   main {
+    @extend .py-3;
     background-color: initial;
+
+    h1 {
+      @extend .pb-3;
+    }
   }
 
   .navbar {

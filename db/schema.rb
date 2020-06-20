@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_045440) do
+ActiveRecord::Schema.define(version: 2020_06_20_224004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_06_20_045440) do
     t.bigint "total_police_department_budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "decision_makers"
     t.string "timezone"
     t.bigint "total_district_budget"
     t.text "decision_makers_text"

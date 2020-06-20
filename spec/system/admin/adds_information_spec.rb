@@ -19,7 +19,6 @@ RSpec.describe 'information management' do
     fill_in 'Total FY2019 City Budget', with: '1,000,000,000'
     fill_in 'Total FY2019 General Fund Budget', with: '50,000,000'
     fill_in 'Total FY2019 General Fund Spent on Police', with: '25,000,000'
-    fill_in 'Decision makers', with: 'Cardamom Pod, Cumin Seed'
     fill_in 'Decision makers text', with: 'The following people are decision makers.'
 
     fill_in 'police_district_law_enforcement_gets_more_than_1', with: 'Transit'
@@ -38,7 +37,6 @@ RSpec.describe 'information management' do
     visit '/d/bart-pd'
     expect(page).to have_text('BART PD')
     expect(page).to have_content('The following people are decision makers.')
-    expect(page).to have_content('Cardamom Pod, Cumin Seed')
 
     expect(page).to have_content('Transit')
     expect(page).to have_content('1000000')

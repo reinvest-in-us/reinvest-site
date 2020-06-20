@@ -44,7 +44,8 @@ RSpec.describe 'information management' do
     expect(page).to have_content('1000000')
 
     within '[data-spec=general-fund]' do
-      expect(page).to have_text "50% of BART PD's 2019 General Fund was spent on law enforcement"
+      expect(page).to have_text "50%"
+      expect(page).to have_text "of BART PD's 2019 General Fund was spent on law enforcement"
     end
 
     visit '/admin/police_districts/bart-pd'

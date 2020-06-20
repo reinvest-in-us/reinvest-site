@@ -19,7 +19,9 @@ def create_district(name, slug)
     police_district: district,
     event_datetime: Date.today + rand(2..30).days,
     phone_number: "555-123-4567",
-    how_to_comment: "Call 1-800-555-5555 to join the meeting.\nPress * 9 to raise your hand to speak.\nWait until you are unmuted and begin speaking.\n"
+    how_to_comment: "Call 1-800-555-5555 to join the meeting.\nPress * 9 to raise your hand to speak.\nWait until you are unmuted and begin speaking.\n",
+    agenda_link: "www.google.com",
+    agenda_details: "Zero Tolerance Policy For Racist Practices, OPD Spotshotter Contract"
   )
   puts "Created or updated district with slug '#{district.slug}'"
 end

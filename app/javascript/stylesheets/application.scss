@@ -2,6 +2,7 @@
 @import './fonts.scss';
 @import './admin.scss';
 
+$blue: #3B629C;
 $metal: #2B2D42;
 $pink1: #ECDDDE;
 $pink2: #E9B1B5;
@@ -19,6 +20,36 @@ html, body, main {
 
 main {
   background-color: black;
+}
+
+.agenda-details {
+  font-size: 19px;
+  line-height: 150%;
+  margin-top: 16px;
+}
+
+.agenda-icon {
+  background-color: $pink1;
+  background-image: url(assets/icons/ic_agenda.svg);
+  background-size: 100%;
+  border-radius: 28px;
+  height: 56px;
+  margin-right: 24px;
+  width: 56px;
+}
+
+.agenda-link {
+  align-items: center;
+  display: flex;
+  margin-top: 24px;
+
+  a {
+    color: $blue;
+    font-family: 'Poppins-Bold';
+    font-size: 19px;
+    line-height: 150%;
+    text-decoration: underline;
+  }
 }
 
 .calendar-icon {
@@ -124,7 +155,7 @@ main {
 .how-to-comment {
   align-items: center;
   display: flex;
-  margin-bottom: 24px;
+  margin-top: 24px;
 }
 
 .how-to-comment-instruction {
@@ -175,7 +206,6 @@ main {
   @extend .py-5;
 
   h2 {
-    @extend .pb-3;
     text-transform: uppercase;
   }
 
@@ -250,7 +280,6 @@ main {
   font-family: 'Martin';
   font-size: 48px;
   line-height: 55px;
-  margin-bottom: 4px;
   text-transform: uppercase;
 }
 
@@ -303,6 +332,10 @@ main {
   line-height: 18px;
   text-transform: uppercase;
   width: 128px;
+}
+
+.section {
+  margin-bottom: 48px;
 }
 
 @media(min-width: 569px) {

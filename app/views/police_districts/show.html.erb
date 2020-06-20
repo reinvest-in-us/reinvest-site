@@ -16,8 +16,11 @@
     <% if @district.next_meeting&.agenda_link %>
       <div class="section">
         <h2 class="h4">Agenda</h2>
-        <p><a href="<%= @district.next_meeting.agenda_link %>">Review this meeting's agenda</a></p>
-        <p><%= @district.next_meeting.agenda_details %></p>
+        <div class="agenda-link">
+          <div class="agenda-icon"></div>
+          <div><a href="<%= @district.next_meeting.agenda_link %>">Review this meeting's agenda</a></div>
+        </div>
+        <div class="agenda-details"><%= "Items related to law enforcement on this agenda: #{@district.next_meeting.agenda_details}" %></div>
       </div>
     <% end %>
     <% if @district.general_fund_spent_on_police_percentage %>

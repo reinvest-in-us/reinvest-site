@@ -20,6 +20,26 @@
         <p><%= @district.next_meeting.agenda_details %></p>
       </div>
     <% end %>
+    <% if @district.general_fund_spent_on_police_percentage %>
+      <div class="section" data-spec="general-fund">
+        <h2 class="h4">General Fund</h2>
+        <div>
+          <div>
+            <!--TODO: pie chart-->
+          </div>
+          <div>
+            <p>
+              <span class="h3"><%= @district.general_fund_spent_on_police_percentage %>%</span>
+              of <%= @district.name %>'s <strong>2019 General Fund</strong>
+              was spent on law enforcement.
+            </p>
+            <p>
+              A general fund is money that the city can decide how to spend, and comes from a city's revenue, like taxes.
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <% if @district.more_funding_than.present? %>
       <div class="section">
         <h2 class="h4">Law enforcement gets more funding than:</h2>

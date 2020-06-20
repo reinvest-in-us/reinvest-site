@@ -69,24 +69,24 @@ RSpec.describe PoliceDistrict, type: :model do
   describe '#readable_budget' do
     context 'when present' do
       it 'returns amount in billions' do
-        district = FactoryBot.create(:police_district, fy_2019_policing_budget: 1_900_600_000)
+        district = FactoryBot.create(:police_district, total_police_department_budget: 1_900_600_000)
         expect(district.readable_budget).to eq('1.901B')
       end
 
       it 'returns amount in millions, rounded to nearest' do
-        district = FactoryBot.create(:police_district, fy_2019_policing_budget: 190_590_000)
+        district = FactoryBot.create(:police_district, total_police_department_budget: 190_590_000)
         expect(district.readable_budget).to eq('190.6M')
       end
 
       it 'handles amounts under 1 mil' do
-        district = FactoryBot.create(:police_district, fy_2019_policing_budget: 600_000)
+        district = FactoryBot.create(:police_district, total_police_department_budget: 600_000)
         expect(district.readable_budget).to eq('600K')
       end
     end
 
     context 'when not present' do
       it 'returns "---"' do
-        district = FactoryBot.create(:police_district, fy_2019_policing_budget: nil)
+        district = FactoryBot.create(:police_district, total_police_department_budget: nil)
         expect(district.readable_budget).to eq('---')
       end
     end
@@ -127,6 +127,38 @@ RSpec.describe PoliceDistrict, type: :model do
         travel_to Time.zone.now + 12.hours do
           expect(PoliceDistrict.find(district.id).next_meeting).to be_nil
         end
+      end
+    end
+  end
+
+  describe '#general_fund_spent_on_police_percentage' do
+    context 'when both total_general_fund_budget and total_police_paid_from_general_fund_budget are present' do
+      it 'calculates the percentage, rounded to neareset 1%' do
+        district = FactoryBot.build(:police_district,
+                                    total_general_fund_budget: 1000,
+                                    total_police_paid_from_general_fund_budget: 165)
+
+        expect(district.general_fund_spent_on_police_percentage).to eq(17)
+      end
+    end
+
+    context 'when total_general_fund_budget is nil' do
+      it 'returns nil' do
+        district = FactoryBot.build(:police_district,
+                                    total_general_fund_budget: nil,
+                                    total_police_paid_from_general_fund_budget: 10_000)
+
+        expect(district.general_fund_spent_on_police_percentage).to be_nil
+      end
+    end
+
+    context 'when total_police_paid_from_general_fund_budget is nil' do
+      it 'returns nil' do
+        district = FactoryBot.build(:police_district,
+                                    total_general_fund_budget: 10_000,
+                                    total_police_paid_from_general_fund_budget: nil)
+
+        expect(district.general_fund_spent_on_police_percentage).to be_nil
       end
     end
   end

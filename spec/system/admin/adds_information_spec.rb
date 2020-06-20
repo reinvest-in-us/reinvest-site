@@ -15,11 +15,12 @@ RSpec.describe 'information management' do
     click_on 'Add a new district'
 
     fill_in 'Name', with: 'BART PD'
-    fill_in 'FY2019 Budget', with: '160,000,000'
-    fill_in 'Total City Budget', with: '1,000,000,000'
-    fill_in 'General Fund Percent', with: '65'
+    fill_in 'Total Police FY2019 Budget', with: '160,000,000'
+    fill_in 'Total FY2019 City Budget', with: '1,000,000,000'
+    fill_in 'Total FY2019 General Fund Budget', with: '50,000,000'
+    fill_in 'Total FY2019 General Fund Spent on Police', with: '25,000,000'
     fill_in 'Decision makers', with: 'Cardamom Pod, Cumin Seed'
-    fill_in 'Decision makers text', with: "The following people are decision makers."
+    fill_in 'Decision makers text', with: 'The following people are decision makers.'
 
     fill_in 'police_district_law_enforcement_gets_more_than_1', with: 'Transit'
     fill_in 'police_district_law_enforcement_gets_more_than_1_dollars', with: '1000000'
@@ -41,6 +42,10 @@ RSpec.describe 'information management' do
 
     expect(page).to have_content('Transit')
     expect(page).to have_content('1000000')
+
+    within '[data-spec=general-fund]' do
+      expect(page).to have_text "50% of BART PD's 2019 General Fund was spent on law enforcement"
+    end
 
     visit '/admin/police_districts/bart-pd'
     expect(page).to have_text('Pacific Time (US & Canada)')

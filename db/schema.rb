@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_194347) do
+ActiveRecord::Schema.define(version: 2020_06_20_035929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,13 +41,12 @@ ActiveRecord::Schema.define(version: 2020_06_19_194347) do
   create_table "police_districts", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
-    t.integer "fy_2019_policing_budget"
+    t.integer "total_police_department_budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decision_makers"
     t.string "timezone"
-    t.bigint "total_city_budget"
-    t.integer "general_fund_percent"
+    t.bigint "total_district_budget"
     t.text "decision_makers_text"
     t.string "law_enforcement_gets_more_than_1"
     t.bigint "law_enforcement_gets_more_than_1_dollars"
@@ -55,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_06_19_194347) do
     t.bigint "law_enforcement_gets_more_than_2_dollars"
     t.string "law_enforcement_gets_more_than_3"
     t.bigint "law_enforcement_gets_more_than_3_dollars"
+    t.integer "total_general_fund_budget"
+    t.integer "total_police_paid_from_general_fund_budget"
     t.index ["slug"], name: "index_police_districts_on_slug", unique: true
   end
 

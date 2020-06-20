@@ -15,13 +15,19 @@ class PoliceDistrict < ApplicationRecord
   include ActionView::Helpers::NumberHelper
 
   def readable_budget
-    return '---' if fy_2019_policing_budget.nil?
+    return '---' if total_police_department_budget.nil?
 
-    number_to_human(fy_2019_policing_budget,format:'%n%u',precision: 4, units:{thousand:'K',million:'M',billion:'B'})
+    number_to_human(total_police_department_budget,format:'%n%u',precision: 4, units:{thousand:'K',million:'M',billion:'B'})
   end
 
   def next_meeting
     @next_meeting ||= meetings.where('event_datetime > ?', Time.zone.now - 8.hours).order('event_datetime').limit(1).first
+  end
+
+  def general_fund_spent_on_police_percentage
+    return unless total_general_fund_budget && total_police_paid_from_general_fund_budget
+
+    ((total_police_paid_from_general_fund_budget.to_f / total_general_fund_budget.to_f) * 100).round
   end
 
   def more_funding_than

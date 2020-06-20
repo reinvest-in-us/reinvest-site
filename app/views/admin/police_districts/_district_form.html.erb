@@ -14,18 +14,23 @@
       </div>
 
       <div class="form-group form-group--medium">
-        <%= f.label :fy_2019_policing_budget, 'FY2019 Budget' %>
-        <%= f.number_field :fy_2019_policing_budget, class: 'form-control' %>
+        <%= f.label :total_police_department_budget, 'Total Police FY2019 Budget' %>
+        <%= f.number_field :total_police_department_budget, class: 'form-control' %>
       </div>
 
       <div class="form-group form-group--medium">
-        <%= f.label :total_city_budget, 'Total City Budget' %>
-        <%= f.number_field :total_city_budget, class: 'form-control' %>
+        <%= f.label :total_district_budget, 'Total FY2019 City Budget' %>
+        <%= f.number_field :total_district_budget, class: 'form-control' %>
       </div>
 
       <div class="form-group form-group--medium">
-        <%= f.label :general_fund_percent, 'General Fund Percent' %>
-        <%= f.number_field :general_fund_percent, class: 'form-control' %>
+        <%= f.label :total_general_fund_budget, 'Total FY2019 General Fund Budget' %>
+        <%= f.number_field :total_general_fund_budget, class: 'form-control' %>
+      </div>
+
+      <div class="form-group form-group--medium">
+        <%= f.label :total_police_paid_from_general_fund_budget, 'Total FY2019 General Fund Spent on Police' %>
+        <%= f.number_field :total_police_paid_from_general_fund_budget, class: 'form-control' %>
       </div>
 
       <div class="form-group">

@@ -13,7 +13,9 @@ def create_district(name, slug)
   district.update(
     name: name,
     total_police_department_budget: rand(900_000..1_200_000_000),
-    timezone: 'Pacific Time (US & Canada)'
+    timezone: 'Pacific Time (US & Canada)',
+    total_general_fund_budget: 1_000_000_000,
+    total_police_paid_from_general_fund_budget: 420_000_000
   )
   meeting = Meeting.create(
     police_district: district,

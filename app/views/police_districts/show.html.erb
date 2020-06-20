@@ -27,18 +27,20 @@
       <div class="section" data-spec="general-fund">
         <h2 class="h4">General Fund</h2>
         <div>
-          <div>
-            <!--TODO: pie chart-->
+          <div class="general-fund">
+            <div class="pie-chart">
+              <!--TODO: pie chart-->
+            </div>
+            <div class="general-fund-details">
+              <div class="general-fund-percentage"><%= @district.general_fund_spent_on_police_percentage %>%</div>
+              <div>
+                of <%= @district.name %>'s <strong>2019 General Fund</strong>
+                was spent on law enforcement.
+              </div>
+            </div>
           </div>
-          <div>
-            <p>
-              <span class="h3"><%= @district.general_fund_spent_on_police_percentage %>%</span>
-              of <%= @district.name %>'s <strong>2019 General Fund</strong>
-              was spent on law enforcement.
-            </p>
-            <p>
-              A general fund is money that the city can decide how to spend, and comes from a city's revenue, like taxes.
-            </p>
+          <div class="general-fund-definition">
+            A general fund is money that the city can decide how to spend, and comes from a city's revenue, like taxes.
           </div>
         </div>
       </div>

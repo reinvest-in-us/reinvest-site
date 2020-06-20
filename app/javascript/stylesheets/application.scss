@@ -3,6 +3,7 @@
 @import './admin.scss';
 
 $blue: #3B629C;
+$gray: #727380;
 $metal: #2B2D42;
 $pink1: #ECDDDE;
 $pink2: #E9B1B5;
@@ -150,6 +151,30 @@ main {
   .h2 {
     font-size: 72px;
   }
+}
+
+.general-fund {
+  align-items: center;
+  display: flex;
+}
+
+.general-fund-definition {
+  color: $gray;
+  font-size: 19px;
+  line-height: 150%;
+}
+
+.general-fund-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 19px;
+  margin-left: 36px;
+}
+
+.general-fund-percentage {
+  font-family: 'Poppins-Bold';
+  font-size: 48px;
+  line-height: 120%;
 }
 
 .how-to-comment {
@@ -321,6 +346,14 @@ main {
   height: 32px;
   margin-right: 4px;
   width: 32px;
+}
+
+.pie-chart {
+  background-color: $pink1;
+  border-radius: 109px;
+  height: 218px;
+  margin: 24px 0px;
+  width: 218px;
 }
 
 .pink-text {

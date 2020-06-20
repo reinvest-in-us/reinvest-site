@@ -3,6 +3,7 @@
 @import './admin.scss';
 
 $metal: #2B2D42;
+$pink1: #ECDDDE;
 $pink2: #E9B1B5;
 $pink3: #8D6E70;
 $yellow: #FAD967;
@@ -118,6 +119,28 @@ main {
   .h2 {
     font-size: 72px;
   }
+}
+
+.how-to-comment {
+  align-items: center;
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.how-to-comment-instruction {
+  font-size: 19px;
+  line-height: 150%;
+}
+
+.how-to-comment-number {
+  align-items: center;
+  background-color: $pink1;
+  border-radius: 28px;
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  margin-right: 24px;
+  width: 56px;
 }
 
 .main-jumbotron {

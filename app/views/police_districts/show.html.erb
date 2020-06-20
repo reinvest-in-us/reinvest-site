@@ -3,31 +3,36 @@
 
   <div class="container district-info">
     <div class="section">
-      <h2 class="h3">Decision Makers</h2>
-      <p><%= @district.decision_makers_text %></p>
-      <p><%= @district.decision_makers %></p>
+      <h2 class="h4">How to comment</h2>
+      <% (@district.next_meeting&.how_to_comment || '').split("\n").each_with_index do |step, i| %>
+        <div class="how-to-comment">
+          <div class="how-to-comment-number">
+            <div class="h4"><%= "#{i + 1}" %></div>
+          </div>
+          <div class="how-to-comment-instruction"><%= "#{step}" %></div>
+        </div>
+      <% end %>
     </div>
+    <% if @district.next_meeting&.agenda_link %>
+      <div class="section">
+        <h2 class="h4">Agenda</h2>
+        <p><a href="<%= @district.next_meeting.agenda_link %>">Review this meeting's agenda</a></p>
+        <p><%= @district.next_meeting.agenda_details %></p>
+      </div>
+    <% end %>
     <% if @district.more_funding_than.present? %>
       <div class="section">
-        <h2 class="h3">Law enforcement gets more funding than:</h2>
+        <h2 class="h4">Law enforcement gets more funding than:</h2>
         <% @district.more_funding_than.map do |funding| %>
               <p><%= funding[:name] %></p>
               <p><%= funding[:amount] %></p>
         <% end %>
       </div>
     <% end %>
-    <% if @district.next_meeting&.agenda_link %>
-      <div class="section">
-        <h2 class="h3">Agenda</h2>
-        <p><a href="<%= @district.next_meeting.agenda_link %>">Review this meeting's agenda</a></p>
-        <p><%= @district.next_meeting.agenda_details %></p>
-      </div>
-    <% end %>
     <div class="section">
-      <h2 class="h3">How to comment</h2>
-      <% (@district.next_meeting&.how_to_comment || '').split("\n").each_with_index do |step, i| %>
-        <p><%= "#{i + 1}: #{step}" %></p>
-      <% end %>
+      <h2 class="h4">Decision Makers</h2>
+      <p><%= @district.decision_makers_text %></p>
+      <p><%= @district.decision_makers %></p>
     </div>
   </div>
 </div>

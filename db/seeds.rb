@@ -18,7 +18,8 @@ def create_district(name, slug)
   meeting = Meeting.create(
     police_district: district,
     event_datetime: Date.today + rand(2..30).days,
-    phone_number: "555-123-4567"
+    phone_number: "555-123-4567",
+    how_to_comment: "Call 1-800-555-5555 to join the meeting.\nPress * 9 to raise your hand to speak.\nWait until you are unmuted and begin speaking.\n"
   )
   puts "Created or updated district with slug '#{district.slug}'"
 end

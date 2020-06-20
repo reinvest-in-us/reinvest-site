@@ -15,9 +15,10 @@ def create_district(name, slug)
     total_police_department_budget: rand(900_000..1_200_000_000),
     timezone: 'Pacific Time (US & Canada)',
     total_general_fund_budget: 1_000_000_000,
-    total_police_paid_from_general_fund_budget: 420_000_000
+    total_police_paid_from_general_fund_budget: 420_000_000,
+    decision_makers_text: "A budget proposal is made by the mayor, advised by the Budget Advisory Committee."
   )
-  meeting = Meeting.create(
+  Meeting.create(
     police_district: district,
     event_datetime: Date.today + rand(2..30).days,
     phone_number: "555-123-4567",
@@ -25,6 +26,14 @@ def create_district(name, slug)
     agenda_link: "www.google.com",
     agenda_details: "Zero Tolerance Policy For Racist Practices, OPD Spotshotter Contract"
   )
+
+  ElectedOfficial.create(
+    police_district: district,
+    name: "Sandra Lee Fewer",
+    position: "District 1",
+    reelection_date: "Nov. 2020"
+  )
+
   puts "Created or updated district with slug '#{district.slug}'"
 end
 

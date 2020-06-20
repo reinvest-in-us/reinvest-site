@@ -13,4 +13,9 @@
   .navbar {
     position: initial;
   }
+
+  .form-group--medium {
+    @extend .col-md-4;
+    @extend .pl-0;
+  }
 }

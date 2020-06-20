@@ -1,27 +1,29 @@
 <div class="container">
   <%= form_for @district, url: @district.persisted? ? admin_police_district_path(@district) : admin_police_districts_url do |f| %>
-      <div class="form-group col-md-4 pl-0">
+      <div class="form-group form-group--medium">
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
 
-      <div class="form-group col-md-4 pl-0">
+      <div class="form-group form-group--medium">
         <%= f.label :timezone %>
-        <%= f.select :timezone,
-                     options_for_select(PoliceDistrict::TIME_ZONE_OPTIONS, (@district.timezone || PoliceDistrict::TIME_ZONE_OPTIONS.first)) %>
+        <div>
+          <%= f.select :timezone,
+                       options_for_select(PoliceDistrict::TIME_ZONE_OPTIONS, (@district.timezone || PoliceDistrict::TIME_ZONE_OPTIONS.first)) %>
+        </div>
       </div>
 
-      <div class="form-group col-md-4 pl-0">
+      <div class="form-group form-group--medium">
         <%= f.label :fy_2019_policing_budget, 'FY2019 Budget' %>
         <%= f.number_field :fy_2019_policing_budget, class: 'form-control' %>
       </div>
 
-      <div class="form-group col-md-4 pl-0">
+      <div class="form-group form-group--medium">
         <%= f.label :total_city_budget, 'Total City Budget' %>
         <%= f.number_field :total_city_budget, class: 'form-control' %>
       </div>
 
-      <div class="form-group col-md-4 pl-0">
+      <div class="form-group form-group--medium">
         <%= f.label :general_fund_percent, 'General Fund Percent' %>
         <%= f.number_field :general_fund_percent, class: 'form-control' %>
       </div>

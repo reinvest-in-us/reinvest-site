@@ -75,7 +75,7 @@ RSpec.describe 'information management' do
       select '2020',  :from => "meeting_event_datetime_1i" #year
       select 'June',  :from => "meeting_event_datetime_2i" #month
       select '10', :from => "meeting_event_datetime_3i" #day
-      select '02',  :from => "meeting_event_datetime_4i" #hour
+      select '02 AM',  :from => "meeting_event_datetime_4i" #hour
       select '30',  :from => "meeting_event_datetime_5i" #minute
 
       fill_in 'Meeting agenda link', with: 'example.com'
@@ -88,7 +88,7 @@ RSpec.describe 'information management' do
       expect(page).to have_content('555-123-4567')
       expect(page).to have_content('Jun 10, 2020 @ 2:30am')
 
-      within('.district-card') { click_on 'Edit' }
+      within('[data-spec=meetings]') { click_on 'Edit' }
 
       fill_in 'Call-in phone number', with: '515-111-1234'
       click_on 'Update Meeting'

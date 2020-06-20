@@ -5,9 +5,11 @@
     <div><%= @meeting.errors.full_messages.join("\n") if @meeting.errors.any? %></div>
     <div class="form-group">
       <%= f.label :event_datetime, 'Meeting date and time' %>
-      <%= f.datetime_select :event_datetime %>
+      <div>
+        <%= f.datetime_select :event_datetime, ampm: true, default: 3.days.from_now.beginning_of_hour.in_time_zone(@district.timezone) %>
+      </div>
     </div>
-    <div class="form-group">
+    <div class="form-group form-group--medium">
       <%= f.label :phone_number, 'Call-in phone number' %>
       <%= f.text_field :phone_number, class: 'form-control' %>
     </div>

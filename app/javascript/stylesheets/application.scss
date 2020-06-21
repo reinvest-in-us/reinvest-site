@@ -239,13 +239,12 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 
 .general-fund-definition {
   color: $gray;
+  margin-top: 24px;
   font-size: 19px;
   line-height: 150%;
 }
 
 .general-fund-details {
-  display: flex;
-  flex-direction: column;
   font-size: 19px;
   margin-left: 36px;
 }
@@ -444,11 +443,8 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .pie-chart {
-  background-color: $pink1;
-  border-radius: 109px;
   flex-shrink: 0;
   height: 218px;
-  margin: 24px 0px;
   width: 218px;
 }
 

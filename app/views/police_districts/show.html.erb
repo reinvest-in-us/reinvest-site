@@ -1,3 +1,7 @@
+<%if @district.general_fund_spent_on_police_percentage %>
+  <%= javascript_pack_tag 'percentage-chart' %>
+<% end %>
+
 <div class="white-background">
   <%= render partial: 'shared/district_header', locals: { district: @district } %>
 
@@ -38,18 +42,23 @@
         <div>
           <div class="general-fund">
             <div class="pie-chart">
-              <!--TODO: pie chart-->
+            <canvas
+              id="myChart"
+              data-general_fund_spent_on_police_percentage=<%= @district.general_fund_spent_on_police_percentage %>
+              width="400"
+              height="400">
+            </canvas>
             </div>
             <div class="general-fund-details">
-              <div class="general-fund-percentage"><%= @district.general_fund_spent_on_police_percentage %>%</div>
-              <div>
+              <span class="general-fund-percentage"><%= @district.general_fund_spent_on_police_percentage %>%</span>
+              <span>
                 of <%= @district.name %>'s <strong>2019 General Fund</strong>
                 was spent on law enforcement.
-              </div>
-            </div>
-          </div>
-          <div class="general-fund-definition">
+              </span>
+              <div class="general-fund-definition">
             A general fund is money that the city can decide how to spend, and comes from a city's revenue, like taxes.
+          </div>
+            </div>
           </div>
         </div>
       </div>

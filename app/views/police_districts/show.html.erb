@@ -18,7 +18,7 @@
         <h2 class="h4">Agenda</h2>
         <div class="agenda-link">
           <div class="agenda-icon"></div>
-          <div><%= link_to "Review this meeting's agenda", @district.next_meeting.agenda_link, target: :_blank %></div>
+          <div><%= link_to "Review this meeting's agenda", @district.next_meeting.agenda_link_prefixed, target: :_blank %></div>
         </div>
         <div class="agenda-details"><%= "Items related to law enforcement on this agenda: #{@district.next_meeting.agenda_details}" %></div>
       </div>

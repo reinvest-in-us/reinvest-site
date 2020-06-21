@@ -69,15 +69,22 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   margin-top: 16px;
 }
 
-.agenda-icon {
+.link-icon {
   background-color: $pink1;
-  background-image: url(assets/icons/ic_agenda.svg);
   background-size: 100%;
   flex-shrink: 0;
 }
 
+.link-icon.agenda {
+  background-image: url(assets/icons/ic_agenda.svg);
+}
+
+.link-icon.email {
+  background-image: url(assets/icons/ic_email.svg);
+}
+
 @media(min-width: 569px) {
-  .agenda-icon {
+  .link-icon {
     border-radius: 28px;
     height: 56px;
     margin-right: 24px;
@@ -86,7 +93,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 @media(max-width: 568px) {
-  .agenda-icon {
+  .link-icon {
     border-radius: 18px;
     height: 36px;
     margin-right: 12px;

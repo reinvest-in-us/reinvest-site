@@ -38,6 +38,7 @@ RSpec.describe 'information viewing' do
     expect(page).to have_content('Jun 30, 2022 @ 11:30am')
     expect(page).to have_content('Some people decide on these things')
     expect(page).to have_content('Call in and talk')
+    expect(page).to have_link('Add to calendar')
   end
 
   it 'has an about page' do

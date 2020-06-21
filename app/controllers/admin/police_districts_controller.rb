@@ -1,4 +1,6 @@
 class Admin::PoliceDistrictsController < Admin::ApplicationController
+  include GoogleCalendarable
+
   def new
     @district = PoliceDistrict.new
 

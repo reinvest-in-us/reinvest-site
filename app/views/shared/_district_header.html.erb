@@ -9,9 +9,8 @@
             <div class="calendar-icon"></div>
             <div class="next-meeting-time"><%= next_meeting.formatted_event_datetime %></div>
           </div>
-          <!--TODO: link to google calendar -->
-          <a href="" class="add-to-calendar-button">Add to calendar</a>
-        <% else %>
+          <%= link_to "Add to calendar", google_calendar_link, class: "add-to-calendar-button" %>
+      <% else %>
           <div>Check back soon</div>
         <% end %>
       </div>

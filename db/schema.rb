@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_224004) do
+ActiveRecord::Schema.define(version: 2020_06_21_003406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_224004) do
     t.string "agenda_link"
     t.text "agenda_details"
     t.text "how_to_comment"
+    t.string "video_link"
     t.index ["police_district_id"], name: "index_meetings_on_police_district_id"
   end
 

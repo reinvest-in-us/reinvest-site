@@ -46,6 +46,11 @@ RSpec.describe 'information management' do
       expect(page).to have_text "of BART PD's 2019 General Fund was spent on law enforcement"
     end
 
+    within '[data-spec=general-fund]' do
+      expect(page).to have_text "50%"
+      expect(page).to have_text "of BART PD's 2019 General Fund was spent on law enforcement"
+    end
+
     visit '/admin/police_districts/bart-pd'
     expect(page).to have_text('Pacific Time (US & Canada)')
   end
@@ -76,6 +81,7 @@ RSpec.describe 'information management' do
       click_on 'Add budget meeting'
 
       fill_in 'Call-in phone number', with: '555-123-4567'
+      fill_in 'Video conference link', with: 'https://example.com/meeting'
       select '2020',  :from => "meeting_event_datetime_1i" #year
       select 'June',  :from => "meeting_event_datetime_2i" #month
       select '10', :from => "meeting_event_datetime_3i" #day
@@ -103,7 +109,8 @@ RSpec.describe 'information management' do
 
       expect(page).to have_content('Do this.')
       expect(page).to have_content('Do that.')
-      expect(page).to have_content("Review this meeting's agenda")
+      expect(page).to have_link("Review this meeting's agenda")
+      expect(page).to have_link('Watch this meeting online')
       expect(page).to have_content('First, transporation budget, then police budget')
     end
   end

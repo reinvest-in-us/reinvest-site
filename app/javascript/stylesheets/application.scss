@@ -167,12 +167,17 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
+.district-card-details-secondary-container {
+  display: flex;
+}
+
 @media(min-width: 569px) {
   .district-card-details-secondary-container {
     background-image: url(assets/images/pink-slant.svg);
     background-position: left center;
     background-repeat: no-repeat;
     background-size: auto 100%;
+    justify-content: flex-end;
     width: 316px;
   }
 }
@@ -192,7 +197,8 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   .district-card-details-secondary-text {
     align-items: flex-end;
     flex-direction: column;
-    padding: 20px 56px 36px 56px;
+    justify-content: center;
+    padding: 20px 32px 24px 32px;
   }
 }
 
@@ -201,10 +207,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
     align-items: center;
     justify-content: space-between;
     padding: 12px 20px;
-
-    .pink-text {
-      width: 180px;
-    }
+    width: 100%;
   }
 }
 
@@ -635,7 +638,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   letter-spacing: 1px;
   line-height: 18px;
   text-transform: uppercase;
-  width: 128px;
+  width: 180px;
 }
 
 .section {

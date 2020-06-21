@@ -39,4 +39,10 @@ RSpec.describe 'information viewing' do
     expect(page).to have_content('Some people decide on these things')
     expect(page).to have_content('Call in and talk')
   end
+
+  it 'has an about page' do
+    visit '/about'
+
+    expect(page).to have_content('About this site')
+  end
 end

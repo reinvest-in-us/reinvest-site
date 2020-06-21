@@ -155,14 +155,14 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   padding: 0px;
 }
 
-@media(min-width: 569px) {
+@media(min-width: 781px) {
   .district-jumbotron {
     align-items: center;
     height: 500px;
   }
 }
 
-@media(max-width: 568px) {
+@media(max-width: 780px) {
   .district-jumbotron {
     flex-direction: column;
   }
@@ -180,14 +180,14 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
-@media(min-width: 569px) {
+@media(min-width: 781px) {
   .district-jumbotron-budget {
     align-items: flex-end;
     background-image: url(assets/images/blue-slant.svg);
     background-position: left center;
     background-repeat: no-repeat;
     background-size: auto 100%;
-    padding-right: 128px;
+    padding-right: 64px;
     text-align: end;
     width: calc(40% + 128px);
 
@@ -197,11 +197,17 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
-@media(max-width: 568px) {
+@media(min-width: 1028px) {
+  .district-jumbotron-budget {
+    padding-right: 128px;
+  }
+}
+
+@media(max-width: 780px) {
   .district-jumbotron-budget {
     align-items: flex-start;
     background-color: $metal;
-    padding: 20px 24px;
+    padding: 20px 48px 24px 48px;
 
     .h3 {
       font-size: 44px;
@@ -215,20 +221,41 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
+@media(max-width: 568px) {
+  .district-jumbotron-budget {
+    padding: 24px;
+  }
+}
+
 .district-jumbotron-info {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
 }
 
-@media(min-width: 569px) {
+@media(min-width: 781px) {
   .district-jumbotron-info {
-    padding-left: 128px;
+    padding-left: 64px;
 
     .h3 {
       font-size: 72px;
       line-height: 100%;
     }
+  }
+}
+
+@media(min-width: 569px) {
+  .district-jumbotron-info {
+    padding-left: 48px;
+    margin: 96px 0 56px 0;
+  }
+}
+
+@media(min-width: 1028px) {
+  .district-jumbotron-info {
+    padding-left: 128px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
 

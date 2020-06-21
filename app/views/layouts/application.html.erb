@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body class="<%= body_classes %>">
+  <body class="<%= body_classes.join(' ') %>">
       <nav class="navbar navbar-expand-lg justify-content-between">
         <%= link_to '', root_path, class: 'navbar-brand' %>
         <div class="navbar-nav">

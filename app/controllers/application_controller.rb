@@ -6,5 +6,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :body_classes
 
-  def body_classes; end
+  def body_classes
+    [controller_name, action_name]
+  end
 end

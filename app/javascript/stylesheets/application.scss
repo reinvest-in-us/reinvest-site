@@ -27,14 +27,25 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   background-color: white;
   border: 2px solid $metal;
   color: $metal;
-  display: block;
+  display: flex;
   font-family: 'Poppins-Bold';
   line-height: 48px;
-  margin-top: 36px;
   padding: 0px 16px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+@media(min-width: 569px) {
+  a.add-to-calendar-button, a.add-to-calendar-button:hover {
+    margin-top: 36px;
+  }
+}
+
+@media(max-width: 568px) {
+  a.add-to-calendar-button, a.add-to-calendar-button:hover {
+    margin-top: 20px;
+  }
 }
 
 .agenda-details {
@@ -48,6 +59,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   background-image: url(assets/icons/ic_agenda.svg);
   background-size: 100%;
   border-radius: 28px;
+  flex-shrink: 0;
   height: 56px;
   margin-right: 24px;
   width: 56px;
@@ -93,6 +105,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .district-card-bullet {
+  align-items: center;
   display: flex;
   font-size: 16px;
   line-height: 225%;
@@ -125,46 +138,97 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   @extend .jumbotron;
   @extend .jumbotron-fluid;
 
-  align-items: center;
   background-color: $yellow;
   display: flex;
-  height: 500px;
   justify-content: space-between;
   margin-bottom: 0px;
   padding: 0px;
 }
 
+@media(min-width: 569px) {
+  .district-jumbotron {
+    align-items: center;
+    height: 500px;
+  }
+}
+
+@media(max-width: 568px) {
+  .district-jumbotron {
+    flex-direction: column;
+  }
+}
+
 .district-jumbotron-budget {
-  align-items: flex-end;
-  background-image: url(assets/images/blue-slant.svg);
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
   color: $pink2;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: center;
-  padding-right: 128px;
-  text-align: end;
-  width: calc(40% + 128px);
-
-  .h3 {
-    font-size: 88px;
-  }
 
   .pink-text {
     color: $pink2;
   }
 }
 
+@media(min-width: 569px) {
+  .district-jumbotron-budget {
+    align-items: flex-end;
+    background-image: url(assets/images/blue-slant.svg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    padding-right: 128px;
+    text-align: end;
+    width: calc(40% + 128px);
+
+    .h3 {
+      font-size: 88px;
+    }
+  }
+}
+
+@media(max-width: 568px) {
+  .district-jumbotron-budget {
+    align-items: flex-start;
+    background-color: $metal;
+    padding: 20px 24px;
+
+    .h3 {
+      font-size: 44px;
+      line-height: 100%;
+    }
+
+    .pink-text {
+      margin-top: 6px;
+      width: 100%;
+    }
+  }
+}
+
 .district-jumbotron-info {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  padding-left: 128px;
+}
 
-  .h2 {
-    font-size: 72px;
+@media(min-width: 569px) {
+  .district-jumbotron-info {
+    padding-left: 128px;
+
+    .h3 {
+      font-size: 72px;
+      line-height: 100%;
+    }
+  }
+}
+
+@media(max-width: 568px) {
+  .district-jumbotron-info {
+    margin: 120px 24px 56px 24px;
+
+    .h3 {
+      font-size: 44px;
+    }
   }
 }
 
@@ -208,6 +272,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   background-color: $pink1;
   border-radius: 28px;
   display: flex;
+  flex-shrink: 0;
   height: 56px;
   justify-content: center;
   margin-right: 24px;
@@ -243,14 +308,11 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .district-info {
-  @extend .py-5;
+  max-width: 976px;
+  padding-top: 72px;
 
   h2 {
     text-transform: uppercase;
-  }
-
-  p:last-of-type {
-    @extend .pb-5;
   }
 }
 
@@ -349,11 +411,29 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   text-transform: uppercase;
 }
 
+.next-meeting-time {
+  line-height: 48px;
+}
+
 .next-meeting-title {
   font-family: 'Poppins-Bold';
   letter-spacing: 1px;
-  line-height: 175%;
   text-transform: uppercase;
+}
+
+@media(min-width: 569px) {
+  .next-meeting-title {
+    line-height: 175%;
+    margin-top: 36px;
+  }
+}
+
+@media(max-width: 568px) {
+  .next-meeting-title {
+    font-size: 14px;
+    line-height: 100%;
+    margin-top: 20px;
+  }
 }
 
 .phone-icon {
@@ -366,6 +446,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 .pie-chart {
   background-color: $pink1;
   border-radius: 109px;
+  flex-shrink: 0;
   height: 218px;
   margin: 24px 0px;
   width: 218px;
@@ -375,7 +456,6 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   color: $pink3;
   font-family: 'Poppins-Bold';
   font-size: 12px;
-  height: 54px;
   letter-spacing: 1px;
   line-height: 18px;
   text-transform: uppercase;

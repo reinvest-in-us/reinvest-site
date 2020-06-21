@@ -1,21 +1,19 @@
 <div class="district-jumbotron">
       <div class="district-jumbotron-info">
         <div class="h3"><%= district.name %></div>
-        <div>
-          <div class="next-meeting-title">
-            Next budget meeting
-          </div>
-          <% if next_meeting = district.next_meeting %>
-            <div class="district-card-bullet">
-              <div class="calendar-icon"></div>
-              <div><%= next_meeting.formatted_event_datetime %></div>
-            </div>
-            <!--TODO: link to google calendar -->
-            <a href="" class="add-to-calendar-button">Add to calendar</a>
-          <% else %>
-            <div>Check back soon</div>
-          <% end %>
+        <div class="next-meeting-title">
+          Next budget meeting
         </div>
+        <% if next_meeting = district.next_meeting %>
+          <div class="district-card-bullet">
+            <div class="calendar-icon"></div>
+            <div class="next-meeting-time"><%= next_meeting.formatted_event_datetime %></div>
+          </div>
+          <!--TODO: link to google calendar -->
+          <a href="" class="add-to-calendar-button">Add to calendar</a>
+        <% else %>
+          <div>Check back soon</div>
+        <% end %>
       </div>
 
       <div class="district-jumbotron-budget">

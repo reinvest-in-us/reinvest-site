@@ -23,6 +23,20 @@ main {
   background-color: black;
 }
 
+a.add-to-calendar-button, a.add-to-calendar-button:hover {
+  background-color: white;
+  border: 2px solid $metal;
+  color: $metal;
+  display: block;
+  font-family: 'Poppins-Bold';
+  line-height: 48px;
+  margin-top: 36px;
+  padding: 0px 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .agenda-details {
   font-size: 19px;
   line-height: 150%;
@@ -133,7 +147,7 @@ main {
   justify-content: center;
   padding-right: 128px;
   text-align: end;
-  width: 40%;
+  width: calc(40% + 128px);
 
   .h3 {
     font-size: 88px;

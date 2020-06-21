@@ -10,7 +10,7 @@ export function buildChart(canvasId) {
             datasets: [{
                 data: [percent, 100 - percent],
                 backgroundColor: [
-                    'rgb(0,0,0)',
+                    '#2b2d42',
                     '#ECDDDE'
                 ],
             }],
@@ -22,6 +22,9 @@ export function buildChart(canvasId) {
         options: {
             legend: {
                 display: false
+            },
+            tooltips: {
+                enabled: false,
             },
         }
     });

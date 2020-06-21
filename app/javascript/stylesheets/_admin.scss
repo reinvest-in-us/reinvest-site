@@ -18,4 +18,12 @@
     @extend .col-md-4;
     @extend .pl-0;
   }
+
+  .container {
+    @extend .pt-5;
+  }
+
+  .district-card {
+    border: 1px solid lightgray;
+  }
 }

@@ -1,6 +1,6 @@
 <div id="district-<%= district.slug %>" class="district-card">
   <div class="district-card-details-primary">
-    <h2 class="h4"><%= link_to district.name, police_district_path(district) %></h2>
+    <h2 class="h4"><%= link_to district.name, district_path %></h2>
     <div>
       <% if next_meeting = district.next_meeting %>
         <div class="district-card-bullet">

@@ -22,8 +22,7 @@ RSpec.describe 'information viewing' do
   it 'shows index of districts, and allows visiting district info page' do
     visit '/'
 
-    expect(page).to have_content('Show up.')
-    expect(page).to have_content('Defund violence.')
+    expect(page).to have_content('Reinvest in us.')
 
     within '#district-down-town' do
       expect(page).to have_content('Down town')

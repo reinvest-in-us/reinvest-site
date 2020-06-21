@@ -18,9 +18,18 @@
         <h2 class="h4">Agenda</h2>
         <div class="agenda-link">
           <div class="agenda-icon"></div>
-          <div><a href="<%= @district.next_meeting.agenda_link %>">Review this meeting's agenda</a></div>
+          <div><%= link_to "Review this meeting's agenda", @district.next_meeting.agenda_link, target: :_blank %></div>
         </div>
         <div class="agenda-details"><%= "Items related to law enforcement on this agenda: #{@district.next_meeting.agenda_details}" %></div>
+      </div>
+    <% end %>
+    <% if @district.next_meeting&.video_link %>
+      <div class="section">
+        <h2 class="h4">Watch</h2>
+        <div class="">
+          <div class=""></div>
+          <div><%= link_to "Watch this meeting online", @district.next_meeting.video_link, target: :_blank %></div>
+        </div>
       </div>
     <% end %>
     <% if @district.general_fund_spent_on_police_percentage %>

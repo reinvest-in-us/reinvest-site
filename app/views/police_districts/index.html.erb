@@ -10,6 +10,6 @@
   <h1 class="h2">Cities & districts</h1>
   <div>Want to help us add a city or police district that isn't here? <a href="" class="link-yellow">Get in touch.</a></div>
   <% @districts.each do |district| %>
-    <%= render partial: 'district_card', locals: {district: district } %>
+    <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
   <% end %>
 </div>

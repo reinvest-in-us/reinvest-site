@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="mb-5 mt-5">
+  <div class="mb-5">
     <%= link_to 'Add a new district', new_admin_police_district_path, class: 'btn btn-primary' %>
   </div>
 
   <% @districts.each do |district| %>
-      <%= render partial: 'district_card', locals: { district: district } %>
+      <%= render partial: 'shared/district_card', locals: { district: district, district_path: admin_police_district_path(district) } %>
   <% end %>
 </div>

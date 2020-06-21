@@ -1,25 +1,27 @@
 class Admin::MeetingsController < Admin::ApplicationController
   before_action :set_police_district
 
+  include Timezonable
+
   def new
     @meeting = Meeting.new(police_district: @district)
   end
 
   def edit
     @meeting = Meeting.find(params[:id])
-    @meeting.event_datetime = @meeting.event_datetime.in_time_zone(@district.timezone).asctime
+    @meeting.event_datetime = strip_timezone(@meeting.event_datetime, @district.timezone)
 
     render :new
   end
 
   def create
     @meeting = @district.meetings.build(meeting_params)
-    @meeting.event_datetime = @meeting.event_datetime.asctime.in_time_zone(@district.timezone)
+    @meeting.event_datetime = set_timezone(@meeting.event_datetime, @district.timezone)
 
     if @meeting.save
       redirect_to admin_police_district_path(@district)
     else
-      @meeting.event_datetime = @meeting.event_datetime.in_time_zone(@district.timezone).asctime
+      @meeting.event_datetime = strip_timezone(@meeting.event_datetime, @district.timezone)
       render :new
     end
   end
@@ -27,12 +29,12 @@ class Admin::MeetingsController < Admin::ApplicationController
   def update
     @meeting = Meeting.find(params[:id])
     @meeting.assign_attributes(meeting_params)
-    @meeting.event_datetime = @meeting.event_datetime.asctime.in_time_zone(@district.timezone)
+    @meeting.event_datetime = set_timezone(@meeting.event_datetime, @district.timezone)
 
     if @meeting.save
       redirect_to admin_police_district_path(@district)
     else
-      @meeting.event_datetime = @meeting.event_datetime.in_time_zone(@district.timezone).asctime
+      @meeting.event_datetime = strip_timezone(@meeting.event_datetime, @district.timezone)
       render :new
     end
   end

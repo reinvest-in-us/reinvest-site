@@ -56,9 +56,25 @@ RSpec.describe Admin::MeetingsController, type: :controller do
       end
 
       it 'converts datetime from district timezone to UTC before storing' do
-        expect do
-          post :update, params: valid_params
-        end.to change{ meeting.reload.event_datetime }.to eq(DateTime.new(2027,6,14,11,0,0,'0'))
+        travel_to Date.parse('2020-06-03') do
+          expect do
+            post :update, params: valid_params
+          end.to change{ meeting.reload.event_datetime }.to eq(DateTime.new(2027,6,14,11,0,0,'0'))
+        end
+      end
+    end
+
+    describe '#edit' do
+      let!(:meeting) { FactoryBot.create(:meeting, event_datetime: DateTime.new(2025,1,20,11,0,0,0)) }
+
+      render_views
+
+      it 'converts time to district timezone, but strips timezone' do
+        travel_to Date.parse('2020-06-03') do
+          get :edit, params: { id: meeting.id, police_district_id: district.slug }
+        end
+
+        expect(response.body).to include('<option value="03" selected="selected">03 AM</option>')
       end
     end
   end

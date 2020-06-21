@@ -5,15 +5,15 @@
 <div class="white-background">
   <%= render partial: 'shared/district_header', locals: { district: @district } %>
 
-  <div class="container district-info">
+  <div class="district-info">
     <div class="section">
       <h2 class="h4">How to comment</h2>
       <% (@district.next_meeting&.how_to_comment || '').split("\n").each_with_index do |step, i| %>
         <div class="how-to-comment">
           <div class="how-to-comment-number">
-            <div class="h4"><%= "#{i + 1}" %></div>
+            <div><%= "#{i + 1}" %></div>
           </div>
-          <div class="how-to-comment-instruction"><%= "#{step}" %></div>
+          <div><%= "#{step}" %></div>
         </div>
       <% end %>
     </div>

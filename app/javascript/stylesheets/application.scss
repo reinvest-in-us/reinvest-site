@@ -49,8 +49,6 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .agenda-details {
-  font-size: 19px;
-  line-height: 150%;
   margin-top: 16px;
 }
 
@@ -58,11 +56,25 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   background-color: $pink1;
   background-image: url(assets/icons/ic_agenda.svg);
   background-size: 100%;
-  border-radius: 28px;
   flex-shrink: 0;
-  height: 56px;
-  margin-right: 24px;
-  width: 56px;
+}
+
+@media(min-width: 569px) {
+  .agenda-icon {
+    border-radius: 28px;
+    height: 56px;
+    margin-right: 24px;
+    width: 56px;
+  }
+}
+
+@media(max-width: 568px) {
+  .agenda-icon {
+    border-radius: 18px;
+    height: 36px;
+    margin-right: 12px;
+    width: 36px;
+  }
 }
 
 .agenda-link {
@@ -73,8 +85,6 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   a {
     color: $blue;
     font-family: 'Poppins-Bold';
-    font-size: 19px;
-    line-height: 150%;
     text-decoration: underline;
   }
 }
@@ -240,12 +250,9 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 .general-fund-definition {
   color: $gray;
   margin-top: 24px;
-  font-size: 19px;
-  line-height: 150%;
 }
 
 .general-fund-details {
-  font-size: 19px;
   margin-left: 36px;
 }
 
@@ -261,21 +268,33 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   margin-top: 24px;
 }
 
-.how-to-comment-instruction {
-  font-size: 19px;
-  line-height: 150%;
-}
-
 .how-to-comment-number {
   align-items: center;
   background-color: $pink1;
-  border-radius: 28px;
   display: flex;
   flex-shrink: 0;
-  height: 56px;
+  font-family: 'Martin';
   justify-content: center;
-  margin-right: 24px;
-  width: 56px;
+}
+
+@media(min-width: 569px) {
+  .how-to-comment-number {
+    border-radius: 28px;
+    font-size: 48px;
+    height: 56px;
+    margin-right: 24px;
+    width: 56px;
+  }
+}
+
+@media(max-width: 568px) {
+  .how-to-comment-number {
+    border-radius: 18px;
+    font-size: 24px;
+    height: 36px;
+    margin-right: 12px;
+    width: 36px;
+  }
 }
 
 .main-jumbotron {
@@ -307,11 +326,30 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .district-info {
-  max-width: 976px;
-  padding-top: 72px;
+  @extend .container;
 
-  h2 {
-    text-transform: uppercase;
+  line-height: 150%;
+  max-width: 976px;
+  padding: 0px;
+  width: 100%;
+}
+
+@media(min-width: 569px) {
+  .district-info {
+    font-size: 19px;
+    padding: 72px 48px;
+  }
+}
+
+@media(max-width: 568px) {
+  .district-info {
+    font-size: 16px;
+    padding: 36px 24px;
+
+    .h4 {
+      font-size: 36px;
+      line-height: 41px;
+    }
   }
 }
 
@@ -444,8 +482,20 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 
 .pie-chart {
   flex-shrink: 0;
-  height: 218px;
-  width: 218px;
+}
+
+@media(min-width: 569px) {
+  .pie-chart {
+    height: 218px;
+    width: 218px;
+  }
+}
+
+@media(max-width: 568px) {
+  .pie-chart {
+    height: 118px;
+    width: 118px;
+  }
 }
 
 .pink-text {

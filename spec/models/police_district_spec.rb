@@ -116,6 +116,14 @@ RSpec.describe PoliceDistrict, type: :model do
       end
     end
 
+    context 'where there are future meetings without required info' do
+      it 'returns nil' do
+        soon_meeting = FactoryBot.create(:meeting, police_district: district, how_to_comment: '', event_datetime: Date.today + 5.days)
+
+        expect(district.next_meeting).to be_nil
+      end
+    end
+
     context 'where there is a meeting in progress' do
       it 'returns the in progress meeting' do
         in_progress_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Time.zone.now + 1.minute)

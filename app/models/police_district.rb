@@ -23,6 +23,7 @@ class PoliceDistrict < ApplicationRecord
   def next_meeting
     @next_meeting ||= meetings
       .where('event_datetime > ?', Time.current.utc - 8.hours)
+      .where.not(how_to_comment: [nil, ""])
       .order('event_datetime')
       .limit(1)
       .first

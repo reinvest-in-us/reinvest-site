@@ -1,4 +1,6 @@
 class PoliceDistrictsController < ApplicationController
+  include GoogleCalendarable
+
   def index
     @districts = PoliceDistrict.all
   end

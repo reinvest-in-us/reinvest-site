@@ -12,7 +12,6 @@ RSpec.describe GoogleCalendar do
     let(:meeting) do
       FactoryBot.build(:meeting,
                        agenda_link: 'https://example.com/agenda',
-                       phone_number: '555-419-5555',
                        video_link: 'https://example.com/watch',
                        how_to_comment: 'comment this way',
                        event_datetime: DateTime.new(2025,7,20,21,30,00, 0)) # 7/20/2020 @ 2:30pm Pacific
@@ -39,7 +38,6 @@ RSpec.describe GoogleCalendar do
 
         expect(parsed_query['details'].first).to include('https://example.com/agenda')
         expect(parsed_query['details'].first).to include('https://example.com/watch')
-        expect(parsed_query['details'].first).to include('555-419-5555')
         expect(parsed_query['details'].first).to include('comment this way')
       end
     end

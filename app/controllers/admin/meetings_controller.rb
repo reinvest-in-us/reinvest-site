@@ -49,7 +49,6 @@ class Admin::MeetingsController < Admin::ApplicationController
 
   def meeting_params
     params.require(:meeting).permit(
-      :phone_number,
       :video_link,
       :event_datetime,
       :agenda_link,

@@ -41,7 +41,6 @@ class GoogleCalendar
   def formatted_details(district, meeting)
     <<~STRING
       #{"Agenda link:\n#{meeting.agenda_link}\n" if meeting.agenda_link.present?}
-      #{"Call-in at:\n#{meeting.phone_number}\n" if meeting.phone_number.present?}
       #{"Watch at:\n#{meeting.video_link}\n" if meeting.video_link.present?}
       #{"How to comment:\n#{meeting.how_to_comment}\n" if meeting.how_to_comment.present?}
       For more information, visit #{police_district_url(district)}

@@ -18,7 +18,6 @@ RSpec.describe Admin::MeetingsController, type: :controller do
             'event_datetime(3i)' => '14',
             'event_datetime(4i)' => '4',
             'event_datetime(5i)' => '0',
-            phone_number: 'asdf',
             agenda_link: 'asfd'
           },
           police_district_id: district.slug
@@ -47,7 +46,6 @@ RSpec.describe Admin::MeetingsController, type: :controller do
             'event_datetime(3i)' => '14',
             'event_datetime(4i)' => '4',
             'event_datetime(5i)' => '0',
-            phone_number: 'asdf',
             agenda_link: 'asfd'
           },
           id: meeting.id,

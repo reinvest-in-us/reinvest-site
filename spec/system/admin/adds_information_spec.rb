@@ -80,7 +80,6 @@ RSpec.describe 'information management' do
       click_on 'Berkeley'
       click_on 'Add budget meeting'
 
-      fill_in 'Call-in phone number', with: '555-123-4567'
       fill_in 'Video conference link', with: 'https://example.com/meeting'
       select '2020',  :from => "meeting_event_datetime_1i" #year
       select 'June',  :from => "meeting_event_datetime_2i" #month
@@ -95,15 +94,14 @@ RSpec.describe 'information management' do
 
       click_on 'Create Meeting'
 
-      expect(page).to have_content('555-123-4567')
       expect(page).to have_content('Jun 10, 2020 @ 2:30am')
 
       within('[data-spec=meetings]') { click_on 'Edit' }
 
-      fill_in 'Call-in phone number', with: '515-111-1234'
+      select '2021',  :from => "meeting_event_datetime_1i" #year
       click_on 'Update Meeting'
 
-      expect(page).to have_content('515-111-1234')
+      expect(page).to have_content('Jun 10, 2021 @ 2:30am')
 
       visit '/d/berkeley'
 

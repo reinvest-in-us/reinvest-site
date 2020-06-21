@@ -13,7 +13,6 @@
       <thead>
         <tr>
           <th scope="col">Date</th>
-          <th scope="col">Call-in number</th>
           <th scope="col"> </th>
         </tr>
       </thead>
@@ -21,7 +20,6 @@
         <% @meetings.each do |meeting| %>
           <tr>
             <td><%= meeting.formatted_event_datetime %></td>
-            <td><%= meeting.phone_number %></td>
             <td><%= link_to "Edit", edit_admin_police_district_meeting_path(@district, meeting), class: 'button'  %></td>
           </tr>
         <% end %>

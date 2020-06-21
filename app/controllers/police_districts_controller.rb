@@ -2,7 +2,7 @@ class PoliceDistrictsController < ApplicationController
   include GoogleCalendarable
 
   def index
-    @districts = PoliceDistrict.all
+    @districts = PoliceDistrict.with_upcoming_meetings
   end
 
   def show

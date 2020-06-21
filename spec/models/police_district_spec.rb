@@ -101,7 +101,7 @@ RSpec.describe PoliceDistrict, type: :model do
           meeting_a_while_ago = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today)
           recent_meeting = FactoryBot.create(:meeting, police_district: district, event_datetime: Date.today + 5.days)
         end
-        
+
 
         expect(district.next_meeting).to be_nil
       end
@@ -128,6 +128,23 @@ RSpec.describe PoliceDistrict, type: :model do
           expect(PoliceDistrict.find(district.id).next_meeting).to be_nil
         end
       end
+    end
+  end
+
+  describe '#with_upcoming_meetings' do
+    let!(:sf) { FactoryBot.create(:police_district, name: 'San Francisco') }
+    let!(:oakland) { FactoryBot.create(:police_district, name: 'Oakland') }
+    let!(:sd) { FactoryBot.create(:police_district, name: 'San Diego') }
+
+    before do
+      FactoryBot.create(:meeting, police_district: sf, event_datetime: Date.today + 5.days)
+
+      FactoryBot.create(:meeting, police_district: sd, event_datetime: Date.today + 1.day)
+    end
+
+    it 'only shows districts with upcoming meetings' do
+      query = PoliceDistrict.with_upcoming_meetings
+      expect(query).to eq [sd, sf]
     end
   end
 

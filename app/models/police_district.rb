@@ -21,7 +21,19 @@ class PoliceDistrict < ApplicationRecord
   end
 
   def next_meeting
-    @next_meeting ||= meetings.where('event_datetime > ?', Time.zone.now - 8.hours).order('event_datetime').limit(1).first
+    @next_meeting ||= meetings
+      .where('event_datetime > ?', Time.current.utc - 8.hours)
+      .order('event_datetime')
+      .limit(1)
+      .first
+  end
+
+  def self.with_upcoming_meetings
+    PoliceDistrict.all.filter do |district|
+      district.next_meeting.present?
+    end.sort_by do |district|
+      district.next_meeting.event_datetime
+    end
   end
 
   def general_fund_spent_on_police_percentage

@@ -125,23 +125,59 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 .district-card-details-primary {
   display: flex;
   flex-direction: column;
-  padding: 20px 32px 24px 32px;
 }
 
-.district-card-details-secondary-container {
-  background-image: url(assets/images/pink-slant.svg);
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  width: 316px;
+@media(min-width: 569px) {
+  .district-card-details-primary {
+    padding: 20px 32px 24px 32px;
+  }
+}
+
+@media(max-width: 568px) {
+  .district-card-details-primary {
+    padding: 16px 20px;
+  }
+}
+
+@media(min-width: 569px) {
+  .district-card-details-secondary-container {
+    background-image: url(assets/images/pink-slant.svg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    width: 316px;
+  }
+}
+
+@media(max-width: 568px) {
+  .district-card-details-secondary-container {
+    background-color: $pink1;
+  }
 }
 
 .district-card-details-secondary-text {
-  align-items: flex-end;
   display: flex;
-  flex-direction: column;
-  padding: 20px 56px 36px 56px;
   text-align: end;
+}
+
+@media(min-width: 569px) {
+  .district-card-details-secondary-text {
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 20px 56px 36px 56px;
+  }
+}
+
+@media(max-width: 568px) {
+  .district-card-details-secondary-text {
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+
+    .pink-text {
+      width: 180px;
+    }
+  }
 }
 
 .district-jumbotron {
@@ -359,13 +395,42 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   background-color: $metal;
   color: white;
   max-width: 976px;
-  padding: 32px 48px;
   width: 100%;
 }
 
 @media(min-width: 569px) {
   .district-list {
     margin-top: -90px;
+    padding: 32px 48px;
+  }
+}
+
+@media(max-width: 568px) {
+  .district-list {
+    padding: 32px 24px;
+
+    .h2 {
+      font-size: 36px;
+      line-height: 41px;
+    }
+
+    .h3, .h4 {
+      font-size: 32px;
+      line-height: 37px;
+    }
+  }
+}
+
+@media(min-width: 569px) {
+  .district-list-subtitle {
+    line-height: 250%;
+  }
+}
+
+@media(max-width: 568px) {
+  .district-list-subtitle {
+    font-size: 14px;
+    line-height: 150%;
   }
 }
 

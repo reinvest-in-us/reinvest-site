@@ -10,6 +10,10 @@ $pink2: #E9B1B5;
 $pink3: #8D6E70;
 $yellow: #FAD967;
 
+a:hover {
+  text-decoration: none;
+}
+
 body {
   color: $metal;
   font-family: 'Poppins';
@@ -119,10 +123,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   display: flex;
   justify-content: space-between;
   margin-top: 32px;
+}
 
-  a {
-    color: $metal;
-  }
+.district-card:hover {
+  filter: brightness(0.9) saturate(2.5);
 }
 
 @media(max-width: 568px) {

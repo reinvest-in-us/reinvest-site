@@ -26,7 +26,6 @@ RSpec.describe GoogleCalendar do
     it 'creates a URL with proper prefix' do
       travel_to Date.parse('2020-06-03') do
         url = GoogleCalendar.new(controller_context).generate_event_link(district, meeting)
-        pp url
         expect(url).to start_with('https://www.google.com/calendar/render?action=TEMPLATE')
       end
     end

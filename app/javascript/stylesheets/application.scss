@@ -23,6 +23,15 @@ main {
   background-color: black;
 }
 
+.white-background {
+  background-color: white;
+
+  a {
+    color: #3B629C;
+    text-decoration: underline;
+  }
+}
+
 a.add-to-calendar-button, a.add-to-calendar-button:hover {
   background-color: white;
   border: 2px solid $metal;
@@ -34,6 +43,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+
+  &:hover {
+    background: #f0f0f0;
+  }
 }
 
 @media(min-width: 569px) {
@@ -86,6 +99,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
     color: $blue;
     font-family: 'Poppins-Bold';
     text-decoration: underline;
+
+    &:hover {
+      background: $pink1;
+    }
   }
 }
 
@@ -518,6 +535,11 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   color: $yellow;
   font-family: 'Poppins-Bold';
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: $yellow;
+  }
 }
 
 .navbar {
@@ -538,6 +560,11 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   font-family: 'Martin';
   font-size: 28px;
   text-transform: uppercase;
+
+  &:hover {
+    color: $metal;
+    text-decoration: underline;
+  }
 }
 
 .next-meeting-time {
@@ -612,8 +639,4 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   .title-container {
     flex-direction: column;
   }
-}
-
-.white-background {
-  background-color: white;
 }

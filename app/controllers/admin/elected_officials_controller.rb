@@ -3,12 +3,14 @@ class Admin::ElectedOfficialsController < Admin::ApplicationController
   
     def new
       @elected_official = ElectedOfficial.new(police_district: @district)
+
+      render :new
     end
   
     def edit
       @elected_official = ElectedOfficial.find(params[:id])
   
-      render :new
+      render :edit
     end
   
     def create
@@ -28,7 +30,7 @@ class Admin::ElectedOfficialsController < Admin::ApplicationController
       if @elected_official.save
         redirect_to admin_police_district_path(@district)
       else
-        render :new
+        render :edit
       end
     end
   

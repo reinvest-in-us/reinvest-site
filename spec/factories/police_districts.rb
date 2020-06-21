@@ -7,5 +7,6 @@ FactoryBot.define do
     sequence :name do |n|
       "Department #{n}"
     end
+    total_police_department_budget { 1000000 }
   end
 end

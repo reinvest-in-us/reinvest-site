@@ -67,28 +67,19 @@ RSpec.describe PoliceDistrict, type: :model do
   end
 
   describe '#readable_budget' do
-    context 'when present' do
-      it 'returns amount in billions' do
-        district = FactoryBot.create(:police_district, total_police_department_budget: 1_900_600_000)
-        expect(district.readable_budget).to eq('1.901B')
-      end
-
-      it 'returns amount in millions, rounded to nearest' do
-        district = FactoryBot.create(:police_district, total_police_department_budget: 190_590_000)
-        expect(district.readable_budget).to eq('190.6M')
-      end
-
-      it 'handles amounts under 1 mil' do
-        district = FactoryBot.create(:police_district, total_police_department_budget: 600_000)
-        expect(district.readable_budget).to eq('600K')
-      end
+    it 'returns amount in billions' do
+      district = FactoryBot.create(:police_district, total_police_department_budget: 1_900_600_000)
+      expect(district.readable_budget).to eq('1.901B')
     end
 
-    context 'when not present' do
-      it 'returns "---"' do
-        district = FactoryBot.create(:police_district, total_police_department_budget: nil)
-        expect(district.readable_budget).to eq('---')
-      end
+    it 'returns amount in millions, rounded to nearest' do
+      district = FactoryBot.create(:police_district, total_police_department_budget: 190_590_000)
+      expect(district.readable_budget).to eq('190.6M')
+    end
+
+    it 'handles amounts under 1 mil' do
+      district = FactoryBot.create(:police_district, total_police_department_budget: 600_000)
+      expect(district.readable_budget).to eq('600K')
     end
   end
 

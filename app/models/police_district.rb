@@ -3,7 +3,7 @@ class PoliceDistrict < ApplicationRecord
     'Pacific Time (US & Canada)'
   ].freeze # supported valid timezones (from rake:time:zones[US] )
 
-  validates_presence_of :name
+  validates_presence_of :name, :total_police_department_budget
   validates :slug, uniqueness: true, format: { with: /\A[a-z0-9\-]+\Z/ }, allow_blank: true
   validates :timezone, presence: true, inclusion: { in: TIME_ZONE_OPTIONS }
 
@@ -15,8 +15,6 @@ class PoliceDistrict < ApplicationRecord
   include ActionView::Helpers::NumberHelper
 
   def readable_budget
-    return '---' if total_police_department_budget.nil?
-
     number_to_human(total_police_department_budget,format:'%n%u',precision: 4, units:{thousand:'K',million:'M',billion:'B'})
   end
 

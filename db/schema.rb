@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_232623) do
+ActiveRecord::Schema.define(version: 2020_06_21_234952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_21_232623) do
   create_table "police_districts", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
-    t.bigint "total_police_department_budget"
+    t.bigint "total_police_department_budget", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "timezone"

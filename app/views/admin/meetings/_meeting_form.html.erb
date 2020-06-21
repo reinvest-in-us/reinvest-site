@@ -1,0 +1,32 @@
+<div class="container">
+  <%= form_for [@district, @meeting], url: @meeting.persisted? ? admin_police_district_meeting_path(@district, @meeting) : admin_police_district_meetings_path do |f| %>
+    <div><%= @meeting.errors.full_messages.join("\n") if @meeting.errors.any? %></div>
+    <div class="form-group">
+      <%= f.label :event_datetime, 'Meeting date and time' %>
+      <div>
+        <%= f.datetime_select :event_datetime, ampm: true, default: 3.days.from_now.beginning_of_hour.in_time_zone(@district.timezone) %>
+      </div>
+    </div>
+    <div class="form-group form-group--medium">
+      <%= f.label :phone_number, 'Call-in phone number' %>
+      <%= f.text_field :phone_number, class: 'form-control' %>
+    </div>
+    <div class="form-group form-group--medium">
+      <%= f.label :video_link, 'Video conference link' %>
+      <%= f.text_field :video_link, class: 'form-control' %>
+    </div>
+    <div class="form-group form-group--medium">
+      <%= f.label :agenda_link, 'Meeting agenda link' %>
+      <%= f.text_field :agenda_link, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :agenda_details, 'Agenda Details' %>
+      <%= f.text_field :agenda_details, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :how_to_comment, 'How to comment' %>
+      <%= f.text_area :how_to_comment, class: 'form-control' %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>

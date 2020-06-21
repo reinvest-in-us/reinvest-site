@@ -5,13 +5,15 @@ class Admin::MeetingsController < Admin::ApplicationController
 
   def new
     @meeting = Meeting.new(police_district: @district)
+
+    render :new
   end
 
   def edit
     @meeting = Meeting.find(params[:id])
     @meeting.event_datetime = strip_timezone(@meeting.event_datetime, @district.timezone)
 
-    render :new
+    render :edit
   end
 
   def create
@@ -35,7 +37,7 @@ class Admin::MeetingsController < Admin::ApplicationController
       redirect_to admin_police_district_path(@district)
     else
       @meeting.event_datetime = strip_timezone(@meeting.event_datetime, @district.timezone)
-      render :new
+      render :edit
     end
   end
 

@@ -6,6 +6,10 @@ class Meeting < ApplicationRecord
     event_datetime&.in_time_zone(police_district.timezone)&.strftime('%b %e, %Y @ %l:%M%P')
   end
 
+  def agenda_link_prefixed
+    (agenda_link.starts_with? 'http') ? agenda_link : "http://#{agenda_link}"
+  end
+
   private
 
   def datetime_in_future

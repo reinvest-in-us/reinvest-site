@@ -30,4 +30,17 @@ RSpec.describe Meeting, type: :model do
       expect(meeting.valid?).to eq false
     end
   end
+
+  describe 'prefixing links' do
+    it 'adds http if not prefixed already' do
+      meeting = FactoryBot.build(:meeting, agenda_link: 'google.com')
+      expect(meeting.agenda_link_prefixed).to eq 'http://google.com'
+
+      meeting = FactoryBot.build(:meeting, video_link: 'http://google.com')
+      expect(meeting.video_link_prefixed).to eq 'http://google.com'
+
+      meeting = FactoryBot.build(:meeting, agenda_link: 'https://google.com')
+      expect(meeting.agenda_link_prefixed).to eq 'https://google.com'
+    end
+  end
 end

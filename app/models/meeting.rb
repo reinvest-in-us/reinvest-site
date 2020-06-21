@@ -7,10 +7,18 @@ class Meeting < ApplicationRecord
   end
 
   def agenda_link_prefixed
-    (agenda_link.starts_with? 'http') ? agenda_link : "http://#{agenda_link}"
+    prefix(agenda_link)
+  end
+
+  def video_link_prefixed
+    prefix(video_link)
   end
 
   private
+
+  def prefix(link)
+    (link.starts_with? 'http') ? link : "http://#{link}"
+  end
 
   def datetime_in_future
     if event_datetime.present? && event_datetime < Time.current.utc

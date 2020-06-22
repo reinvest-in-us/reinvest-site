@@ -20,8 +20,11 @@ export function buildChart(canvasId) {
             ]
         },
         options: {
+            hover: {
+                mode: null,
+            },
             legend: {
-                display: false
+                display: false,
             },
             tooltips: {
                 enabled: false,

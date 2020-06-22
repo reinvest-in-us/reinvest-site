@@ -23,7 +23,7 @@ html, body, main {
   min-height: 100vh;
 }
 
-main {
+.police_districts.index {
   background-color: black;
 }
 
@@ -653,4 +653,8 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   .title-container {
     flex-direction: column;
   }
+}
+
+.about-container {
+  margin-top: 32px;
 }

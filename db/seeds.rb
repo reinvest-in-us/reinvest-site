@@ -16,7 +16,8 @@ def create_district(name, slug)
     timezone: 'Pacific Time (US & Canada)',
     total_general_fund_budget: 1_000_000_000,
     total_police_paid_from_general_fund_budget: 420_000_000,
-    decision_makers_text: "A budget proposal is made by the mayor, advised by the Budget Advisory Committee."
+    decision_makers_text: "A budget proposal is made by the mayor, advised by the Budget Advisory Committee.",
+    elected_officials_contact_link: "www.google.com"
   )
   Meeting.create!(
     police_district: district,

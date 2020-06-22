@@ -365,6 +365,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 .general-fund {
   align-items: center;
   display: flex;
+  flex-direction: column;
 }
 
 .general-fund-definition {
@@ -373,13 +374,33 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .general-fund-details {
-  margin-left: 36px;
+  align-items: center;
+  display: flex;
+  margin-top: 24px;
 }
 
-.general-fund-percentage {
-  font-family: 'Poppins-Bold';
-  font-size: 48px;
-  line-height: 120%;
+@media(min-width: 569px) {
+  .general-fund-percentage {
+    margin-left: 36px;
+  }
+}
+
+@media(max-width: 568px) {
+  .general-fund-percentage {
+    margin-left: 20px;
+  }
+}
+
+.general-fund-percentage-number {
+    font-family: 'Poppins-Bold';
+  }
+
+@media(min-width: 569px) {
+  .general-fund-percentage-number {
+    display: block;
+    font-size: 48px;
+    line-height: 120%;
+  }
 }
 
 .how-to-comment {
@@ -696,8 +717,16 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   width: 180px;
 }
 
-.section {
-  margin-bottom: 48px;
+@media(min-width: 569px) {
+  .section {
+    margin-bottom: 48px;
+  }
+}
+
+@media(max-width: 568px) {
+  .section {
+    margin-bottom: 36px;
+  }
 }
 
 .title-container {

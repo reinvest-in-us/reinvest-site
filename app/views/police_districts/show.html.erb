@@ -41,23 +41,25 @@
         <h2 class="h4">General Fund</h2>
         <div>
           <div class="general-fund">
-            <div class="pie-chart">
-            <canvas
-              id="myChart"
-              data-general_fund_spent_on_police_percentage=<%= @district.general_fund_spent_on_police_percentage %>
-              width="400"
-              height="400">
-            </canvas>
-            </div>
             <div class="general-fund-details">
-              <span class="general-fund-percentage"><%= @district.general_fund_spent_on_police_percentage %>%</span>
-              <span>
-                of <%= @district.name %>'s <strong>2019 General Fund</strong>
-                was spent on law enforcement.
-              </span>
-              <div class="general-fund-definition">
-            A general fund is money that the city can decide how to spend, and comes from a city's revenue, like taxes.
-          </div>
+              <div class="pie-chart">
+                <canvas
+                  id="myChart"
+                  data-general_fund_spent_on_police_percentage=<%= @district.general_fund_spent_on_police_percentage %>
+                  width="400"
+                  height="400">
+                </canvas>
+              </div>
+              <div class="general-fund-percentage">
+                <span class="general-fund-percentage-number"><%= @district.general_fund_spent_on_police_percentage %>%</span>
+                <span>
+                  of <%= @district.name %>'s <strong>2019 General Fund</strong>
+                  was spent on law enforcement.
+                </span>
+              </div>
+            </div>
+            <div class="general-fund-definition">
+              A general fund is a city’s primary account, funded by taxes (like property and sales tax) and used to pay for services such as the fire department, public works, parks, community services and more.
             </div>
           </div>
         </div>

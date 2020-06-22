@@ -28,7 +28,6 @@ RSpec.describe 'information viewing' do
       expect(page).to have_content('Down town')
       expect(page).to have_content('$950M')
       expect(page).to have_content('Jun 30, 2022 @ 11:30am')
-      expect(page).to have_content('Call in to comment')
     end
 
     click_on 'Down town'

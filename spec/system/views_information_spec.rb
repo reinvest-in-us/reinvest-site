@@ -27,14 +27,14 @@ RSpec.describe 'information viewing' do
     within '#district-down-town' do
       expect(page).to have_content('Down town')
       expect(page).to have_content('$950M')
-      expect(page).to have_content('Jun 30, 2022 @ 11:30am')
+      expect(page).to have_content('Thursday, June 30 at 11:30am')
     end
 
     click_on 'Down town'
 
     expect(page).to have_content('Down town')
     expect(page).to have_content('$950M')
-    expect(page).to have_content('Jun 30, 2022 @ 11:30am')
+    expect(page).to have_content('Thursday, June 30 at 11:30am')
     expect(page).to have_content('Some people decide on these things')
     expect(page).to have_content('Call in and talk')
     expect(page).to have_link('Add to calendar')

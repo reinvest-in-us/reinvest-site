@@ -96,14 +96,14 @@ RSpec.describe 'information management' do
 
       click_on 'Create Meeting'
 
-      expect(page).to have_content('Jun 10, 2020 @ 2:30am')
+      expect(page).to have_content('Wednesday, June 10 at 2:30am')
 
       within('[data-spec=meetings]') { click_on 'Edit' }
 
-      select '2021',  :from => "meeting_event_datetime_1i" #year
+      select '11 AM',  :from => "meeting_event_datetime_4i" #hour
       click_on 'Update Meeting'
 
-      expect(page).to have_content('Jun 10, 2021 @ 2:30am')
+      expect(page).to have_content('Wednesday, June 10 at 11:30am')
 
       visit '/d/berkeley'
 

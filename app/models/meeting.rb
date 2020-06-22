@@ -1,4 +1,6 @@
 class Meeting < ApplicationRecord
+  include LinkPrefixHelper
+
   belongs_to :police_district
   validate :datetime_in_future
 
@@ -15,10 +17,6 @@ class Meeting < ApplicationRecord
   end
 
   private
-
-  def prefix(link)
-    (link.starts_with? 'http') ? link : "http://#{link}"
-  end
 
   def datetime_in_future
     if event_datetime.present? && event_datetime < Time.current.utc

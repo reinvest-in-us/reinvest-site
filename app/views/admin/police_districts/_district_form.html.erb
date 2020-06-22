@@ -41,6 +41,11 @@
       </div>
 
       <div class="form-group">
+        <%= f.label :elected_officials_contact_link, 'Decision makers contact link' %>
+        <%= f.text_field :elected_officials_contact_link, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
         <%= f.label :law_enforcement_gets_more_than_1, 'Law enforcement gets more than #1' %>
         <%= f.text_field :law_enforcement_gets_more_than_1, class: 'form-control' %>
         <%= f.number_field :law_enforcement_gets_more_than_1_dollars, class: 'form-control' %>

@@ -23,7 +23,7 @@ html, body, main {
   min-height: 100vh;
 }
 
-.police_districts.index {
+.police_districts.index:not(.admin) {
   background-color: black;
 }
 

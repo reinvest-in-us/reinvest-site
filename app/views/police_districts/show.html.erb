@@ -86,6 +86,9 @@
           <% end %>
         <% end %>
       </div>
+      <%if @district.elected_officials_contact_link %>
+        <a href="<%= @district.elected_officials_contact_link_prefixed %>">Contact information for these decision makers</a>
+      <% end %>
     </div>
   </div>
 </div>

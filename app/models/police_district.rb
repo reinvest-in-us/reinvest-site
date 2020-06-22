@@ -1,4 +1,6 @@
 class PoliceDistrict < ApplicationRecord
+  include LinkPrefixHelper
+
   TIME_ZONE_OPTIONS = [
     'Pacific Time (US & Canada)'
   ].freeze # supported valid timezones (from rake:time:zones[US] )
@@ -25,6 +27,10 @@ class PoliceDistrict < ApplicationRecord
       .order('event_datetime')
       .limit(1)
       .first
+  end
+
+  def elected_officials_contact_link_prefixed
+    prefix(elected_officials_contact_link)
   end
 
   def self.with_upcoming_meetings

@@ -20,7 +20,7 @@
     <% if @district.next_meeting&.agenda_link.present? %>
       <div class="section">
         <h2 class="h4">Agenda</h2>
-        <div class="agenda-link">
+        <div class="row-link">
           <div class="link-icon agenda"></div>
           <div><%= link_to "Review this meeting's agenda", @district.next_meeting.agenda_link_prefixed, target: :_blank %></div>
         </div>
@@ -30,8 +30,8 @@
     <% if @district.next_meeting&.video_link.present? %>
       <div class="section">
         <h2 class="h4">Watch</h2>
-        <div class="">
-          <div class=""></div>
+        <div class="row-link">
+          <div class="link-icon watch"></div>
           <div><%= link_to "Watch this meeting online", @district.next_meeting.video_link_prefixed, target: :_blank %></div>
         </div>
       </div>

@@ -63,10 +63,10 @@
         </div>
       </div>
     <% end %>
-    <% if @district.more_funding_than.present? %>
+    <% if @district.more_funding_than.present? and @district.more_funding_than.length() > 1 %>
       <div class="section">
         <h2 class="h4">In comparison</h2>
-        <p>Here are just a couple examples of 2019 budget items that received less funding than law enforcement:</p>
+        <p>Here are just a some examples of 2019 budget items that received less funding than law enforcement:</p>
         <div class="le-graph">
           <div class="le-graph-item le-graph-item-main">
             <div class="le-graph-bar">

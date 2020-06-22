@@ -1,5 +1,5 @@
-<div class="white-background">
-  <div class="container about-container">
+<div class="white-background about-content">
+  <div class="container">
     <div class="section">
       <h2 class="h4">About this site</h2>
       <p>
@@ -21,12 +21,15 @@
     </div>
     <div class="section">
       <h2 class="h4">Created by</h2>
-      <div>
+      <div class="row columned-list">
         <%= render partial: 'contributor_info', locals: { name: 'Jane Kim', twitter_handle: 'janekim' } %>
         <%= render partial: 'contributor_info', locals: { name: 'Kat Siegal', twitter_handle: 'katsiegal' } %>
+        <div class="w-100"></div>
         <%= render partial: 'contributor_info', locals: { name: 'Chris Arvin', twitter_handle: 'chrisarvinsf' } %>
-        <%= render partial: 'contributor_info', locals: { name: 'Chris Arvin', twitter_handle: '_hartsick' } %>
+        <%= render partial: 'contributor_info', locals: { name: 'Christa Hartsock', twitter_handle: '_hartsick' } %>
+        <div class="w-100"></div>
         <%= render partial: 'contributor_info', locals: { name: 'Paras Sanghavi', twitter_handle: 'psanghavi' } %>
+        <%= render partial: 'contributor_info', locals: { name: 'Ruscal Cayangyang', twitter_handle: 'ruscal14' } %>
       </div>
     </div>
   </div>

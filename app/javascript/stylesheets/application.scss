@@ -36,6 +36,11 @@ html, body, main {
   }
 }
 
+.container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 a.add-to-calendar-button, a.add-to-calendar-button:hover {
   background-color: white;
   border: 2px solid $metal;
@@ -344,16 +349,16 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
-.elected-official {
+.columned-item {
   font-size: 16px;
   margin-bottom: 24px;
 }
 
-.elected-official-name {
+.columned-list-name {
   font-family: 'Poppins-Bold';
 }
 
-.elected-officials-list {
+.columned-list {
   margin-top: 36px;
 }
 
@@ -581,6 +586,13 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 100;
+}
+
+.about {
+  .navbar {
+    background: $yellow;
+  }
 }
 
 .navbar-brand {
@@ -591,11 +603,13 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   background-repeat: no-repeat;
 }
 
-.police_districts.index {
-  .nav-link {
+.navbar-nav {
+  transform: translate3d(0,-3px,0);
+}
+
+.nav-link {
     color: $metal;
   }
-}
 
 .police_districts.show {
   @media(min-width: 781px) {
@@ -696,6 +710,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
-.about-container {
-  margin-top: 32px;
+.about-content {
+  padding-top: 140px;
+  position: relative;
 }

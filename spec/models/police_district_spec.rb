@@ -134,16 +134,19 @@ RSpec.describe PoliceDistrict, type: :model do
     let!(:sf) { FactoryBot.create(:police_district, name: 'San Francisco') }
     let!(:oakland) { FactoryBot.create(:police_district, name: 'Oakland') }
     let!(:sd) { FactoryBot.create(:police_district, name: 'San Diego') }
-
+    let(:june_first) { Date.parse('2020-06-01') }
     before do
-      FactoryBot.create(:meeting, police_district: sf, event_datetime: Date.today + 5.days)
-
-      FactoryBot.create(:meeting, police_district: sd, event_datetime: Date.today + 1.day)
+      travel_to june_first do
+        FactoryBot.create(:meeting, police_district: sf, event_datetime: june_first + 5.days)
+        FactoryBot.create(:meeting, police_district: sd, event_datetime: june_first + 1.day)
+      end
     end
 
     it 'only shows districts with upcoming meetings' do
-      query = PoliceDistrict.with_upcoming_meetings
-      expect(query).to eq [sd, sf]
+      travel_to june_first do
+        query = PoliceDistrict.with_upcoming_meetings
+        expect(query).to eq [sd, sf]
+      end
     end
   end
 

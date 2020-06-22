@@ -128,6 +128,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   width: 32px;
 }
 
+.decision-makers-text {
+  margin-top: 8px;
+}
+
 .district-card {
   background-color: white;
   color: $metal;
@@ -338,6 +342,19 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
       font-size: 44px;
     }
   }
+}
+
+.elected-official {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.elected-official-name {
+  font-family: 'Poppins-Bold';
+}
+
+.elected-officials-list {
+  margin-top: 36px;
 }
 
 .general-fund {

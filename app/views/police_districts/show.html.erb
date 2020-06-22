@@ -74,11 +74,18 @@
     <% end %>
     <div class="section">
       <h2 class="h4">Decision Makers</h2>
-      <p><%= @district.decision_makers_text %></p>
-      <% @district.elected_officials.each do |elected_official| %>
-        <div><%= "#{elected_official.name}" %></div>
-        <div><%= "#{elected_official.position} · Reelection #{elected_official.reelection_date}" %></div>
-      <% end %>
+      <div class="decision-makers-text"><%= @district.decision_makers_text %></div>
+      <div class="row elected-officials-list">
+        <% @district.elected_officials.each_with_index do |elected_official, i| %>
+          <div class="elected-official col">
+            <div class="elected-official-name"><%= "#{elected_official.name}" %></div>
+            <div><%= "#{elected_official.position} · Reelection #{elected_official.reelection_date}" %></div>
+          </div>
+          <% if i.odd? %>
+            <div class="w-100"></div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

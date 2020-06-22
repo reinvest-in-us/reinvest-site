@@ -569,8 +569,27 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   width: 48px;
 }
 
+.police_districts.index {
+  .nav-link {
+    color: $metal;
+  }
+}
+
+.police_districts.show {
+  @media(min-width: 781px) {
+    .nav-link {
+      color: $white;
+    }
+  }
+
+  @media(max-width: 780px) {
+    .nav-link {
+      color: $metal;
+    }
+  }
+}
+
 .nav-link {
-  color: $metal;
   font-family: 'Martin';
   font-size: 28px;
   text-transform: uppercase;

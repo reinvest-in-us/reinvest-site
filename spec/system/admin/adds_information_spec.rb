@@ -41,7 +41,7 @@ RSpec.describe 'information management' do
     expect(page).to have_link('Contact information for these decision makers', href: 'http://contact.me')
 
     expect(page).to have_content('Transit')
-    expect(page).to have_content('1000000')
+    expect(page).to have_content('$1M')
 
     within '[data-spec=general-fund]' do
       expect(page).to have_text "50%"

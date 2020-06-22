@@ -3,7 +3,7 @@
 <div class="container">
   <div class="mb-5">All meetings are in <%= @district.timezone %>.</div>
   <div class="mb-5">
-    <%= link_to 'Add budget meeting', new_admin_police_district_meeting_path(@district), class: 'btn btn-primary' %>
+    <%= link_to 'Add meeting', new_admin_police_district_meeting_path(@district), class: 'btn btn-primary' %>
     <%= link_to 'Add elected officials', new_admin_police_district_elected_official_path(@district), class: 'btn btn-primary' %>
     <%= link_to 'Edit', edit_admin_police_district_path(@district), class: 'btn btn-primary' %>
   </div>

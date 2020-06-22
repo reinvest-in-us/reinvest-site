@@ -21,7 +21,7 @@ class GoogleCalendar
     BASE_URL + "?" + {
       action: 'TEMPLATE',
       dates: formatted_time(meeting.event_datetime, district.timezone),
-      text: district.name + ' Policing Budget Meeting',
+      text: district.name + ' – Public Meeting',
       location: 'Virtual [details in description]',
       details: formatted_details(district, meeting),
       ctz: tzinfo_id_for_timezone(district.timezone)

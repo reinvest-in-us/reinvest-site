@@ -102,9 +102,12 @@
       <div class="decision-makers-text"><%= @district.decision_makers_text %></div>
       <div class="row columned-list">
         <% @district.elected_officials.each_with_index do |elected_official, i| %>
-          <div class="columned-item col">
-            <div class="columned-list-name"><%= "#{elected_official.name}" %></div>
-            <div><%= "#{elected_official.position} · Reelection #{elected_official.reelection_date}" %></div>
+          <div class="columned-item col-sm">
+            <div class="columned-item-bar"></div>
+            <div>
+              <div class="columned-list-name"><%= "#{elected_official.name}" %></div>
+              <div><%= "#{elected_official.position} · Reelection #{elected_official.reelection_date}" %></div>
+            </div>
           </div>
           <% if i.odd? %>
             <div class="w-100"></div>

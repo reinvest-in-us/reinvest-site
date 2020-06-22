@@ -3,7 +3,8 @@
 @import './admin.scss';
 
 $blue: #3B629C;
-$gray: #727380;
+$gray1: #727380;
+$gray2: #D8D9E4;
 $metal: #2B2D42;
 $pink1: #ECDDDE;
 $pink2: #E9B1B5;
@@ -350,8 +351,23 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .columned-item {
+  display: flex;
   font-size: 16px;
   margin-bottom: 24px;
+}
+
+@media(max-width: 568px) {
+  .columned-item {
+    width: 100%;
+  }
+}
+
+.columned-item-bar {
+  background-color: $gray2;
+  flex-shrink: 0;
+  height: 56px;
+  margin-right: 12px;
+  width: 6px;
 }
 
 .columned-list-name {
@@ -369,7 +385,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .general-fund-definition {
-  color: $gray;
+  color: $gray1;
   margin-top: 24px;
 }
 

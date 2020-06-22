@@ -80,7 +80,7 @@ RSpec.describe 'information management' do
       visit admin_root_path
 
       click_on 'Berkeley'
-      click_on 'Add budget meeting'
+      click_on 'Add meeting'
 
       fill_in 'Video conference link', with: 'https://example.com/meeting'
       select '2020',  :from => "meeting_event_datetime_1i" #year

@@ -71,7 +71,7 @@ RSpec.describe GoogleCalendar do
         parsed_url = URI.parse(url)
         parsed_query = CGI.parse(parsed_url.query)
 
-        expect(parsed_query['text'].first).to eq('San Francisco Policing Budget Meeting')
+        expect(parsed_query['text'].first).to eq('San Francisco – Public Meeting')
       end
     end
 

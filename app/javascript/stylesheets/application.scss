@@ -567,10 +567,11 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 }
 
 .navbar-brand {
-  background-color: $metal;
-  border-radius: 24px;
   height: 48px;
   width: 48px;
+  background-image: url(assets/icons/logo.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .police_districts.index {

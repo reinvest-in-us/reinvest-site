@@ -24,10 +24,6 @@ html, body, main {
   min-height: 100vh;
 }
 
-.police_districts.index:not(.admin) {
-  background-color: black;
-}
-
 .white-background {
   background-color: white;
 
@@ -452,6 +448,11 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
     margin-right: 12px;
     width: 36px;
   }
+}
+
+.main-container {
+  background-color: black;
+  height: 100vh;
 }
 
 .main-jumbotron {

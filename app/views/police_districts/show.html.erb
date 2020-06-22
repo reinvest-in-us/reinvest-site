@@ -65,14 +65,15 @@
     <% end %>
     <% if @district.more_funding_than.present? %>
       <div class="section">
-        <h2 class="h4">Law enforcement gets more funding than:</h2>
+        <h2 class="h4">In comparison</h2>
+        <p>Here are just a couple examples of 2019 budget items that received less funding than law enforcement:</p>
         <div class="le-graph">
-          <div class="le-graph-item">
+          <div class="le-graph-item le-graph-item-main">
             <div class="le-graph-bar">
               <div class="le-graph-bar-width">
                 <div style="width: 100%"></div>
               </div>
-              <span><%= @district.readable_budget %></span>
+              <span>$<%= @district.readable_budget %></span>
             </div>
             <div class="le-graph-title">
               Law enforcement
@@ -84,7 +85,7 @@
               <div class="le-graph-bar-width">
                 <div style="width: <%= number_with_precision((funding[:amount].to_f / @district.total_police_department_budget.to_f) * 100, :precision => 0) %>%"></div>
               </div>
-              <span><%= number_to_human(funding[:amount],format:'%n%u',precision: 4, units:{thousand:'K',million:'M',billion:'B'}) %></span>
+              <span>$<%= number_to_human(funding[:amount],format:'%n%u',precision: 3, units:{thousand:'K',million:'M',billion:'B'}) %></span>
             </div>
             <div class="le-graph-title">
               <%= funding[:name] %>

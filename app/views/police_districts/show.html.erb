@@ -24,7 +24,7 @@
           <div class="link-icon agenda"></div>
           <div><%= link_to "Review this meeting's agenda", @district.next_meeting.agenda_link_prefixed, target: :_blank %></div>
         </div>
-        <div class="agenda-details"><%= "Items related to law enforcement on this agenda: #{@district.next_meeting.agenda_details}" %></div>
+        <div class="agenda-details">Items related to law enforcement on this agenda: <span class="agenda-items"><%= "#{@district.next_meeting.agenda_details}" %></span></div>
       </div>
     <% end %>
     <% if @district.next_meeting&.video_link.present? %>

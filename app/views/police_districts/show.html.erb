@@ -106,7 +106,7 @@
             <div class="columned-item-bar"></div>
             <div>
               <div class="columned-list-name"><%= "#{elected_official.name}" %></div>
-              <div><%= "#{elected_official.position} · Reelection #{elected_official.reelection_date}" %></div>
+              <div><%= "#{elected_official.position}" %><% if elected_official.reelection_date.present? %><%= " · Reelection #{elected_official.reelection_date}" %><% end %></div>
             </div>
           </div>
           <% if i.odd? %>

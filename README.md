@@ -1,4 +1,14 @@
-# README
+# Reinvestin.us
+
+## About
+
+A website to provide organizers, activists and engaged residents a simple organizing tool to get everyday citizens to their local City Council and/or other local elected body meetings. https://reinvestin.us
+
+### Contributing
+
+Currently, this application is maintained and developed by a small core team. We are accepting issues for bug reports and feature requests, and pull requests for bug fixes.
+
+If you're interested in getting more involved than what's outlined above, please shoot us an email at dev@reinvestin.us!
 
 ## Development
 

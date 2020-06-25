@@ -16,7 +16,7 @@ def create_district(name, slug)
     timezone: 'Pacific Time (US & Canada)',
     total_general_fund_budget: 1_000_000_000,
     total_police_paid_from_general_fund_budget: 420_000_000,
-    decision_makers_text: "A budget proposal is made by the mayor, advised by the Budget Advisory Committee.",
+    decision_makers_text: "A budget proposal is made by the mayor, advised by the Budget Advisory Committee.\nSee below for elected offficals.",
     elected_officials_contact_link: "www.google.com"
   )
   Meeting.create!(
@@ -25,7 +25,8 @@ def create_district(name, slug)
     video_link: "http://example.com/meeting",
     how_to_comment: "Call 1-800-555-5555 to join the meeting.\nPress * 9 to raise your hand to speak.\nWait until you are unmuted and begin speaking.\n",
     agenda_link: "www.google.com",
-    agenda_details: "Zero Tolerance Policy For Racist Practices, OPD Spotshotter Contract"
+    agenda_details: "Zero Tolerance Policy For Racist Practices, OPD Spotshotter Contract",
+    about: "This meeting is very important.\nBe sure to call in."
   )
 
   create_official(district, 1, "Sandra Lee Fewer", "District 1", "Nov. 2022")

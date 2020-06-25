@@ -18,7 +18,8 @@ RSpec.describe Admin::MeetingsController, type: :controller do
             'event_datetime(3i)' => '14',
             'event_datetime(4i)' => '4',
             'event_datetime(5i)' => '0',
-            agenda_link: 'asfd'
+            agenda_link: 'asfd',
+            about: 'what the meeting is about'
           },
           police_district_id: district.slug
         }
@@ -32,6 +33,15 @@ RSpec.describe Admin::MeetingsController, type: :controller do
         end
         meeting = Meeting.last
         expect(meeting.event_datetime).to eq(DateTime.new(2020,6,14,11,0,0,'0'))
+      end
+
+      it 'sets the attributes' do
+        travel_to Date.parse('2020-6-13') do
+          post :create, params: valid_params
+        end
+
+        meeting = Meeting.last
+        expect(meeting.about).to eq('what the meeting is about')
       end
     end
 

@@ -93,6 +93,7 @@ RSpec.describe 'information management' do
       fill_in 'Agenda Details', with: 'First, transporation budget, then police budget'
 
       fill_in 'How to comment', with: "Do this.\nDo that.\n"
+      fill_in 'About this meeting', with: "It's a special meeting.\nReally.\n"
 
       click_on 'Create Meeting'
 
@@ -109,6 +110,8 @@ RSpec.describe 'information management' do
 
       expect(page).to have_content('Do this.')
       expect(page).to have_content('Do that.')
+      expect(page).to have_content("It's a special meeting.")
+      expect(page).to have_content("Really.")
       expect(page).to have_link("Review this meeting's agenda")
       expect(page).to have_link('Watch this meeting online')
       expect(page).to have_content('First, transporation budget, then police budget')

@@ -6,6 +6,15 @@
   <%= render partial: 'shared/district_header', locals: { district: @district } %>
 
   <div class="district-info">
+    <% if @district.next_meeting&.about.present? %>
+      <div class="section">
+        <h2 class="h4">About this meeting</h2>
+        <div class="about">
+          <%= convert_newlines_to_paragraphs(@district.next_meeting&.about) %>
+        </div>
+      </div>
+    <% end %>
+
     <div class="section">
       <h2 class="h4">How to comment</h2>
       <% (@district.next_meeting&.how_to_comment || '').split("\n").each_with_index do |step, i| %>
@@ -99,7 +108,9 @@
     <% end %>
     <div class="section">
       <h2 class="h4">Decision Makers</h2>
-      <div class="decision-makers-text"><%= @district.decision_makers_text %></div>
+      <div class="decision-makers-text">
+        <%= convert_newlines_to_paragraphs(@district.decision_makers_text) %>
+      </div>
       <div class="row columned-list">
         <% @district.elected_officials.each_with_index do |elected_official, i| %>
           <div class="columned-item col-sm">

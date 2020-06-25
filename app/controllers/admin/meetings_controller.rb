@@ -53,7 +53,8 @@ class Admin::MeetingsController < Admin::ApplicationController
       :event_datetime,
       :agenda_link,
       :agenda_details,
-      :how_to_comment
+      :how_to_comment,
+      :about
     )
   end
 end

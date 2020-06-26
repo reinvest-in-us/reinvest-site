@@ -1,5 +1,5 @@
 {
-  "name": "Be Heard",
+  "name": "reinvestin.us",
   "env": {
     "LANG": {
       "value": "en_US.UTF-8"
@@ -15,7 +15,7 @@
     },
     "RAILS_SERVE_STATIC_FILES": {
       "value": "enabled"
-    },
+    }
   },
   "formation": {
     "web": {

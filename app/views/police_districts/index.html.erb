@@ -13,7 +13,11 @@
       Want to help us add a city or police district that isn't here?
       <%= mail_to ENV.fetch('CONTACT_EMAIL', 'contact@example.com'), 'Get in touch.', class: 'link-yellow' %>
     </div>
-    <% @districts.each do |district| %>
+    <% @districts_with_future_meetings.each do |district| %>
+      <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
+    <% end %>
+    <h1 class="h2">Recent meetings</h1>
+    <% @districts_with_past_meetings.each do |district| %>
       <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
     <% end %>
   </div>

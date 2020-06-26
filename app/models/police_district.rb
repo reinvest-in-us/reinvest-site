@@ -38,6 +38,15 @@ class PoliceDistrict < ApplicationRecord
       .first
   end
 
+  def most_recent_meeting
+    @most_recent_meeting ||= meetings
+      .where('event_datetime <= ?', Time.current.utc - 8.hours)
+      .where.not(how_to_comment: [nil, ""])
+      .order('event_datetime')
+      .limit(1)
+      .first
+  end
+
   def elected_officials_contact_link_prefixed
     prefix(elected_officials_contact_link)
   end
@@ -47,6 +56,14 @@ class PoliceDistrict < ApplicationRecord
       district.next_meeting.present?
     end.sort_by do |district|
       district.next_meeting.event_datetime
+    end
+  end
+
+  def self.with_only_past_meetings
+    PoliceDistrict.all.filter do |district|
+      district.next_meeting.blank?
+    end.sort_by do |district|
+      district.most_recent_meeting.event_datetime
     end
   end
 

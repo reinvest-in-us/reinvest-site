@@ -2,7 +2,7 @@ class PoliceDistrictsController < ApplicationController
   include GoogleCalendarable
 
   def index
-    @districts = PoliceDistrict.with_upcoming_meetings
+    @districts = (params[:near].present? ? PoliceDistrict.near(params[:near]) : PoliceDistrict.all).with_upcoming_meetings
   end
 
   def show

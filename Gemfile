@@ -9,6 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'webpacker'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'

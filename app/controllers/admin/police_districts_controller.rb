@@ -53,6 +53,7 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
       :total_general_fund_budget,
       :total_police_paid_from_general_fund_budget,
       :timezone,
+      :address,
       :decision_makers_text,
       :elected_officials_contact_link,
       :law_enforcement_gets_more_than_1,

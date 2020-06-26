@@ -8,6 +8,11 @@
       </div>
 
       <div class="form-group form-group--medium">
+        <%= f.label :address %>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div>
+
+      <div class="form-group form-group--medium">
         <%= f.label :timezone %>
         <div>
           <%= f.select :timezone,

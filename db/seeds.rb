@@ -56,9 +56,9 @@ create_district("Los Angeles", "los-angeles", true)
 create_district("BART", "bart", false)
 
 user = User.find_or_initialize_by(
-  email: 'admin@example.com'
+  email: ENV.fetch('SEED_USER_EMAIL', 'admin@example.com')
 )
 user.update(
-  password: 'qwerty'
+  password: ENV.fetch('SEED_USER_PASSWORD', 'qwerty')
 )
 puts "Created or updated user with email '#{user.email}'"

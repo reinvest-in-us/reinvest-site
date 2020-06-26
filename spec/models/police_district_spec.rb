@@ -130,14 +130,49 @@ RSpec.describe PoliceDistrict, type: :model do
     before do
       travel_to june_first do
         FactoryBot.create(:meeting, police_district: sf, event_datetime: june_first + 5.days)
+        FactoryBot.create(:meeting, police_district: sf, event_datetime: june_first + 10.days)
         FactoryBot.create(:meeting, police_district: sd, event_datetime: june_first + 1.day)
       end
     end
 
-    it 'only shows districts with upcoming meetings' do
+    it 'only shows districts with upcoming meetings, ordered by soonest' do
       travel_to june_first do
         query = PoliceDistrict.with_upcoming_meetings
-        expect(query).to eq [sd, sf]
+        expect(query).to match_array([sd, sf])
+        expect(query.first).to eq(sd)
+      end
+    end
+  end
+
+  describe '#with_only_past_meetings' do
+    let!(:sf) { FactoryBot.create(:police_district, name: 'San Francisco') }
+    let!(:oakland) { FactoryBot.create(:police_district, name: 'Oakland') }
+    let!(:sd) { FactoryBot.create(:police_district, name: 'San Diego') }
+    let!(:bart) { FactoryBot.create(:police_district, name: 'BART') }
+
+    let(:june_first) { Date.parse('2020-06-01') }
+
+    it 'only shows districts with past meetings, ordered by most recent' do
+      travel_to june_first do
+        FactoryBot.create(:meeting, police_district: sf, event_datetime: june_first - 5.days)
+        FactoryBot.create(:meeting, police_district: sf, event_datetime: june_first - 10.days)
+        FactoryBot.create(:meeting, police_district: oakland, event_datetime: june_first - 1.days)
+        FactoryBot.create(:meeting, police_district: sd, event_datetime: june_first + 1.day)
+
+        query = PoliceDistrict.with_only_past_meetings
+        expect(query).to match_array([sf, oakland])
+        expect(query.first).to eq(oakland)
+      end
+    end
+
+    it 'excludes districts with upcoming meetings' do
+      travel_to june_first do
+        FactoryBot.create(:meeting, police_district: sd, event_datetime: june_first - 5.days)
+        FactoryBot.create(:meeting, police_district: sf, event_datetime: june_first - 5.days)
+        FactoryBot.create(:meeting, police_district: sf, event_datetime: june_first + 5.days)
+
+        query = PoliceDistrict.with_only_past_meetings
+        expect(query).to match_array([sd])
       end
     end
   end

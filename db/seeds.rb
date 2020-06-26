@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-def create_district(name, slug, with_meeting: true, has_future_meeting: false, meeting_attrs: {})
+def create_district(name, slug, with_meeting: true, has_future_meeting: true, meeting_attrs: {})
   district = PoliceDistrict.find_or_initialize_by(
     slug: slug,
   )

@@ -23,11 +23,4 @@ RSpec.describe Meeting, type: :model do
       end
     end
   end
-
-  describe 'datetime_in_future' do
-    it 'invalidates if event is in the past' do
-      meeting = FactoryBot.build(:meeting, event_datetime: DateTime.new(2010,10,20,13,30,00))
-      expect(meeting.valid?).to eq false
-    end
-  end
 end

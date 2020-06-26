@@ -20,50 +20,32 @@ class PoliceDistrict < ApplicationRecord
       obj.address = "#{geo.city}, #{geo.state}"
     end
   end
-
   after_validation :reverse_geocode
 
   include ActionView::Helpers::NumberHelper
+
+  scope :with_upcoming_meetings, -> {
+    joins(:meetings).merge(Meeting.upcoming_and_ongoing).uniq
+  }
+
+  def self.with_only_past_meetings
+    PoliceDistrict.joins(:meetings).merge(Meeting.past).uniq.reject{|p| p.next_meeting.present? }
+  end
 
   def readable_budget
     number_to_human(total_police_department_budget,format:'%n%u',precision: 4, units:{thousand:'K',million:'M',billion:'B'})
   end
 
   def next_meeting
-    @next_meeting ||= meetings
-      .where('event_datetime > ?', Time.current.utc - 8.hours)
-      .order('event_datetime')
-      .limit(1)
-      .first
+    @next_meeting ||= meetings.upcoming_and_ongoing.limit(1).first
   end
 
   def most_recent_meeting
-    @most_recent_meeting ||= meetings
-      .where('event_datetime <= ?', Time.current.utc - 8.hours)
-      .where.not(how_to_comment: [nil, ""])
-      .order('event_datetime')
-      .limit(1)
-      .first
+    @most_recent_meeting ||= meetings.past.limit(1).first
   end
 
   def elected_officials_contact_link_prefixed
     prefix(elected_officials_contact_link)
-  end
-
-  def self.with_upcoming_meetings
-    PoliceDistrict.all.filter do |district|
-      district.next_meeting.present?
-    end.sort_by do |district|
-      district.next_meeting.event_datetime
-    end
-  end
-
-  def self.with_only_past_meetings
-    PoliceDistrict.all.filter do |district|
-      district.next_meeting.blank?
-    end.sort_by do |district|
-      district.most_recent_meeting.event_datetime
-    end
   end
 
   def general_fund_spent_on_police_percentage

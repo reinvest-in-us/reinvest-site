@@ -12,7 +12,16 @@ class PoliceDistrict < ApplicationRecord
   has_many :meetings
   has_many :elected_officials
 
+  geocoded_by :address
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
   after_validation :set_slug
+  reverse_geocoded_by :latitude, :longitude do |obj,results|
+    if geo = results.first
+      obj.address = "#{geo.city}, #{geo.state}"
+    end
+  end
+
+  after_validation :reverse_geocode
 
   include ActionView::Helpers::NumberHelper
 

@@ -16,7 +16,7 @@
     <% @districts_with_future_meetings.each do |district| %>
       <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
     <% end %>
-    <h1 class="h2">Recent meetings</h1>
+    <h1 class="h2 recent-meetings">Recent meetings</h1>
     <% @districts_with_past_meetings.each do |district| %>
       <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
     <% end %>

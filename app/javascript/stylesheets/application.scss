@@ -713,6 +713,18 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
+.past-date {
+  color: $gray1;
+}
+
+.past-icon {
+  background-image: url(assets/icons/ic_past.svg);
+  height: 32px;
+  margin-right: 4px;
+  opacity: 0.65;
+  width: 32px;
+}
+
 .phone-icon {
   background-image: url(assets/icons/ic_phone.svg);
   height: 32px;
@@ -746,6 +758,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   line-height: 18px;
   text-transform: uppercase;
   width: 180px;
+}
+
+.recent-meetings {
+  margin-top: 48px;
 }
 
 @media(min-width: 569px) {

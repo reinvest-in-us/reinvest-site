@@ -8,19 +8,23 @@
       </div>
   </div>
   <div class="district-list">
-    <h1 class="h2">Upcoming meetings</h1>
-    <div class="district-list-subtitle">
-      Want to help us add a city or police district that isn't here?
-      <%= mail_to ENV.fetch('CONTACT_EMAIL', 'contact@example.com'), 'Get in touch.', class: 'link-yellow' %>
-    </div>
-    <% @districts_with_future_meetings.each do |district| %>
-      <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
-    <% end %>
-    <% if @districts_with_past_meetings.present? %>
-      <h1 class="h2 recent-meetings">Recent meetings</h1>
-      <% @districts_with_past_meetings.each do |district| %>
-        <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
+    <div data-spec="upcoming-meetings">
+      <h1 class="h2">Upcoming meetings</h1>
+      <div class="district-list-subtitle">
+        Want to help us add a city or police district that isn't here?
+        <%= mail_to ENV.fetch('CONTACT_EMAIL', 'contact@example.com'), 'Get in touch.', class: 'link-yellow' %>
+      </div>
+      <% @districts_with_future_meetings.each do |district| %>
+          <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
       <% end %>
+    </div>
+    <% if @districts_with_past_meetings.present? %>
+      <div class="recent-meetings" data-spec="recent-meetings">
+        <h1 class="h2">Recent meetings</h1>
+        <% @districts_with_past_meetings.each do |district| %>
+          <%= render partial: 'shared/district_card', locals: { district: district, district_path: police_district_path(district) } %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

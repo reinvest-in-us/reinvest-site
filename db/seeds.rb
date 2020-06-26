@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-def create_district(name, slug)
+def create_district(name, slug, has_future_meeting)
   district = PoliceDistrict.find_or_initialize_by(
     slug: slug,
   )
@@ -19,9 +19,11 @@ def create_district(name, slug)
     decision_makers_text: "A budget proposal is made by the mayor, advised by the Budget Advisory Committee.\nSee below for elected offficals.",
     elected_officials_contact_link: "www.google.com"
   )
+
+  meeting_date = has_future_meeting ? (Date.today + rand(2..30).days) : Date.yesterday
   Meeting.create!(
     police_district: district,
-    event_datetime: Date.today + rand(2..30).days,
+    event_datetime: meeting_date,
     video_link: "http://example.com/meeting",
     how_to_comment: "Call 1-800-555-5555 to join the meeting.\nPress * 9 to raise your hand to speak.\nWait until you are unmuted and begin speaking.\n",
     agenda_link: "www.google.com",
@@ -48,10 +50,10 @@ def create_official(district, list_rank, name, position, reelection_date)
   )
 end
 
-create_district("San Francisco", "san-francisco")
-create_district("Oakland", "oakland")
-create_district("Los Angeles", "los-angeles")
-create_district("BART", "bart")
+create_district("San Francisco", "san-francisco", true)
+create_district("Oakland", "oakland", true)
+create_district("Los Angeles", "los-angeles", true)
+create_district("BART", "bart", false)
 
 user = User.find_or_initialize_by(
   email: 'admin@example.com'

@@ -10,7 +10,7 @@ class PoliceDistrict < ApplicationRecord
   validates :timezone, presence: true, inclusion: { in: TIME_ZONE_OPTIONS }
 
   has_many :meetings
-  has_many :elected_officials
+  has_many :elected_officials, -> { order(:list_rank) }
 
   geocoded_by :address
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }

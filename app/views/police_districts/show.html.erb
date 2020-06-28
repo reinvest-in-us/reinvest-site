@@ -6,6 +6,13 @@
   <%= render partial: 'shared/district_header', locals: { district: @district } %>
 
   <div class="district-info">
+    <% if @district.next_meeting.blank? && @district.most_recent_meeting.present? %>
+      <div class="section">
+        <h2 class="h1">This meeting has ended.</h2>
+        <div>An archive of the meeting page's contents is shown below.</div>
+        <div class="divider"></div>
+      </div>
+    <% end %>
     <% if @district.next_meeting&.about.present? %>
       <div class="section">
         <h2 class="h4">About this meeting</h2>
@@ -41,7 +48,9 @@
             <div class="link-icon agenda"></div>
             <div><%= link_to "Review this meeting's agenda", next_meeting.agenda_link_prefixed, target: :_blank %></div>
           </div>
-          <div class="agenda-details">Items related to law enforcement on this agenda: <span class="agenda-items"><%= "#{next_meeting.agenda_details}" %></span></div>
+          <div class="agenda-details">
+            Items related to law enforcement on this agenda: <span class="agenda-items"><%= "#{next_meeting.agenda_details}" %></span>
+          </div>
         </div>
       <% end %>
 

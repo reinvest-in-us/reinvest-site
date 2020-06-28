@@ -63,6 +63,8 @@ RSpec.describe 'information viewing' do
     expect(page).to have_content('Last meeting')
     expect(page).to have_content('Wednesday, June 30 at 11:30am')
     expect(page).to_not have_link('Add to calendar')
+    expect(page).to have_content('This meeting has ended.')
+    expect(page).to have_content('An archive of the meeting page\'s contents is shown below.')
   end
 
   it 'has an about page' do

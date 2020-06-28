@@ -362,6 +362,24 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
+.divider {
+  background-color: $gray2;
+  height: 6px;
+  width: 100%;
+}
+
+@media(min-width: 569px) {
+  .divider {
+    margin-top: 56px;
+  }
+}
+
+@media(max-width: 568px) {
+  .divider {
+    margin-top: 36px;
+  }
+}
+
 .columned-item {
   display: flex;
   font-size: 16px;
@@ -589,6 +607,24 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
     line-height: 150%;
     margin-top: 8px;
   }
+  }
+}
+
+.h1 {
+  font-family: 'Martin';
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+@media(min-width: 569px) {
+  .h1 {
+    font-size: 72px;
+  }
+}
+
+@media(man-width: 568px) {
+  .h1 {
+    font-size: 48px;
   }
 }
 

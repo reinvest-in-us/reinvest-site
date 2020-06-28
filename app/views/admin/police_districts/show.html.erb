@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @meetings.each do |meeting| %>
+        <% @district.meetings.each do |meeting| %>
           <tr id=<%= "meeting-#{meeting.id}" %>>
             <td><%= meeting.formatted_event_datetime %></td>
             <td><%= link_to "Edit", edit_admin_police_district_meeting_path(@district, meeting), class: 'button'  %></td>
@@ -44,7 +44,7 @@
       </tr>
       </thead>
       <tbody>
-      <% @elected_officials.each do |elected_official| %>
+      <% @district.elected_officials.each do |elected_official| %>
           <tr id=<%= "official-#{elected_official.id}" %>>
             <td><%= elected_official.name %></td>
             <td><%= elected_official.position %></td>

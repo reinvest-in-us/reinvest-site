@@ -9,7 +9,7 @@ class PoliceDistrict < ApplicationRecord
   validates :slug, uniqueness: true, format: { with: /\A[a-z0-9\-]+\Z/ }, allow_blank: true
   validates :timezone, presence: true, inclusion: { in: TIME_ZONE_OPTIONS }
 
-  has_many :meetings
+  has_many :meetings, -> { order(:event_datetime) }
   has_many :elected_officials, -> { order(:list_rank) }
 
   geocoded_by :address

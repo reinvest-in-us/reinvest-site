@@ -16,7 +16,7 @@
         <%= f.label :timezone %>
         <div>
           <%= f.select :timezone,
-                       options_for_select(PoliceDistrict::TIME_ZONE_OPTIONS, (@district.timezone || PoliceDistrict::TIME_ZONE_OPTIONS.first)) %>
+                       options_for_select(PoliceDistrict::TIME_ZONE_OPTIONS, (@district.timezone || PoliceDistrict::TIME_ZONE_DEFAULT)) %>
         </div>
       </div>
 

@@ -1,9 +1,9 @@
 class PoliceDistrict < ApplicationRecord
+  include Timezonable
   include LinkPrefixHelper
 
-  TIME_ZONE_OPTIONS = [
-    'Pacific Time (US & Canada)'
-  ].freeze # supported valid timezones (from rake:time:zones[US] )
+  TIME_ZONE_DEFAULT = Timezonable.default_zone.freeze
+  TIME_ZONE_OPTIONS = Timezonable.us_zone_names.freeze
 
   validates_presence_of :name, :total_police_department_budget
   validates :slug, uniqueness: true, format: { with: /\A[a-z0-9\-]+\Z/ }, allow_blank: true

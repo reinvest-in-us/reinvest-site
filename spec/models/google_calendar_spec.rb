@@ -90,10 +90,4 @@ RSpec.describe GoogleCalendar do
       end
     end
   end
-
-  describe 'TIMEZONE_LOOKUP' do
-    it "has an entry for each valid PoliceDistrict timezone, so we don't leave any out accidentally" do
-      expect(GoogleCalendar::TIMEZONE_LOOKUP.keys).to match_array(PoliceDistrict::TIME_ZONE_OPTIONS)
-    end
-  end
 end

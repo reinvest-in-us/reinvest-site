@@ -6,11 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-def create_district(name, slug, with_meeting: true, has_future_meeting: true, meeting_attrs: {})
-  district = PoliceDistrict.find_or_initialize_by(
-    slug: slug,
-  )
-  district.update!(
+def create_district(name, slug, with_meeting: true, has_future_meeting: true, district_attrs: {}, meeting_attrs: {})
+  district_attributes = {
     name: name,
     total_police_department_budget: rand(900_000..1_200_000_000),
     timezone: 'Pacific Time (US & Canada)',
@@ -18,7 +15,12 @@ def create_district(name, slug, with_meeting: true, has_future_meeting: true, me
     total_police_paid_from_general_fund_budget: 420_000_000,
     decision_makers_text: "A budget proposal is made by the mayor, advised by the Budget Advisory Committee.\nSee below for elected offficals.",
     elected_officials_contact_link: "www.google.com"
+  }.merge(district_attrs)
+
+  district = PoliceDistrict.find_or_initialize_by(
+    slug: slug,
   )
+  district.update!(district_attributes)
   puts "District #{district.name}: Created or updated district with slug '#{district.slug}'"
   if with_meeting
     create_meeting(district, in_future: has_future_meeting, attr_overrides: meeting_attrs)
@@ -70,6 +72,7 @@ create_district("Los Angeles", "los-angeles")
 create_district("BART", "bart", has_future_meeting: false)
 create_district("San Mateo", "san-mateo", with_meeting: false)
 create_district("Richmond", "richmond", meeting_attrs: { how_to_comment: nil })
+create_district("Tucson", "tucson", district_attrs: { timezone: 'Arizona' })
 
 user = User.find_or_initialize_by(
   email: ENV.fetch('SEED_USER_EMAIL', 'admin@example.com')

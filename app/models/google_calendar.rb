@@ -7,12 +7,6 @@ class GoogleCalendar
 
   BASE_URL = 'https://www.google.com/calendar/render'
 
-  # A map of Rails timezone strings we support to Python, which Google
-  #   Calendar supports
-  TIMEZONE_LOOKUP = {
-    'Pacific Time (US & Canada)' => 'US/Pacific',
-  }.freeze
-
   def initialize(context)
     @context = context # needs controller context for route helper
   end

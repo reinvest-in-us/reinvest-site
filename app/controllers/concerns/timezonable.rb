@@ -16,4 +16,12 @@ module Timezonable
   def convert_and_strip_timezone(datetime, timezone)
     datetime.in_time_zone(timezone).to_datetime.change(offset: 0)
   end
+
+  def self.default_zone
+    'Pacific Time (US & Canada)'
+  end
+
+  def self.us_zone_names
+    TimeZone.us_zones.map{|z| z.name }
+  end
 end

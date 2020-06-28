@@ -13,7 +13,7 @@ class Meeting < ApplicationRecord
   }
 
   def formatted_event_datetime
-    event_datetime&.in_time_zone(police_district.timezone)&.strftime('%A, %B %e at %l:%M%P')
+    event_datetime&.in_time_zone(police_district.timezone)&.strftime('%A, %B %e at %l:%M%P %Z')
   end
 
   def agenda_link_prefixed

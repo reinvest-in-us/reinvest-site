@@ -13,20 +13,21 @@
         <div class="divider"></div>
       </div>
     <% end %>
-    <% if @district.next_meeting&.about.present? %>
+
+    <% if @meeting&.about.present? %>
       <div class="section">
         <h2 class="h4">About this meeting</h2>
         <div class="about">
-          <%= convert_newlines_to_paragraphs(@district.next_meeting&.about) %>
+          <%= convert_newlines_to_paragraphs(@meeting&.about) %>
         </div>
       </div>
     <% end %>
 
-    <% if next_meeting = @district.next_meeting %>
+    <% if meeting = @meeting %>
       <div class="section">
         <h2 class="h4">How to comment</h2>
-        <% if @district.next_meeting.how_to_comment.present? %>
-          <% @district.next_meeting.how_to_comment.split("\n").each_with_index do |step, i| %>
+        <% if @meeting.how_to_comment.present? %>
+          <% @meeting.how_to_comment.split("\n").each_with_index do |step, i| %>
             <div class="how-to-comment">
               <div class="how-to-comment-number">
                 <div><%= "#{i + 1}" %></div>
@@ -41,25 +42,25 @@
         <% end %>
       </div>
 
-      <% if next_meeting.agenda_link.present? %>
+      <% if meeting.agenda_link.present? %>
         <div class="section">
           <h2 class="h4">Agenda</h2>
           <div class="row-link">
             <div class="link-icon agenda"></div>
-            <div><%= link_to "Review this meeting's agenda", next_meeting.agenda_link_prefixed, target: :_blank %></div>
+            <div><%= link_to "Review this meeting's agenda", meeting.agenda_link_prefixed, target: :_blank %></div>
           </div>
           <div class="agenda-details">
-            Items related to law enforcement on this agenda: <span class="agenda-items"><%= "#{next_meeting.agenda_details}" %></span>
+            Items related to law enforcement on this agenda: <span class="agenda-items"><%= "#{meeting.agenda_details}" %></span>
           </div>
         </div>
       <% end %>
 
-      <% if next_meeting.video_link.present? %>
+      <% if meeting.video_link.present? %>
         <div class="section">
           <h2 class="h4">Watch</h2>
           <div class="row-link">
             <div class="link-icon watch"></div>
-            <div><%= link_to "Watch this meeting online", next_meeting.video_link_prefixed, target: :_blank %></div>
+            <div><%= link_to "Watch this meeting online", meeting.video_link_prefixed, target: :_blank %></div>
           </div>
         </div>
       <% end %>

@@ -8,5 +8,6 @@ class PoliceDistrictsController < ApplicationController
 
   def show
     @district = PoliceDistrict.find_by_slug(params[:slug])
+    @meeting = @district.next_meeting.present? ? @district.next_meeting : @district.most_recent_meeting
   end
 end

@@ -24,30 +24,45 @@ RSpec.describe 'information viewing' do
                       event_datetime: DateTime.new(2010,6,30,11,30,00, '-7'))
   end
 
-  it 'shows index of districts, and allows visiting district info page' do
+  it 'shows districts with upcoming meetings, and allows visiting district info page' do
     visit '/'
 
     expect(page).to have_content('Reinvest in us.')
 
     within '[data-spec=upcoming-meetings]' do
+      expect(page).to have_content('Upcoming meetings')
       expect(page).to have_content('Down town')
       expect(page).to have_content('$950M')
       expect(page).to have_content('Friday, June 20 at 5:30am')
-    end
-
-    within '[data-spec=recent-meetings]' do
-      expect(page).to have_content('Stu Ville')
-      expect(page).to have_content('$10M')
-      expect(page).to have_content('Wednesday, June 30 at 11:30am')
     end
 
     click_on 'Down town'
 
     expect(page).to have_content('Down town')
     expect(page).to have_content('$950M')
+    expect(page).to have_content('Upcoming meeting')
     expect(page).to have_content('Friday, June 20 at 5:30am')
     expect(page).to have_content('Some people decide on these things')
     expect(page).to have_link('Add to calendar')
+  end
+
+  it 'shows districts with past meetings, and allows visiting district info page' do
+    visit '/'
+
+    within '[data-spec=recent-meetings]' do
+      expect(page).to have_content('Recent meetings')
+      expect(page).to have_content('Stu Ville')
+      expect(page).to have_content('$10M')
+      expect(page).to have_content('Wednesday, June 30 at 11:30am')
+    end
+
+    click_on 'Stu Ville'
+
+    expect(page).to have_content('Stu Ville')
+    expect(page).to have_content('$10M')
+    expect(page).to have_content('Last meeting')
+    expect(page).to have_content('Wednesday, June 30 at 11:30am')
+    expect(page).to_not have_link('Add to calendar')
   end
 
   it 'has an about page' do

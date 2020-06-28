@@ -46,7 +46,7 @@ RSpec.describe Admin::MeetingsController, type: :controller do
     end
 
     describe '#update' do
-      let!(:meeting) { FactoryBot.create(:meeting, event_datetime: DateTime.new(2025,1,20,5,0,0,'7')) }
+      let!(:meeting) { FactoryBot.create(:meeting, police_district: district, event_datetime: DateTime.new(2025,1,20,5,0,0,'7')) }
 
       let(:valid_params) do
         {
@@ -73,7 +73,7 @@ RSpec.describe Admin::MeetingsController, type: :controller do
     end
 
     describe '#edit' do
-      let!(:meeting) { FactoryBot.create(:meeting, event_datetime: DateTime.new(2025,1,20,11,0,0,0)) }
+      let!(:meeting) { FactoryBot.create(:meeting, police_district: district, event_datetime: DateTime.new(2025,1,20,11,0,0,0)) }
 
       render_views
 
@@ -83,6 +83,26 @@ RSpec.describe Admin::MeetingsController, type: :controller do
         end
 
         expect(response.body).to include('<option value="03" selected="selected">03 AM</option>')
+      end
+    end
+
+    describe '#destroy' do
+      let!(:meeting) { FactoryBot.create(:meeting, police_district: district) }
+
+      context 'js request' do
+        it 'deletes the meeting' do
+          expect do
+            delete :destroy, format: :js, params: { police_district_id: district.slug, id: meeting.id }
+          end.to change{ Meeting.count }.by(-1)
+
+          expect(Meeting.where(id: meeting.id)).to be_empty
+        end
+
+        it 'renders destroy.js.erb' do
+          delete :destroy, format: :js, params: { police_district_id: district.slug, id: meeting.id }
+
+          expect(response).to render_template(:destroy)
+        end
       end
     end
   end

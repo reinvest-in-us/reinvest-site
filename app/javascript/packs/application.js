@@ -15,8 +15,7 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import Rails from '@rails/ujs';
-Rails.start();
-
-import './bootstrap_custom.js';
+require("@rails/ujs").start();
+window.jQuery = window.$ = require('jquery');
+import 'bootstrap';
 import '../stylesheets/application';

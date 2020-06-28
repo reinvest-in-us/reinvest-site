@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    resources :police_districts do
-      resources :meetings
-      resources :elected_officials
+    resources :police_districts, except: %i[destroy] do
+      resources :meetings, except: %i[show]
+      resources :elected_officials, except: %i[show destroy]
     end
     root to: 'police_districts#index'
   end

@@ -1,20 +1,32 @@
 <div class="district-jumbotron">
       <div class="district-jumbotron-info">
         <div class="h3"><%= district.name %></div>
-        <div class="next-meeting-title">
-          Upcoming meeting
-        </div>
+        <% if district.next_meeting.present? || district.most_recent_meeting.blank? %>
+          <div class="meeting-title">
+            Upcoming meeting
+          </div>
+        <% else %>
+          <div class="meeting-title">
+            Last meeting
+          </div>
+        <% end %>
         <% if next_meeting = district.next_meeting %>
           <div class="district-card-bullet">
             <div class="calendar-icon"></div>
-            <div class="next-meeting-time"><%= next_meeting.formatted_event_datetime %></div>
+            <div class="meeting-time"><%= next_meeting.formatted_event_datetime %></div>
           </div>
           <%= link_to "Add to calendar", google_calendar_link, class: "add-to-calendar-button" %>
-      <% else %>
-          <div>Check back soon</div>
+        <% else %>
+          <% if last_meeting = district.most_recent_meeting %>
+            <div class="district-card-bullet past">
+              <div class="calendar-icon"></div>
+              <div class="meeting-time"><%= last_meeting.formatted_event_datetime %></div>
+            </div>
+          <% else %>
+            <div>Check back soon</div>
+          <% end %>
         <% end %>
       </div>
-
       <div class="district-jumbotron-budget">
         <div class="h3">$<%= district.readable_budget %></div>
         <div class="pink-text">2019 – 2020 law enforcement budget</div>

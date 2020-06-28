@@ -172,6 +172,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   margin-top: 4px;
 }
 
+.past {
+  opacity: 0.65;
+}
+
 .district-card-details-primary {
   display: flex;
   flex-direction: column;
@@ -688,40 +692,35 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
-.next-meeting-time {
+.meeting-time {
   line-height: 48px;
 }
 
-.next-meeting-title {
+.meeting-title {
   font-family: 'Poppins-Bold';
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 @media(min-width: 569px) {
-  .next-meeting-title {
+  .meeting-title {
     line-height: 175%;
     margin-top: 36px;
   }
 }
 
 @media(max-width: 568px) {
-  .next-meeting-title {
+  .meeting-title {
     font-size: 14px;
     line-height: 100%;
     margin-top: 20px;
   }
 }
 
-.past-date {
-  color: $gray1;
-}
-
-.past-icon {
+.check-icon {
   background-image: url(assets/icons/ic_past.svg);
   height: 32px;
   margin-right: 4px;
-  opacity: 0.65;
   width: 32px;
 }
 

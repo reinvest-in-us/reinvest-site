@@ -15,6 +15,12 @@ RSpec.describe 'information viewing' do
                                  total_police_department_budget: 10_000_000,
                                  timezone: 'Pacific Time (US & Canada)')
 
+    district_three = FactoryBot.create(:police_district,
+                                 name: 'No Meetington',
+                                 slug: 'no-meetington',
+                                 total_police_department_budget: 5_000_000,
+                                 timezone: 'Pacific Time (US & Canada)')
+
     FactoryBot.create(:meeting,
                       police_district: district_one,
                       event_datetime: DateTime.new(2025,6,20,5,30,00, '-7'))
@@ -44,6 +50,7 @@ RSpec.describe 'information viewing' do
     expect(page).to have_content('Friday, June 20 at 5:30am')
     expect(page).to have_content('Some people decide on these things')
     expect(page).to have_link('Add to calendar')
+    expect(page).to_not have_content('This meeting has ended.')
   end
 
   it 'shows districts with past meetings, and allows visiting district info page' do
@@ -65,6 +72,21 @@ RSpec.describe 'information viewing' do
     expect(page).to_not have_link('Add to calendar')
     expect(page).to have_content('This meeting has ended.')
     expect(page).to have_content('An archive of the meeting page\'s contents is shown below.')
+  end
+
+  it 'hides districts with no meetings from home page, and district info page has expected content' do
+    visit '/'
+
+    expect(page).not_to have_content('No Meetington')
+
+    visit '/d/no-meetington'
+
+    expect(page).to have_content('No Meetington')
+    expect(page).to have_content('$5M')
+    expect(page).to have_content('Upcoming meeting')
+    expect(page).to have_content('Check back soon')
+    expect(page).to_not have_link('Add to calendar')
+    expect(page).to_not have_content('This meeting has ended.')
   end
 
   it 'has an about page' do

@@ -118,6 +118,28 @@ RSpec.describe 'information management' do
     end
   end
 
+  scenario 'deleting a meeting', js: true do
+    travel_to Date.parse('2020-06-03') do
+      FactoryBot.create(:meeting,
+                        police_district: district,
+                        event_datetime: DateTime.new(2025,7,20,21,30,00, 0)) # 7/20/2020 @ 2:30pm Pacific)
+
+      login_as(user)
+
+      visit admin_root_path
+
+      click_on 'Berkeley'
+
+      within '[data-spec="meetings"]' do
+        expect(page).to have_content('Sunday, July 20 at 2:30pm PDT')
+
+        click_link 'Delete'
+
+        expect(page).not_to have_content('Sunday, July 20 at 2:30pm PDT')
+      end
+    end
+  end
+
   scenario 'adding elected officials to an existing district' do
       login_as(user)
 

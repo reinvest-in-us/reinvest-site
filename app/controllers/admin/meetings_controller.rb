@@ -4,13 +4,13 @@ class Admin::MeetingsController < Admin::ApplicationController
   include Timezonable
 
   def new
-    @meeting = Meeting.new(police_district: @district)
+    @meeting = district.meetings.build
 
     render :new
   end
 
   def edit
-    @meeting = Meeting.find(params[:id])
+    @meeting = district.meetings.find(params[:id])
     @meeting.event_datetime = convert_and_strip_timezone(@meeting.event_datetime, @district.timezone)
 
     render :edit
@@ -29,7 +29,7 @@ class Admin::MeetingsController < Admin::ApplicationController
   end
 
   def update
-    @meeting = Meeting.find(params[:id])
+    @meeting = district.meetings.find(params[:id])
     @meeting.assign_attributes(meeting_params)
     @meeting.event_datetime = set_timezone(@meeting.event_datetime, @district.timezone)
 
@@ -41,7 +41,18 @@ class Admin::MeetingsController < Admin::ApplicationController
     end
   end
 
+  def destroy
+    @meeting = district.meetings.find(params[:id])
+    @meeting.destroy
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
+
+  attr_reader :district
 
   def set_police_district
     @district = PoliceDistrict.find_by_slug(params[:police_district_id])

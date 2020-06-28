@@ -14,13 +14,19 @@
         <tr>
           <th scope="col">Date</th>
           <th scope="col"> </th>
+          <th scope="col"> </th>
         </tr>
       </thead>
       <tbody>
         <% @meetings.each do |meeting| %>
-          <tr>
+          <tr id=<%= "meeting-#{meeting.id}" %>>
             <td><%= meeting.formatted_event_datetime %></td>
             <td><%= link_to "Edit", edit_admin_police_district_meeting_path(@district, meeting), class: 'button'  %></td>
+            <td><%= link_to "Delete",
+                            admin_police_district_meeting_path(@district, meeting),
+                            method: :delete,
+                            class: 'button',
+                            data: { remote: true }  %></td>
           </tr>
         <% end %>
       </tbody>
@@ -39,7 +45,7 @@
       </thead>
       <tbody>
       <% @elected_officials.each do |elected_official| %>
-          <tr>
+          <tr id=<%= "official-#{elected_official.id}" %>>
             <td><%= elected_official.name %></td>
             <td><%= elected_official.position %></td>
             <td><%= elected_official.reelection_date %></td>

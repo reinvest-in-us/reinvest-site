@@ -74,7 +74,7 @@ RSpec.describe 'information management' do
   end
 
   scenario 'adding meetings to an existing district' do
-    travel_to Date.parse('2020-06-03') do
+    travel_to Date.parse('2020-06-01') do
       login_as(user)
 
       visit admin_root_path
@@ -97,14 +97,14 @@ RSpec.describe 'information management' do
 
       click_on 'Create Meeting'
 
-      expect(page).to have_content('Wednesday, June 10 at 2:30am')
+      expect(page).to have_content('Jun 10, 2:30am')
 
       within('[data-spec=meetings]') { click_on 'Edit' }
 
       select '11 AM',  :from => "meeting_event_datetime_4i" #hour
       click_on 'Update Meeting'
 
-      expect(page).to have_content('Wednesday, June 10 at 11:30am')
+      expect(page).to have_content('Jun 10, 11:30am')
 
       visit '/d/berkeley'
 
@@ -119,7 +119,7 @@ RSpec.describe 'information management' do
   end
 
   scenario 'deleting a meeting', js: true do
-    travel_to Date.parse('2020-06-03') do
+    travel_to Date.parse('2020-06-01') do
       FactoryBot.create(:meeting,
                         police_district: district,
                         event_datetime: DateTime.new(2025,7,20,21,30,00, 0)) # 7/20/2020 @ 2:30pm Pacific)
@@ -131,11 +131,11 @@ RSpec.describe 'information management' do
       click_on 'Berkeley'
 
       within '[data-spec="meetings"]' do
-        expect(page).to have_content('Sunday, July 20 at 2:30pm PDT')
+        expect(page).to have_content('Jul 20, 2:30pm PDT')
 
         click_link 'Delete'
 
-        expect(page).not_to have_content('Sunday, July 20 at 2:30pm PDT')
+        expect(page).not_to have_content('Jul 20, 2:30pm PDT')
       end
     end
   end

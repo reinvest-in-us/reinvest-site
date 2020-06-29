@@ -13,12 +13,19 @@ class Meeting < ApplicationRecord
   }
 
   def formatted_event_datetime
-    if DateTime.now.in_time_zone(police_district.timezone).midnight == event_datetime&.in_time_zone(police_district.timezone).midnight
-      event_datetime&.in_time_zone(police_district.timezone)&.strftime('Today, %l:%M%P %Z')
-    elsif DateTime.now.in_time_zone(police_district.timezone).advance(:days => 6).midnight >= event_datetime&.in_time_zone(police_district.timezone).midnight
-      event_datetime&.in_time_zone(police_district.timezone)&.strftime('%A, %l:%M%P %Z')
+    if event_datetime == nil
+      nil
     else
-      event_datetime&.in_time_zone(police_district.timezone)&.strftime('%b %-m, %l:%M%P %Z')
+      day_diff = (event_datetime&.in_time_zone(police_district.timezone).midnight - DateTime.now.in_time_zone(police_district.timezone).midnight).to_i / 86400
+      time_format = '%l:%M%P %Z'
+
+      if day_diff == 0
+        event_datetime&.in_time_zone(police_district.timezone)&.strftime('Today, ' + time_format)
+      elsif day_diff >= 0 && day_diff <= 6
+        event_datetime&.in_time_zone(police_district.timezone)&.strftime('%A, ' + time_format)
+      else
+        event_datetime&.in_time_zone(police_district.timezone)&.strftime('%b %-d, ' + time_format)
+      end
     end
   end
 

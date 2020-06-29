@@ -135,13 +135,16 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
-.calendar-icon {
-  background-image: url(assets/icons/ic_calendar.svg);
+.row-icon {
   height: 32px;
   margin-right: 8px;
   width: 24px;
   background-position: center;
   background-size: 32px 32px;
+}
+
+.row-icon.calendar {
+  background-image: url(assets/icons/ic_calendar.svg);
 }
 
 .decision-makers-text {
@@ -174,6 +177,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   margin-top: 4px;
 }
 
+.district-card-datetime-text {
+  white-space: nowrap;
+}
+
 .past {
   opacity: 0.65;
 }
@@ -185,7 +192,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 
 @media(min-width: 569px) {
   .district-card-details-primary {
-    padding: 16px 32px 24px 32px;
+    padding: 16px 0 24px 32px;
   }
 }
 
@@ -206,7 +213,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
     background-repeat: no-repeat;
     background-size: auto 100%;
     justify-content: flex-end;
-    width: 316px;
+    width: 296px;
   }
 }
 
@@ -755,18 +762,12 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   }
 }
 
-.check-icon {
+.row-icon.check {
   background-image: url(assets/icons/ic_past.svg);
-  height: 32px;
-  margin-right: 4px;
-  width: 32px;
 }
 
-.phone-icon {
+.row-icon.phone {
   background-image: url(assets/icons/ic_phone.svg);
-  height: 32px;
-  margin-right: 4px;
-  width: 32px;
 }
 
 .pie-chart {

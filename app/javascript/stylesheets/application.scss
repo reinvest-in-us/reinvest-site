@@ -138,8 +138,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
 .calendar-icon {
   background-image: url(assets/icons/ic_calendar.svg);
   height: 32px;
-  margin-right: 4px;
-  width: 32px;
+  margin-right: 8px;
+  width: 24px;
+  background-position: center;
+  background-size: 32px 32px;
 }
 
 .decision-makers-text {

@@ -5,14 +5,14 @@
       <div>
         <% if next_meeting = district.next_meeting %>
           <div class="district-card-bullet">
-            <div class="calendar-icon"></div>
+            <div class="row-icon calendar"></div>
             <div class="district-card-datetime-text"><%= next_meeting.formatted_event_datetime %></div>
           </div>
           <!--TODO: Re-add bullet with correct comment method icon/description-->
         <% else %>
           <% if most_recent_meeting = district.most_recent_meeting %>
             <div class="district-card-bullet past">
-              <div class="check-icon"></div>
+              <div class="row-icon check"></div>
               <div class="district-card-datetime-text"><%= most_recent_meeting.formatted_event_datetime %></div>
             </div>
           <% end %>

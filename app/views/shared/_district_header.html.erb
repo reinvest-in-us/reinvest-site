@@ -12,14 +12,14 @@
         <% end %>
         <% if next_meeting = district.next_meeting %>
           <div class="district-card-bullet">
-            <div class="calendar-icon"></div>
+            <div class="row-icon calendar"></div>
             <div class="meeting-time"><%= next_meeting.formatted_event_datetime %></div>
           </div>
           <%= link_to "Add to calendar", google_calendar_link, class: "add-to-calendar-button" %>
         <% else %>
           <% if last_meeting = district.most_recent_meeting %>
             <div class="district-card-bullet past">
-              <div class="calendar-icon"></div>
+              <div class="row-icon calendar"></div>
               <div class="meeting-time"><%= last_meeting.formatted_event_datetime %></div>
             </div>
           <% else %>

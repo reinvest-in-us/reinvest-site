@@ -13,7 +13,13 @@ class Meeting < ApplicationRecord
   }
 
   def formatted_event_datetime
-    event_datetime&.in_time_zone(police_district.timezone)&.strftime('%a, %-m/%d at %l:%M%P %Z')
+    if DateTime.now.in_time_zone(police_district.timezone).midnight == event_datetime&.in_time_zone(police_district.timezone).midnight
+      event_datetime&.in_time_zone(police_district.timezone)&.strftime('Today, %l:%M%P %Z')
+    elsif DateTime.now.in_time_zone(police_district.timezone).advance(:days => 6).midnight >= event_datetime&.in_time_zone(police_district.timezone).midnight
+      event_datetime&.in_time_zone(police_district.timezone)&.strftime('%A, %l:%M%P %Z')
+    else
+      event_datetime&.in_time_zone(police_district.timezone)&.strftime('%b %-m, %l:%M%P %Z')
+    end
   end
 
   def agenda_link_prefixed

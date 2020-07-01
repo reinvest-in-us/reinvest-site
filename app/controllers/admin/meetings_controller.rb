@@ -55,7 +55,7 @@ class Admin::MeetingsController < Admin::ApplicationController
   attr_reader :district
 
   def set_police_district
-    @district = PoliceDistrict.find_by_slug(params[:police_district_id])
+    @district = PoliceDistrict.find_by_slug!(params[:police_district_id])
   end
 
   def meeting_params

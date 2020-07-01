@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::MeetingsController, type: :controller do
   let(:user) { FactoryBot.create(:user) }
   let!(:district) { FactoryBot.create(:police_district, slug: 'oakland', timezone: 'Pacific Time (US & Canada)') }
+  let!(:meeting) { FactoryBot.create(:meeting, police_district: district, event_datetime: DateTime.new(2025,1,20,11,0,0,0)) }
 
   context 'when user is signed in' do
     before do
@@ -63,6 +64,12 @@ RSpec.describe Admin::MeetingsController, type: :controller do
         }
       end
 
+      it 'returns 404 if district not present' do
+        expect do
+          post :update, params: { police_district_id: 'asldkfjaslkfdj', id: meeting.id }
+        end.to raise_exception(ActiveRecord::RecordNotFound)
+      end
+
       it 'converts datetime from district timezone to UTC before storing' do
         travel_to Date.parse('2020-06-03') do
           expect do
@@ -73,9 +80,13 @@ RSpec.describe Admin::MeetingsController, type: :controller do
     end
 
     describe '#edit' do
-      let!(:meeting) { FactoryBot.create(:meeting, police_district: district, event_datetime: DateTime.new(2025,1,20,11,0,0,0)) }
-
       render_views
+
+      it 'returns 404 if district not present' do
+        expect do
+          post :edit, params: { police_district_id: 'asldkfjaslkfdj', id: meeting.id }
+        end.to raise_exception(ActiveRecord::RecordNotFound)
+      end
 
       it 'converts time to district timezone, but strips timezone' do
         travel_to Date.parse('2020-06-03') do
@@ -87,9 +98,13 @@ RSpec.describe Admin::MeetingsController, type: :controller do
     end
 
     describe '#destroy' do
-      let!(:meeting) { FactoryBot.create(:meeting, police_district: district) }
-
       context 'js request' do
+        it 'returns 404 if district not present' do
+          expect do
+            post :update, format: :js, params: { police_district_id: 'asldkfjaslkfdj', id: meeting.id }
+          end.to raise_exception(ActiveRecord::RecordNotFound)
+        end
+
         it 'deletes the meeting' do
           expect do
             delete :destroy, format: :js, params: { police_district_id: district.slug, id: meeting.id }

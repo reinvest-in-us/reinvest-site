@@ -6,6 +6,10 @@
       <div>
         <%= link_to "@#{twitter_handle}", "https://twitter.com/#{twitter_handle}", target: :_blank %>
       </div>
+    <% elsif local_assigns[:linkedin_handle].present? %>
+      <div>
+        <%= link_to linkedin_handle, "https://www.linkedin.com/in/#{linkedin_handle}", target: :_blank %>
+      </div>
     <% end %>
   </div>
 </div>

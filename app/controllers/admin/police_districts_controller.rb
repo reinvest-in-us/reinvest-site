@@ -1,6 +1,8 @@
 class Admin::PoliceDistrictsController < Admin::ApplicationController
   include GoogleCalendarable
 
+  before_action :set_district, except: [:new, :create, :index]
+
   def new
     @district = PoliceDistrict.new
 
@@ -19,17 +21,14 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
   end
 
   def show
-    @district = PoliceDistrict.find_by_slug(params[:id])
+    render :show
   end
 
   def edit
-    @district = PoliceDistrict.find_by_slug(params[:id])
-
     render :edit
   end
 
   def update
-    @district = PoliceDistrict.find_by_slug(params[:id])
     if @district.update(district_params)
       redirect_to admin_police_districts_path
     else
@@ -42,6 +41,10 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
   end
 
   private
+
+  def set_district
+    @district = PoliceDistrict.find_by_slug!(params[:id])
+  end
 
   def district_params
     params.require(:police_district).permit(

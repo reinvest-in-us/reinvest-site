@@ -7,6 +7,13 @@
         <%= f.text_field :name, class: 'form-control' %>
       </div>
 
+      <% if @district.slug.present? %>
+        <div class="form-group form-group--medium">
+          <%= f.label :slug %>
+          <%= f.text_field :slug, class: 'form-control' %>
+        </div>
+      <% end %>
+
       <div class="form-group form-group--medium">
         <%= f.label :address %>
         <%= f.text_field :address, class: 'form-control' %>

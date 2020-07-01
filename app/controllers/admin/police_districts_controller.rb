@@ -46,6 +46,7 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
   def district_params
     params.require(:police_district).permit(
       :name,
+      :slug,
       :total_district_budget,
       :total_police_department_budget,
       :total_general_fund_budget,

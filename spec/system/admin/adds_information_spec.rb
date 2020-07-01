@@ -67,9 +67,10 @@ RSpec.describe 'information management' do
 
     click_on 'Edit'
     fill_in 'Name', with: "New District Name"
+    fill_in 'Slug', with: 'berkeley-1'
     click_on 'Update Police district'
 
-    visit '/d/berkeley'
+    visit '/d/berkeley-1'
     expect(page).to have_content('New District Name')
   end
 

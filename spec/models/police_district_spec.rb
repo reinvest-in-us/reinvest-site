@@ -42,6 +42,13 @@ RSpec.describe PoliceDistrict, type: :model do
   end
 
   describe 'setting .slug' do
+    it 'does not update if slug is an empty string' do
+      district = FactoryBot.create(:police_district, name: 'Police Department')
+      district.update(slug: '')
+
+      expect(district.slug).to eq('police-department')
+    end
+
     context 'when model is invalid' do
       it 'does not set slug on the item' do
         district = FactoryBot.build(:police_district, name: nil, slug: nil)

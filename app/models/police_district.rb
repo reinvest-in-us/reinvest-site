@@ -75,6 +75,6 @@ class PoliceDistrict < ApplicationRecord
   private
 
   def set_slug
-    self.slug = (slug || name.to_s.parameterize)
+    self.slug = slug.present? ? slug : name.to_s.parameterize
   end
 end

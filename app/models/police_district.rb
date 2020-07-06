@@ -36,6 +36,18 @@ class PoliceDistrict < ApplicationRecord
     number_to_human(total_police_department_budget,format:'%n%u',precision: 4, units:{thousand:'K',million:'M',billion:'B'})
   end
 
+  def budget_title
+    budget_prefix = "2019 – 2020 "
+    used_budget_label = "law enforcement"
+    budget_suffix = " budget"
+
+    if budget_label.present?
+      used_budget_label = budget_label
+    end
+
+    budget_prefix + used_budget_label + budget_suffix
+  end
+
   def next_meeting
     @next_meeting ||= meetings.upcoming_and_ongoing.limit(1).first
   end
@@ -77,4 +89,5 @@ class PoliceDistrict < ApplicationRecord
   def set_slug
     self.slug = slug.present? ? slug : name.to_s.parameterize
   end
+
 end

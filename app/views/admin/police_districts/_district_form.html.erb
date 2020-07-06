@@ -28,8 +28,13 @@
       </div>
 
       <div class="form-group form-group--medium">
-        <%= f.label :total_police_department_budget, 'Total Police FY 19-20 Budget' %>
+        <%= f.label :total_police_department_budget, 'Total Law Enforcement FY 19-20 Budget' %>
         <%= f.number_field :total_police_department_budget, class: 'form-control' %>
+      </div>
+
+      <div class="form-group form-group--medium">
+        <%= f.label :budget_label, 'Optional alternate label for FY 19-20 budget' %>
+        <%= f.text_field :budget_label, class: 'form-control' %>
       </div>
 
       <div class="form-group form-group--medium">

@@ -64,6 +64,7 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
       :law_enforcement_gets_more_than_1_dollars,
       :law_enforcement_gets_more_than_2_dollars,
       :law_enforcement_gets_more_than_3_dollars,
+      :budget_label,
      )
   end
 end

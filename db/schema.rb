@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_061125) do
+ActiveRecord::Schema.define(version: 2020_07_06_071244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_061125) do
     t.float "latitude"
     t.float "longitude"
     t.string "address"
+    t.string "budget_label"
     t.index ["slug"], name: "index_police_districts_on_slug", unique: true
   end
 

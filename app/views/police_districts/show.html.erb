@@ -84,7 +84,7 @@
                 <span class="general-fund-percentage-number"><%= @district.general_fund_spent_on_police_percentage %>%</span>
                 <span>
                   of <%= @district.name %>'s <strong>2019 – 2020 General Fund</strong>
-                  was spent on law enforcement.
+                  was spent on law enforcement <% if @district.budget_label.present? then %>(<%= @district.budget_label %>)<% end %>.
                 </span>
               </div>
             </div>
@@ -109,7 +109,7 @@
               <span>$<%= @district.readable_budget %></span>
             </div>
             <div class="le-graph-title">
-              Law enforcement
+              <%= @district.budget_label.present? ? @district.budget_label.capitalize : 'Law enforcement' %>
             </div>
           </div>
           <% @district.more_funding_than.map do |funding| %>

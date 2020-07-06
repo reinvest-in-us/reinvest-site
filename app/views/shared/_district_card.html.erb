@@ -23,11 +23,7 @@
       <div class="district-card-details-secondary-text">
         <div class="h3">$<%= district.readable_budget %></div>
         <div class="pink-text">
-          <% if district.budget_label.present? %>
-            <%= district.budget_label %>
-          <% else %>
-            2019 – 2020 law enforcement budget
-          <% end %>
+          <%= district.budget_title %>
         </div>
       </div>
     </div>

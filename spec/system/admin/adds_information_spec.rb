@@ -15,7 +15,8 @@ RSpec.describe 'information management' do
     click_on 'Add a new district'
 
     fill_in 'Name', with: 'BART PD'
-    fill_in 'Total Police FY 19-20 Budget', with: '160,000,000'
+    fill_in 'Total Law Enforcement FY 19-20 Budget', with: '160,000,000'
+    fill_in 'Optional alternate label for FY 19-20 budget', with: 'POLICE AND SHERIFF BUDGET'
     fill_in 'Total FY 19-20 City Budget', with: '1,000,000,000'
     fill_in 'Total FY 19-20 General Fund Budget', with: '50,000,000'
     fill_in 'Total FY 19-20 General Fund Spent on Police', with: '25,000,000'
@@ -42,6 +43,8 @@ RSpec.describe 'information management' do
 
     expect(page).to have_content('Transit')
     expect(page).to have_content('$1M')
+
+    expect(page).to have_text('POLICE AND SHERIFF BUDGET')
 
     within '[data-spec=general-fund]' do
       expect(page).to have_text "50%"

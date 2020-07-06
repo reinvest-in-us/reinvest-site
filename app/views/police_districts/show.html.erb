@@ -109,7 +109,7 @@
               <span>$<%= @district.readable_budget %></span>
             </div>
             <div class="le-graph-title">
-              <%= @district.budget_label.present? ? @district.budget_label.capitalize : 'Law enforcement' %>
+              <%= @district.budget_label.present? ? @district.budget_label : 'Law enforcement' %>
             </div>
           </div>
           <% @district.more_funding_than.map do |funding| %>

@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'webpacker'
 gem 'geocoder'
+gem 'simple_form'
 
 group :development, :test do
   gem 'pry-byebug'

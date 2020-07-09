@@ -166,6 +166,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.0)
+    simple_form (5.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -212,6 +215,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails
   selenium-webdriver
+  simple_form
   tzinfo-data
   web-console (>= 3.3.0)
   webpacker

@@ -1,66 +1,20 @@
 <div class="container">
-  <%= form_for @district, url: @district.persisted? ? admin_police_district_path(@district) : admin_police_districts_url do |f| %>
-    <div><%= @district.errors.full_messages.join("\n") if @district.errors.any? %></div>
-
-      <div class="form-group form-group--medium">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
+  <%= simple_form_for @district, url: @district.persisted? ? admin_police_district_path(@district) : admin_police_districts_url do |f| %>
+      <%= f.input :name, wrapper_html: { class: 'form-group--medium' } %>
 
       <% if @district.slug.present? %>
-        <div class="form-group form-group--medium">
-          <%= f.label :slug %>
-          <%= f.text_field :slug, class: 'form-control' %>
-        </div>
+        <%= f.input :slug, wrapper_html: { class: 'form-group--medium' } %>
       <% end %>
 
-      <div class="form-group form-group--medium">
-        <%= f.label :address %>
-        <%= f.text_field :address, class: 'form-control' %>
-      </div>
-
-      <div class="form-group form-group--medium">
-        <%= f.label :timezone %>
-        <div>
-          <%= f.select :timezone,
-                       options_for_select(PoliceDistrict::TIME_ZONE_OPTIONS, (@district.timezone || PoliceDistrict::TIME_ZONE_DEFAULT)) %>
-        </div>
-      </div>
-
-      <div class="form-group form-group--medium">
-        <%= f.label :total_police_department_budget, 'Total Law Enforcement FY 19-20 Budget' %>
-        <%= f.number_field :total_police_department_budget, class: 'form-control' %>
-      </div>
-
-      <div class="form-group form-group--medium">
-        <%= f.label :budget_label, 'Optional alternate label for law enforcement' %>
-        <%= f.text_field :budget_label, class: 'form-control' %>
-      </div>
-
-      <div class="form-group form-group--medium">
-        <%= f.label :total_district_budget, 'Total FY 19-20 City Budget' %>
-        <%= f.number_field :total_district_budget, class: 'form-control' %>
-      </div>
-
-      <div class="form-group form-group--medium">
-        <%= f.label :total_general_fund_budget, 'Total FY 19-20 General Fund Budget' %>
-        <%= f.number_field :total_general_fund_budget, class: 'form-control' %>
-      </div>
-
-      <div class="form-group form-group--medium">
-        <%= f.label :total_police_paid_from_general_fund_budget, 'Total FY 19-20 General Fund Spent on Police' %>
-        <%= f.number_field :total_police_paid_from_general_fund_budget, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :decision_makers_text, 'Decision makers text' %>
-        <%= f.text_field :decision_makers_text, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :elected_officials_contact_link, 'Decision makers contact link' %>
-        <%= f.text_field :elected_officials_contact_link, class: 'form-control' %>
-      </div>
+      <%= f.input :address, wrapper_html: { class: 'form-group--medium' } %>
+      <%= f.input :timezone, collection: PoliceDistrict::TIME_ZONE_OPTIONS, wrapper_html: { class: 'form-group--medium' } %>
+      <%= f.input :total_police_department_budget, label: 'Total Law Enforcement FY 19-20 Budget', wrapper_html: { class: 'form-group--medium' } %>
+      <%= f.input :budget_label, label: 'Optional alternate label for law enforcement', wrapper_html: { class: 'form-group--medium' } %>
+      <%= f.input :total_district_budget, label: 'Total FY 19-20 City Budget', wrapper_html: { class: 'form-group--medium' } %>
+      <%= f.input :total_general_fund_budget, label: 'Total FY 19-20 General Fund Budget', wrapper_html: { class: 'form-group--medium' } %>
+      <%= f.input :total_police_paid_from_general_fund_budget, label: 'Total FY 19-20 General Fund Spent on Police', wrapper_html: { class: 'form-group--medium' } %>
+      <%= f.input :decision_makers_text %>
+      <%= f.input :elected_officials_contact_link, label: 'Decision makers contact link' %>
 
       <div class="form-group">
         <%= f.label :law_enforcement_gets_more_than_1, 'Law enforcement gets more than #1' %>

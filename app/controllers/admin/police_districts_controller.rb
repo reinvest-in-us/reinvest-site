@@ -4,7 +4,7 @@ class Admin::PoliceDistrictsController < Admin::ApplicationController
   before_action :set_district, except: [:new, :create, :index]
 
   def new
-    @district = PoliceDistrict.new
+    @district = PoliceDistrict.new(timezone: PoliceDistrict::TIME_ZONE_DEFAULT)
 
     render :new
   end

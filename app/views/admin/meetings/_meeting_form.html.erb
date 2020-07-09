@@ -3,7 +3,7 @@
     <%= f.input :event_datetime, ampm: true, default: 3.days.from_now.beginning_of_hour.in_time_zone(@district.timezone), label: 'Meeting date and time', wrapper_html: { class: 'form-group--medium' } %>
     <%= f.input :video_link, label: 'Video conference link', wrapper_html: { class: 'form-group--medium' } %>
     <%= f.input :agenda_link, label: 'Meeting agenda link', wrapper_html: { class: 'form-group--medium' } %>
-    <%= f.input :agenda_details %>
+    <%= f.input :agenda_details, label: 'Agenda Details' %>
     <%= f.input :how_to_comment %>
     <%= f.input :about, label: 'About this meeting' %>
     <%= f.submit %>

@@ -689,7 +689,7 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   z-index: 100;
 }
 
-.about {
+.about, .page_not_found {
   .navbar {
     background: $yellow;
   }
@@ -795,6 +795,10 @@ a.add-to-calendar-button, a.add-to-calendar-button:hover {
   line-height: 18px;
   text-transform: uppercase;
   width: 180px;
+}
+
+.text--no-wrap {
+  white-space: nowrap;
 }
 
 .recent-meetings {

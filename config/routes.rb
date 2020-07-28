@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   get '/about', to: 'static_pages#about', as: :about
   root to: 'police_districts#index'
+  get '/404', to: 'static_pages#page_not_found'
 end
